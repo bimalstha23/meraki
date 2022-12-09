@@ -1,0 +1,263 @@
+{
+  "Category": [
+    {
+      "id": 1,
+      "name": "Bracelets",
+      "Description": "Bracelets",
+      "Image": "typicode"
+    },
+    {
+      "id": 2,
+      "name": "Necklaces",
+      "Description": "Necklaces",
+      "Image": "typicode"
+    },
+    {
+      "id": 3,
+      "name": "Rings",
+      "Description": "Rings",
+      "Image": "typicode"
+    },
+    {
+      "id": 4,
+      "name": "Earrings",
+      "Description": "Earrings",
+      "Image": "typicode"
+    },
+    {
+      "id": 5,
+      "name": "Pendants",
+      "Description": "Pendants",
+      "Image": "typicode"
+    },
+    {
+      "id": 6,
+      "name": "Bangles",
+      "Description": "Bangles",
+      "Image": "typicode"
+    },
+    {
+      "id": 7,
+      "name": "Brooches",
+      "Description": "Brooches",
+      "Image": "typicode"
+    },
+    {
+      "id": 8,
+      "name": "Cufflinks",
+      "Description": "Cufflinks",
+      "Image": "typicode"
+    },
+    {
+      "id": 9,
+      "name": "Hair Accessories",
+      "Description": "Hair Accessories",
+      "Image": "typicode"
+    },
+    {
+      "id": 10,
+      "name": "Keyrings",
+      "Description": "Keyrings",
+      "Image": "typicode"
+    },
+    {
+      "id": 11,
+      "name": "Watches",
+      "Description": "Watches",
+      "Image": "typicode"
+    },
+    {
+      "id": 12,
+      "name": "Other",
+      "Description": "Other",
+      "Image": "typicode"
+    }
+  ],
+  "Products": [
+      {
+      "id": 1,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 2,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 3,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 4,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 5,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 6,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 7,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 8,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 9,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 10,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },{
+      "id": 11,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },
+    {
+      "id":12,
+      "name": "Metal liquid butterfly claw clips",
+      "Description": "Metal liquid butterfly claw clips",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 9
+    },{
+      "id":13,
+      "name": "Metal liquid butterfly claw clips",
+      "Description": "Metal liquid butterfly claw clips",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 9
+    },
+    {
+      "id":14,
+      "name": "Asymmetric zircon stars necklace",
+      "Description": "Asymmetric zircon stars necklace",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 2
+    },
+    {
+      "id":15,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":16,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":17,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":18,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":19,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":20,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":21,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":22,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":23,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    },
+    {
+      "id":24,
+      "name": "Heart planet stud earring",
+      "Description": "Heart planet stud earring",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": 4
+    }
+
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
