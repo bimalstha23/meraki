@@ -73,190 +73,317 @@
       "Image": "typicode"
     }
   ],
-  
   "Products": [
-      {
+    {
       "id": 1,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 2,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 3,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 4,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 5,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 6,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 7,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 8,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 9,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 10,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
-    },{
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
       "id": 11,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
     },
     {
-      "id":12,
+      "id": 12,
       "name": "Metal liquid butterfly claw clips",
       "Description": "Metal liquid butterfly claw clips",
       "Image": "typicode",
       "Price": 10,
-      "Category": 9
-    },{
-      "id":13,
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
+    },
+    {
+      "id": 13,
       "name": "Metal liquid butterfly claw clips",
       "Description": "Metal liquid butterfly claw clips",
       "Image": "typicode",
       "Price": 10,
-      "Category": 9
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
     },
     {
-      "id":14,
+      "id": 14,
       "name": "Asymmetric zircon stars necklace",
       "Description": "Asymmetric zircon stars necklace",
       "Image": "typicode",
       "Price": 10,
-      "Category": 2
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
     },
     {
-      "id":15,
+      "id": 15,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
     },
     {
-      "id":16,
+      "id": 16,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
     },
     {
-      "id":17,
+      "id": 17,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 9,
+        "name": "Hair Accessories"
+      }
     },
     {
-      "id":18,
+      "id": 18,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":19,
+      "id": 19,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":20,
+      "id": 20,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":21,
+      "id": 21,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":22,
+      "id": 22,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":23,
+      "id": 23,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     },
     {
-      "id":24,
+      "id": 24,
       "name": "Heart planet stud earring",
       "Description": "Heart planet stud earring",
       "Image": "typicode",
       "Price": 10,
-      "Category": 4
+      "Category": {
+        "id": 4,
+        "name": "Earrings"
+      }
     }
-
+  ],
+  "featuredProducts": [
+    {
+      "id": 1,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    },
+    {
+      "id": 1,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "Price": 10,
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      }
+    }
   ],
   "profile": {
     "name": "typicode"
