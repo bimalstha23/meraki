@@ -1,15 +1,14 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
-import {AiFillBell,AiFillCloseCircle} from 'react-icons/ai'
-import {FaBars} from 'react-icons/fa'
+import { AiFillBell, AiFillCloseCircle } from 'react-icons/ai'
+import { FaBars } from 'react-icons/fa'
 import meraki from '../../assets/meraki.svg'
 
-function classNames(...classes:any) {
+function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
 }
 
 export const NavBar = () => {
-
 
 
 
@@ -40,7 +39,7 @@ export const NavBar = () => {
 
 
     return (
-        <div>
+        <div className='fixed w-full'>
             <Disclosure as="nav" className="bg-[#FEEAE0]">
                 {({ open }) => (
                     <>
