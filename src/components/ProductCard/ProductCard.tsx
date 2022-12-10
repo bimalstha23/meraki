@@ -1,6 +1,7 @@
 import React from 'react'
 import productimg from '../../assets/productimg.png'
 import {MdAddShoppingCart} from 'react-icons/md'
+import { Link } from 'react-router-dom'
 
 type Productcardtype = {
     product: any,
@@ -10,8 +11,10 @@ type Productcardtype = {
 
 export const ProductCard = (props: Productcardtype) => {
     const { product } = props;
-    const { name, Price } = product
+    const { name, Price} = product
+    console.table(product)
     return (
+        <Link to={`/${product.name}`}>
         <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
             <div className='h-full rounded-3xl p-3' style={{backgroundImage:`url(${productimg})`}}>
                 <button className='bg-white invisible rounded-full p-2 hover:bg-gradient-to-r from-[#FDC1A2] to-[#FFEFE8] group-hover:visible transition ease-in-out duration-300  '> <MdAddShoppingCart size={20}/> </button>
@@ -25,5 +28,6 @@ export const ProductCard = (props: Productcardtype) => {
                 </h1>
             </div>
         </div>
+        </Link>
     )
 }
