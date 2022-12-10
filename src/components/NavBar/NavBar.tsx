@@ -40,7 +40,7 @@ export const NavBar = () => {
 
     return (
         <div className='fixed w-full z-50'>
-            <Disclosure as="nav" className="bg-[#FEEAE0]">
+        <Disclosure as="nav" className="bg-[#FEEAE0]">
                 {({ open }) => (
                     <>
                         <div className=" mx-36 max-w-7xl px-4 sm:px-6 lg:px-8">

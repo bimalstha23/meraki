@@ -12,9 +12,9 @@ export const ProductCard = (props: Productcardtype) => {
     const { product } = props;
     const { name, Price } = product
     return (
-        <div className='flex flex-col h-80 rounded-3xl box shadow-2xl '>
+        <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
             <div className='h-full rounded-3xl p-3' style={{backgroundImage:`url(${productimg})`}}>
-                <button className='bg-white rounded-full p-2 hover:bg-gradient-to-r from-[#FDC1A2] to-[#FFEFE8]'> <MdAddShoppingCart size={20}/> </button>
+                <button className='bg-white invisible rounded-full p-2 hover:bg-gradient-to-r from-[#FDC1A2] to-[#FFEFE8] group-hover:visible transition ease-in-out duration-300  '> <MdAddShoppingCart size={20}/> </button>
             </div>
             <div className='my-1 flex flex-col justify-center items-center p-2'>
                 <h1 className=' text-base font-bold '>

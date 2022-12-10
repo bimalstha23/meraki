@@ -12,7 +12,7 @@ export const Category = () => {
     return (
         <div className='flex flex-col px-28 mt-10'>
             <div className='flex flex-col  justify-center items-center'>
-                <h1 className='c '>Category</h1>
+                <h1 className='text-2xl font-bold'>Category</h1>
                 <p className='text-gray-500 text-sm'>Find The Product by Category</p>
             </div>
             <div className='mt-4'>
