@@ -1,5 +1,5 @@
 {
-  "Category": [
+  "categories": [
     {
       "id": 1,
       "name": "Bracelets",
@@ -73,6 +73,7 @@
       "Image": "typicode"
     }
   ],
+  
   "Products": [
       {
       "id": 1,
