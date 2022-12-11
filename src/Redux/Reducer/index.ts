@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const slice = createSlice({
+export const user = createSlice({
     name: "user",
     initialState: {
-        user: null,
+        currentUser: null,
     },
     reducers: {
         setUserLoginDetails: (state, action) => {
-            state.user = action.payload;
+            state.currentUser = action.payload;
         },
     },
 });
@@ -24,6 +24,24 @@ export const products = createSlice({
     },
 });
 
-export const { setUserLoginDetails } = slice.actions;
-export const { setCurrentProduct } = products.actions;
+export const modals = createSlice({
+    name: "modals",
+    initialState: {
+        loginDialog: false,
+        RegisterDialog: false,
+    },
+    reducers: {
+        setLoginDialog: (state, action) => {
+            state.loginDialog = action.payload;
+        },
+        setRegisterDialog: (state, action) => {
+            state.RegisterDialog = action.payload;
+        }
+    },
 
+})
+
+
+export const { setUserLoginDetails  } = user.actions;
+export const { setCurrentProduct } = products.actions;
+export const { setLoginDialog, setRegisterDialog } = modals.actions;

@@ -12,7 +12,6 @@ type Productcardtype = {
 export const ProductCard = (props: Productcardtype) => {
     const { product } = props;
     const { name, Price} = product
-    console.table(product)
     return (
         <Link to={`/${product.id}`}>
         <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
