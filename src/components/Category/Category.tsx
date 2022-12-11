@@ -18,7 +18,7 @@ export const Category = () => {
             <div className='mt-4'>
 
             <Swiper
-                slidesPerView={3}
+            slidesPerView={3}
             spaceBetween={30}
                 pagination={true}
                 modules={[Pagination,]}
