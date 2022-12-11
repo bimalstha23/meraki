@@ -1,5 +1,6 @@
 import React from 'react'
 import hero from '../../assets/hero.svg'
+
 export const HeroSection = () => {
     return (
         <div className='h-screen px-32 flex flex-row bg-gradient-to-r from-[#FFBA98] to-[#FCCAB1] '>

@@ -7,14 +7,22 @@ import { buyerAuth } from "./config/firebase"
 import { setUserLoginDetails } from "./Redux/Reducer"
 
 function App() {
+  console.log('user')
   const Dispatch = useDispatch()
-
+  
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(buyerAuth, (user) => {
-      Dispatch(setUserLoginDetails(user))
+      if (user) {
+        Dispatch(setUserLoginDetails(user))
+      } else {
+        Dispatch(setUserLoginDetails(null))
+      }
     })
     return () => unSubscribe();
   }, [])
+
+
+
   return (
     <>
       <NavBar />

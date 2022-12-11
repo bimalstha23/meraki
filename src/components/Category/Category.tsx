@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import {useGetCategoriesQuery}  from '../../Redux/Api/Api'
 import { CategoryCard } from './CategoryCard'
 export const Category = () => {
-    const {data, error, isLoading} = useGetCategoriesQuery('');
+    const {data, error, isLoading} = useGetCategoriesQuery();
     return (
         <div className='flex flex-col px-28 mt-10'>
             <div className='flex flex-col  justify-center items-center'>
@@ -24,8 +24,7 @@ export const Category = () => {
                 modules={[Pagination,]}
                   className="mySwiper h-72"
                 >
-                
-                {isLoading?<h1>loading</h1>: data.map((category:any)=>(
+                {isLoading?<h1>loading</h1>: data?.map((category:any)=>(
                     <SwiperSlide key={category.id}>
                         <CategoryCard category={category}/>
                     </SwiperSlide>

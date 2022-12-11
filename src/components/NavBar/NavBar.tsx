@@ -12,6 +12,7 @@ function classNames(...classes: any) {
 };
 
 export const NavBar = () => {
+    console.log('asd')
     const dispatch = useDispatch();
     const currentUser = useSelector((state: any) => state.user.currentUser);
     const user = {
