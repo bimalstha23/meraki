@@ -8,19 +8,25 @@ import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { buyerAuth, buyerDb } from '../../config/firebase'
 import { setDoc, doc } from 'firebase/firestore'
 import { setLoginDialog, setRegisterDialog, setUserLoginDetails } from '../../Redux/Reducer'
+import { useAddUserMutation } from '../../Redux/Api/Api'
 
 // import { signInwithGoogle } from '../../Redux/Slice'
 
 export const Login = () => {
     // const { DialogOpen, setDialogOpen, setRegisterDialogOpen } = props;
+    const [addUser] = useAddUserMutation();
     const loginDialog = useSelector((state:any)=>state.modals.loginDialog)
     const RegisterDialog  = useSelector((state:any)=>state.modals.RegisterDialog)
     const Dispatch = useDispatch();
+    const addUserhandler =async (user:any) => {
+        await addUser(user);
+    }
     const signInwithGoogle = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup(buyerAuth, provider).then((res) => {
             const { user } = res;
             Dispatch(setUserLoginDetails(user));
+            addUserhandler(user);
             const userRef = doc(buyerDb, "users", user.uid);
             setDoc(userRef, {
                 email: user.email,

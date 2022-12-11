@@ -83,7 +83,6 @@
       "numReviews": 22,
       "actualPrice": 15,
       "price": 10,
-
       "tags": [
         "Necklaces",
         "Black",
@@ -91,7 +90,6 @@
         "Orb",
         "Necklace"
       ],
-
       "Category": {
         "id": 2,
         "name": "Necklaces"
@@ -668,30 +666,60 @@
       }
     }
   ],
-  "Comments":[
-      {
-        "productId":1,
-        "name":"John",
-        "comment":"This is a comment",
-        "rating":3,
-        "date":"2020-10-10",
-        "id":1
-      },
-      {
-        "productId":1,
-        "name":"Bimal Don",
-        "comment":"This is a comment",
-        "rating":3,
-        "date":"2020-10-10",
-        "id":2
-      },{
-
-          "productId":2,
-          "name":"Bimal shrestha",
-          "comment":"This is a comment",
-          "rating":3,
-          "date":"2020-10-10",
-          "id":2
+  "Comments": [
+    {
+      "productId": 1,
+      "name": "John",
+      "comment": "This is a comment",
+      "rating": 3,
+      "date": "2020-10-10",
+      "id": 1
+    },
+    {
+      "productId": 1,
+      "name": "Bimal Don",
+      "comment": "This is a comment",
+      "rating": 3,
+      "date": "2020-10-10",
+      "id": 2
+    },
+    {
+      "productId": 2,
+      "name": "Bimal shrestha",
+      "comment": "This is a comment",
+      "rating": 3,
+      "date": "2020-10-10",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "email": "bimalshrestha074@gmail.com",
+      "emailVerified": true,
+      "displayName": "BIMAL SHRESTHA",
+      "isAnonymous": false,
+      "photoURL": "https://lh3.googleusercontent.com/a/ALm5wu2Gaxx93N6vEWbWoYAWiR-35uJB738-CwCP_bbaCA=s96-c",
+      "providerData": [
+        {
+          "providerId": "google.com",
+          "uid": "101519350199473296085",
+          "displayName": "BIMAL SHRESTHA",
+          "email": "bimalshrestha074@gmail.com",
+          "phoneNumber": null,
+          "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5l0jYUvlES3U5vhKa3Y7Me35AJaCH_VjrJGPvf4g=s96-c"
         }
+      ],
+      "stsTokenManager": {
+        "refreshToken": "AOkPPWSfTq7VFmQtgWKa_t-v2Aot8gIGNLFuscG7BBKTEO2ATf5cptpqAEFpnOmvAuDphq8edTJX9hBoMwcKDH90WgOkIzw-pfKnPpoey7vE74Q5rNO6GRx0sPm4Go7CpD7LHHc0eocSd-vEZdItKJVFPgfCdc2LzZ2J9tdvUUdXOZc5rOFc0lRlUwgdtlpZhD_ydhP-9C3iIrziIA9G6Dn-rMjykedX4WM6nI-avR0FppolUk7c94NyM5JWNTtZvXLahf7qcv3pxl_b_ryd9qUFHRdXSEVkl5ndU_Af2AXi4pTCqncPx8ws5PjxbhPG4Ob7vqUyXxk9pckDyIwOr057bB4RdeLMvstk6gT4aAOwOsODVn4-ETatoITrLPWEDw07pLa5XO_fVVjpXtNv7TTb_YH75AifUA0GFT2_LArs176Hy-NKu2g",
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk3OGI1NmM2NmVhYmIwZDlhNmJhOGNhMzMwMTU2NGEyMzhlYWZjODciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQklNQUwgU0hSRVNUSEEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUxtNXd1MkdheHg5M042dkVXYldvWUFXaVItMzV1SkI3MzgtQ3dDUF9iYmFDQT1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9iZW5leHQtMThjMzkiLCJhdWQiOiJiZW5leHQtMThjMzkiLCJhdXRoX3RpbWUiOjE2NzA3ODIwMTUsInVzZXJfaWQiOiJrN0R1R3BMTlhHZUY5b1RkdFJocU9xMVVFRkQzIiwic3ViIjoiazdEdUdwTE5YR2VGOW9UZHRSaHFPcTFVRUZEMyIsImlhdCI6MTY3MDc4MjAxNSwiZXhwIjoxNjcwNzg1NjE1LCJlbWFpbCI6ImJpbWFsc2hyZXN0aGEwNzRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDE1MTkzNTAxOTk0NzMyOTYwODUiXSwiZW1haWwiOlsiYmltYWxzaHJlc3RoYTA3NEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.uPPcoCs_FH2DVYP3hX96i7qnBbXfqORdop93W6Gc6b8IcBvch3EteTsL1XoOrUe_PDirq5qt035JPaeB1arn1kU2aEk9fw6HjScfTdTlS07XJ4VKAGu8uCkxW64TBfATp2mROhQnTmVWZ58u00wZF0PXQPt_wyxI2Mi93PboeaPcoqZ1keUeb4C0AuKgTUdgpAVmphYOx_H4hQGraU9cP1n7wchVovdY9m4LGMj0HRpRVxYdMwhGaal3ohLZ-BnH7Qh9TAEdYGe4ERa_gy6hj2mcYl6jG7m0uK50bP1Qd1xAHFwtfHdpWZRn3IYqKGt0Uq2jXAOV6ePv6Kbq1K-8nw",
+        "expirationTime": 1670785615515
+      },
+      "createdAt": "1669910555093",
+      "lastLoginAt": "1670782015347",
+      "apiKey": "AIzaSyDOBRB0ZIFjw8RoKpvyZOsUdHuk3f4TUMQ",
+      "appName": "[DEFAULT]",
+      "id": 1
+    }
   ]
 }

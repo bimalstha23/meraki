@@ -5,14 +5,15 @@ import { FaBars } from 'react-icons/fa'
 import meraki from '../../assets/meraki.svg'
 import { Login } from '../Auth/login'
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoginDialog, } from '../../Redux/Reducer'
+import { setLoginDialog, setUserLoginDetails, } from '../../Redux/Reducer'
+import { signOut } from 'firebase/auth'
+import { buyerAuth } from '../../config/firebase'
 
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
 };
 
 export const NavBar = () => {
-    console.log('asd')
     const dispatch = useDispatch();
     const currentUser = useSelector((state: any) => state.user.currentUser);
     const user = {
@@ -31,9 +32,14 @@ export const NavBar = () => {
     const userNavigation = [
 
 
-        { name: 'Your Profile', href: '#' },
-        { name: 'Settings', href: '#' },
-        { name: 'Sign out', href: '#' },
+        { name: 'Your Profile', onclick: () => { } },
+        { name: 'Settings', onclick: () => { } },
+        {
+            name: 'Sign out', onClick: () => {
+                dispatch(setUserLoginDetails(null));
+                signOut(buyerAuth);
+            }
+        },
     ]
 
 
@@ -75,13 +81,6 @@ export const NavBar = () => {
                                 </div>
                                 <div className="hidden md:block">
                                     <div className="ml-4 flex items-center md:ml-6">
-                                        <button
-                                            type="button"
-                                            className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                        >
-                                            <span className="sr-only">View notifications</span>
-                                            <AiFillBell className="h-6 w-6" aria-hidden="true" />
-                                        </button>
 
                                         {/* Profile dropdown */}
                                         {
@@ -90,7 +89,7 @@ export const NavBar = () => {
                                                     <div>
                                                         <Menu.Button className="flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                                             <span className="sr-only">Open user menu</span>
-                                                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                                                            <img className="h-8 w-8 rounded-full" src={currentUser.photoURL} alt="" />
                                                         </Menu.Button>
                                                     </div>
                                                     <Transition
@@ -106,15 +105,15 @@ export const NavBar = () => {
                                                             {userNavigation.map((item) => (
                                                                 <Menu.Item key={item.name}>
                                                                     {({ active }) => (
-                                                                        <a
-                                                                            href={item.href}
+                                                                        <button
+                                                                            onClick={item.onClick}
                                                                             className={classNames(
                                                                                 active ? 'bg-gray-100' : '',
                                                                                 'block px-4 py-2 text-sm text-gray-700'
                                                                             )}
                                                                         >
                                                                             {item.name}
-                                                                        </a>
+                                                                        </button>
                                                                     )}
                                                                 </Menu.Item>
                                                             ))}
@@ -179,7 +178,7 @@ export const NavBar = () => {
                                         <Disclosure.Button
                                             key={item.name}
                                             as="a"
-                                            href={item.href}
+                                            onClick={item.onClick}
                                             className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                                         >
                                             {item.name}

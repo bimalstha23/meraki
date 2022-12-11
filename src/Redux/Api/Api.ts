@@ -9,22 +9,30 @@ export const Api = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
     endpoints: (builder) => ({
-        getCategories: builder.query<category[],void>({
+        getCategories: builder.query<category[], void>({
             query: () => `categories`,
         }),
-        getFeaturedProducts: builder.query<product[],void>({
+        getFeaturedProducts: builder.query<product[], void>({
             query: () => `featuredProducts`,
         }),
-        getSingleProduct: builder.query<product, string| number | undefined>({
+        getSingleProduct: builder.query<product, string | number | undefined>({
             query: (id) => `products/${id}`,
         }),
-        getCommentsOfProduct: builder.query<Comment[],string| number |undefined>({
+        getCommentsOfProduct: builder.query<Comment[], string | number | undefined>({
             query: (id) => `products/${id}/comments/`,
         }),
 
-        addCart: builder.mutation({
+        addUser: builder.mutation({
             query: (data) => ({
-                url: `cart`,
+                url: `users`,
+                method: 'POST',
+                body: data
+            })
+        }),
+
+        addCart: builder.mutation({
+            query: ({ id, ...data }) => ({
+                url: `users/${id}/cart/`,
                 method: 'POST',
                 body: data
             })
@@ -34,4 +42,11 @@ export const Api = createApi({
 
 
 
-export const { useGetCategoriesQuery, useGetFeaturedProductsQuery, useGetSingleProductQuery, useGetCommentsOfProductQuery } = Api;
+export const {
+    useGetCategoriesQuery,
+    useGetFeaturedProductsQuery,
+    useGetSingleProductQuery,
+    useGetCommentsOfProductQuery,
+    useAddUserMutation,
+    useAddCartMutation
+} = Api;
