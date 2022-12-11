@@ -41,7 +41,7 @@ export const ImageSwiper = (props: any) => {
             <Swiper
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 modules={[FreeMode, Thumbs]}
-                className="mySwiper2 rounded-lg"
+                className="mySwiper2 rounded-lg h-96"
             >
                 {images.map((image: any) => (
                     <SwiperSlide key={image.id}>
@@ -57,7 +57,7 @@ export const ImageSwiper = (props: any) => {
                 // freeMode={true}
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="mySwiper rounded-lg py-2"
+                className="mySwiper rounded-lg py-2 h-24"
             >
                 {images.map((image: any) => (
                     <SwiperSlide  key={image.id}>
