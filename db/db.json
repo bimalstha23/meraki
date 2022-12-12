@@ -720,6 +720,58 @@
       "apiKey": "AIzaSyDOBRB0ZIFjw8RoKpvyZOsUdHuk3f4TUMQ",
       "appName": "[DEFAULT]",
       "id": 1
+    },
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "email": "bimalshrestha074@gmail.com",
+      "emailVerified": true,
+      "displayName": "BIMAL SHRESTHA",
+      "isAnonymous": false,
+      "photoURL": "https://lh3.googleusercontent.com/a/ALm5wu2Gaxx93N6vEWbWoYAWiR-35uJB738-CwCP_bbaCA=s96-c",
+      "providerData": [
+        {
+          "providerId": "google.com",
+          "uid": "101519350199473296085",
+          "displayName": "BIMAL SHRESTHA",
+          "email": "bimalshrestha074@gmail.com",
+          "phoneNumber": null,
+          "photoURL": "https://lh3.googleusercontent.com/a/AEdFTp5l0jYUvlES3U5vhKa3Y7Me35AJaCH_VjrJGPvf4g=s96-c"
+        }
+      ],
+      "stsTokenManager": {
+        "refreshToken": "AOkPPWTqycjdVDmQsv1fulgd5GNHxeQ3rM06ArWrnvV1SLyFyzdAm4GqusgtZ-v2EhX7SbPjn5ZxiprE5IHOxxmO70tHilY2hfDhbQgnE3qbn51PIAtfx8-UpM8mnxJTqkbFRciysvkzRTxB8AfOakrscAxWYduvmrWVb-WZzUx7WSILt--J_6jQJ6sVsnNt0Xm9MeN3sk5f1ICokQl72saSxUrg_5lCTmTW3dFc9n_ZSRz2p1R9H_Ec5u-aOsSuX7cNU5q0qkN36a-GDfmIqFXJKLIMRhMW_piu6QHLS7YEDAr15vd2l7WmCnOERaMOppSGe_ePgGYpCi_JN_mlGUg7Ti5sahbyANwjqiTd_Hd_jjxV5UtBGSXdnoF6dq_gO4_w4mOW0T9mEUPbnmcpuqgyHl46wntMc_lSSnJ-YBJU2eIm9tutKHA",
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk3OGI1NmM2NmVhYmIwZDlhNmJhOGNhMzMwMTU2NGEyMzhlYWZjODciLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiQklNQUwgU0hSRVNUSEEiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUxtNXd1MkdheHg5M042dkVXYldvWUFXaVItMzV1SkI3MzgtQ3dDUF9iYmFDQT1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9iZW5leHQtMThjMzkiLCJhdWQiOiJiZW5leHQtMThjMzkiLCJhdXRoX3RpbWUiOjE2NzA4NDgzNjMsInVzZXJfaWQiOiJrN0R1R3BMTlhHZUY5b1RkdFJocU9xMVVFRkQzIiwic3ViIjoiazdEdUdwTE5YR2VGOW9UZHRSaHFPcTFVRUZEMyIsImlhdCI6MTY3MDg0ODM2MywiZXhwIjoxNjcwODUxOTYzLCJlbWFpbCI6ImJpbWFsc2hyZXN0aGEwNzRAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMDE1MTkzNTAxOTk0NzMyOTYwODUiXSwiZW1haWwiOlsiYmltYWxzaHJlc3RoYTA3NEBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.cpIqdLKwOXU5krdc-j1guhZwxLwTzDjCyLEoB90XPWvZ05PtDv1O-o5dE4vp9bI2-AoSeXUZH3G-DIq5GkTiZ79d8JDt6NIDT1wZPccLK7_cWYiJ0VKPB9BYsIJcg9EebhJBk5yn4Df_gDyFrzCbesNvEoUx7bbsBnoPxs_IQ-Up-BdVynKGPJdC7_0gHyXLwv9d5kVnIWOOZ2PpXM_UwABMuI8V6KGN0EgfMToVGeWFt0SSQhRx2OAg61BUIWMgKvbWkdPGj79JX6Q8kNDbnR7OhkBuoSasDx2ZFkDxdXPloIQM7JB2bozEu71sUVDoUtWoLQgfPz9Hap0-S4A6YA",
+        "expirationTime": 1670851963673
+      },
+      "createdAt": "1669910555093",
+      "lastLoginAt": "1670848363558",
+      "apiKey": "AIzaSyDOBRB0ZIFjw8RoKpvyZOsUdHuk3f4TUMQ",
+      "appName": "[DEFAULT]",
+      "id": 2
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "name": "Black orb wings necklace ",
+      "Description": "Black orb wings necklace ",
+      "Image": "typicode",
+      "price": 10,
+      "rating": 3,
+      "numReviews": 22,
+      "actualPrice": 15,
+      "tags": [
+        "Necklaces",
+        "Black",
+        "Wings",
+        "Orb",
+        "Necklace"
+      ],
+      "Category": {
+        "id": 2,
+        "name": "Necklaces"
+      },
+      "userId": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3"
     }
   ]
 }

@@ -42,6 +42,19 @@ export const modals = createSlice({
 
 })
 
+const cartSlice = createSlice({
+    name: "cart",
+    initialState: {
+        cartItems: [],
+    },
+    reducers: {
+        addToCart: (state, action) => {
+            
+        }
+    }
+})
+
+
 
 export const { setUserLoginDetails  } = user.actions;
 export const { setCurrentProduct } = products.actions;

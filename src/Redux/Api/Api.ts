@@ -1,4 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi,
+     fetchBaseQuery
+     } from '@reduxjs/toolkit/query/react'
 import {
     category,
     Comment,
@@ -22,7 +24,7 @@ export const Api = createApi({
             query: (id) => `products/${id}/comments/`,
         }),
 
-        addUser: builder.mutation({
+        addUser: builder.mutation<void,cart>({
             query: (data) => ({
                 url: `users`,
                 method: 'POST',
@@ -31,8 +33,8 @@ export const Api = createApi({
         }),
 
         addCart: builder.mutation({
-            query: ({ id, ...data }) => ({
-                url: `users/${id}/cart/`,
+            query: ({ uid, ...data }) => ({
+                url: `users/${uid}/cart/`,
                 method: 'POST',
                 body: data
             })
