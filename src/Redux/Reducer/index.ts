@@ -30,6 +30,7 @@ export const modals = createSlice({
     initialState: {
         loginDialog: false,
         RegisterDialog: false,
+        cartDialog:false
     },
     reducers: {
         setLoginDialog: (state, action) => {
@@ -37,6 +38,9 @@ export const modals = createSlice({
         },
         setRegisterDialog: (state, action) => {
             state.RegisterDialog = action.payload;
+        },
+        setCartDialog:(state,action)=>{
+            state.cartDialog = action.payload;
         }
     },
 
@@ -49,7 +53,7 @@ const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
-            
+
         }
     }
 })
@@ -58,4 +62,4 @@ const cartSlice = createSlice({
 
 export const { setUserLoginDetails  } = user.actions;
 export const { setCurrentProduct } = products.actions;
-export const { setLoginDialog, setRegisterDialog } = modals.actions;
+export const { setLoginDialog, setRegisterDialog,setCartDialog } = modals.actions;

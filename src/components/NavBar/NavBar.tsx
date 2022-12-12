@@ -5,9 +5,11 @@ import { FaBars } from 'react-icons/fa'
 import meraki from '../../assets/meraki.svg'
 import { Login } from '../Auth/login'
 import { useDispatch, useSelector } from 'react-redux';
-import { setLoginDialog, setUserLoginDetails, } from '../../Redux/Reducer'
+import { setCartDialog, setLoginDialog, setUserLoginDetails, } from '../../Redux/Reducer'
 import { signOut } from 'firebase/auth'
 import { buyerAuth } from '../../config/firebase'
+import { Cart } from '../CartComponent/Cart'
+import {RiShoppingCart2Fill} from 'react-icons/ri'
 
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
@@ -43,6 +45,7 @@ export const NavBar = () => {
     return (
         <div className='fixed w-full z-50'>
             <Login />
+            <Cart/>
             <Disclosure as="nav" className="bg-[#FEEAE0]">
                 {({ open }) => (
                     <>
@@ -78,8 +81,16 @@ export const NavBar = () => {
                                 </div>
                                 <div className="hidden md:block">
                                     <div className="ml-4 flex items-center md:ml-6">
-
+                                    <button
+                                        onClick={()=>dispatch(setCartDialog(true))}
+                                        type="button"
+                                        className="ml-auto flex-shrink-0 rounded-full p-1 text-gray-900 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    >
+                                        <span className="sr-only">View notifications</span>
+                                        <RiShoppingCart2Fill className="h-6 w-6" aria-hidden="true" />
+                                    </button>
                                         {/* Profile dropdown */}
+
                                         {
                                             currentUser ? (
                                                 <Menu as="div" className="relative ml-3">
