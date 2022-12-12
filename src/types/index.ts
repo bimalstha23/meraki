@@ -38,6 +38,7 @@ export  interface cart {
     image: string,
     price: number,
     qty: number,
+    userId: string | number,
 }
 
 

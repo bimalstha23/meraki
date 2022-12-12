@@ -1,4 +1,4 @@
 {
-    "/products/:productId/comments/:commentid":"/comments/:commentid",
-    "/user/:uid/carts/:cartid":"/carts/:cartid"
+    "/products/:productId/comments/:id":"/comments/:id",
+    "/user/:uid/cart/:id":"/cart/:id"
 }

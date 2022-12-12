@@ -4,6 +4,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import {GiCrossMark} from 'react-icons/gi'
 import { useSelector,useDispatch } from 'react-redux'
 import { setCartDialog } from '../../Redux/Reducer'
+import { useDeleteCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
 
 
 const products = [
@@ -24,7 +25,7 @@ const products = [
     color: 'Blue',
     price: '$32.00',
     quantity: 1,
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
+    imageSrc: 'c',
     imageAlt:
       'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.',
   },
@@ -32,11 +33,34 @@ const products = [
 ]
 
 export const Cart=()=> {
+
   const cartDialog = useSelector((state:any)=>state.modals.cartDialog)
-    const dispatch = useDispatch()
+  const currentUser= useSelector((state:any)=>state.user.currentUser)
+  const {data,isLoading,error} = useGetCartItemsQuery(currentUser?.uid)
+  
+  const dispatch = useDispatch()
    const handleClose = () => {
     dispatch(setCartDialog(false))
    }
+
+   const [updateCart]   = useUpdateCartMutation();
+   const [deleteCart] = useDeleteCartMutation();
+
+    const updateIncreaseCart = async (id:any,qty:any) => {
+        const newqty = qty+1;
+        await updateCart({ uid:currentUser?.uid,id, qty: newqty })
+    }
+
+    const updateDecreaseCart = async (id:any,qty:any) => {
+      const newqty = qty-1;
+      await updateCart({ uid:currentUser?.uid,id, qty: newqty })
+  }
+
+
+    const deleteCartHandler = async (id:any) => {
+        await deleteCart({ uid:currentUser?.uid,id })
+    }
+
   return (
     <Transition.Root show={cartDialog} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={handleClose} >
@@ -83,13 +107,17 @@ export const Cart=()=> {
 
                       <div className="mt-8">
                         <div className="flow-root">
+
+
+
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {products.map((product) => (
+                            {data?.map((product:any) => (
                               <li key={product.id} className="flex py-6">
                                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                   <img
-                                    src={product.imageSrc}
-                                    alt={product.imageAlt}
+                                    // src={product.image}
+                                    src={'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg'}
+                                    alt={product.name}
                                     className="h-full w-full object-cover object-center"
                                   />
                                 </div>
@@ -102,13 +130,13 @@ export const Cart=()=> {
                                       </h3>
                                       <p className="ml-4">{product.price}</p>
                                     </div>
-                                    <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
-                                    <p className="text-gray-500">Qty {product.quantity}</p>
+                                    <p className="text-gray-500">Qty {product.qty}</p>
 
                                     <div className="flex">
                                       <button
+                                      onClick={()=>deleteCartHandler(product?.id)}
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >
@@ -120,6 +148,9 @@ export const Cart=()=> {
                               </li>
                             ))}
                           </ul>
+
+
+
                         </div>
                       </div>
                     </div>

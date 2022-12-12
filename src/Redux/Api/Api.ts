@@ -1,6 +1,7 @@
-import { createApi,
-     fetchBaseQuery
-     } from '@reduxjs/toolkit/query/react'
+import {
+    createApi,
+    fetchBaseQuery
+} from '@reduxjs/toolkit/query/react'
 import {
     category,
     Comment,
@@ -10,38 +11,73 @@ import {
 export const Api = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
+    tagTypes: ['API'],
     endpoints: (builder) => ({
         getCategories: builder.query<category[], void>({
             query: () => `categories`,
-        }),
-        getFeaturedProducts: builder.query<product[], void>({
-            query: () => `featuredProducts`,
-        }),
-        getSingleProduct: builder.query<product, string | number | undefined>({
-            query: (id) => `products/${id}`,
-        }),
-        getCommentsOfProduct: builder.query<Comment[], string | number | undefined>({
-            query: (id) => `products/${id}/comments/`,
+            providesTags: ['API']
         }),
 
-        addUser: builder.mutation<void,cart>({
+
+        getFeaturedProducts: builder.query<product[], void>({
+            query: () => `featuredProducts`,
+            providesTags: ['API']
+
+        }),
+
+        getSingleProduct: builder.query<product, string | number | undefined>({
+            query: (id) => `products/${id}`,
+            providesTags: ['API']
+
+        }),
+
+        getCommentsOfProduct: builder.query<Comment[], string | number | undefined>({
+            query: (id) => `products/${id}/comments/`,
+            providesTags: ['API']
+
+        }),
+
+        getCartItems: builder.query({
+            query: (uid) => `user/${uid}/cart/`,
+            providesTags: ['API']
+        }),
+
+        addUser: builder.mutation<void, cart>({
             query: (data) => ({
-                url: `users`,
+                url: `user`,
                 method: 'POST',
                 body: data
-            })
+            }),
+            invalidatesTags: ['API']
         }),
 
         addCart: builder.mutation({
             query: ({ uid, ...data }) => ({
-                url: `users/${uid}/cart/`,
+                url: `user/${uid}/cart/`,
                 method: 'POST',
                 body: data
-            })
-        })
-    }),
-})
+            }),
+            invalidatesTags: ['API']
+        }),
 
+        updateCart: builder.mutation({
+            query: ({ uid, id, ...data }) => ({
+                url: `user/${uid}/cart/${id}`,
+                method: 'PUT',
+                body: data
+            }),
+            invalidatesTags: ['API']
+
+        }),
+        deleteCart: builder.mutation({
+            query: ({ uid, id }) => ({
+                url: `user/${uid}/cart/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['API']
+        })
+    })
+})
 
 
 export const {
@@ -50,5 +86,8 @@ export const {
     useGetSingleProductQuery,
     useGetCommentsOfProductQuery,
     useAddUserMutation,
-    useAddCartMutation
+    useAddCartMutation,
+    useGetCartItemsQuery,
+    useUpdateCartMutation,
+    useDeleteCartMutation
 } = Api;
