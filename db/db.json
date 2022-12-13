@@ -711,5 +711,15 @@
     }
   ],
   "users": [],
-  "cart": []
+  "cart": [
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 1,
+      "qty": 1,
+      "name": "Black orb wings necklace ",
+      "price": 10,
+      "rating": 3,
+      "productId": 2
+    }
+  ]
 }

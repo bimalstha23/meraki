@@ -25,7 +25,7 @@ export const Api = createApi({
 
         }),
 
-        getSingleProduct: builder.query<product, string | number | undefined>({
+        getSingleProduct: builder.query({
             query: (id) => `products/${id}`,
             providesTags: ['API']
 
