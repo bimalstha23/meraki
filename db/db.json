@@ -770,7 +770,7 @@
         "id": 2,
         "name": "Necklaces"
       },
-      "qty": 15,
+      "qty": 2,
       "id": 1
     },
     {
@@ -792,53 +792,8 @@
         "id": 2,
         "name": "Necklaces"
       },
-      "qty": 16,
+      "qty": 2,
       "id": 2
-    },
-    {
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "Image": "typicode",
-      "price": 10,
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      },
-      "featured": true,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "qty": 16,
-      "id": 3
-    },
-    {
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "Image": "typicode",
-      "price": 10,
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 15,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      },
-      "qty": 16,
-      "id": 4
     }
   ]
 }

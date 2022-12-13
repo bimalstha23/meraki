@@ -30,6 +30,7 @@ export const ProductCard = (props: Productcardtype) => {
     const addToCartHandler = async () => {
         if (uid) {
             const item = data.filter((data: any) => data.id === product.id);
+            console.log(item);
             if (item.length <= 0) {
                 const quantity = 1
                 await addCart({ uid, ...product, qty:quantity }).then(() =>{
@@ -37,7 +38,6 @@ export const ProductCard = (props: Productcardtype) => {
                 })
             } else {
                 const newqty = data[0].qty+1;
-                console.log(newqty)
                 await updateCart({ uid,dataID, ...product, qty: newqty }).then(() => {
                     setOpen(true)
                 })
