@@ -37,7 +37,7 @@ export const Api = createApi({
 
         }),
 
-        getCartItems: builder.query({
+        getCartItems: builder.query<any,any>({
             query: (uid) => `user/${uid}/cart/`,
             providesTags: ['API']
         }),
@@ -63,10 +63,11 @@ export const Api = createApi({
 
 
         updateCart: builder.mutation({
-            query: ({ uid, cartId, ...data }) => ({
-                url: `user/${uid}/cart/${cartId}`,
+            query: ({ uid, id, ...data }) =>
+             ({
+                url: `cart/${id}`,
                 method: 'PUT',
-                body: data
+                body: {uid,id,...data}
             }),
             invalidatesTags: ['API']
 
