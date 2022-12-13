@@ -136,7 +136,7 @@ export const Cart=()=> {
 
                                     <div className="flex">
                                       <button
-                                      onClick={()=>deleteCartHandler(product?.id)}
+                                        onClick={()=>deleteCartHandler(product?.id)}
                                         type="button"
                                         className="font-medium text-indigo-600 hover:text-indigo-500"
                                       >

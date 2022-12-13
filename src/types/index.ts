@@ -31,15 +31,15 @@ export  interface Comment{
     createdAt: string,
 }
 
-export  interface cart {
-    id: string | number,
-    productId: string | number,
-    name: string,
-    image: string,
-    price: number,
-    qty: number,
-    userId: string | number,
-}
+// export  interface cart {
+//     id: string | number,
+//     productId: string | number,
+//     name: string,
+//     image: string,
+//     price: number,
+//     qty: number,
+//     uid: string | number,
+// }
 
 
 

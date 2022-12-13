@@ -6,7 +6,7 @@ import {
     category,
     Comment,
     product,
-    cart
+    // cart
 } from '../../types'
 export const Api = createApi({
     reducerPath: 'Api',
@@ -42,7 +42,7 @@ export const Api = createApi({
             providesTags: ['API']
         }),
 
-        addUser: builder.mutation<void, cart>({
+        addUser: builder.mutation({
             query: (data) => ({
                 url: `user`,
                 method: 'POST',
@@ -51,18 +51,20 @@ export const Api = createApi({
             invalidatesTags: ['API']
         }),
 
-        addCart: builder.mutation({
-            query: ({ uid, ...data }) => ({
-                url: `user/${uid}/cart/`,
+        addCart:builder.mutation({
+            query: (data) => ({
+                url: `/cart`,
                 method: 'POST',
-                body: data
-            }),
-            invalidatesTags: ['API']
+                body: data,
+        }),
+        invalidatesTags: ['API']
+
         }),
 
+
         updateCart: builder.mutation({
-            query: ({ uid, id, ...data }) => ({
-                url: `user/${uid}/cart/${id}`,
+            query: ({ uid, cartId, ...data }) => ({
+                url: `user/${uid}/cart/${cartId}`,
                 method: 'PUT',
                 body: data
             }),
@@ -89,5 +91,6 @@ export const {
     useAddCartMutation,
     useGetCartItemsQuery,
     useUpdateCartMutation,
-    useDeleteCartMutation
+    useDeleteCartMutation,
+    // useAddCommentsMutation
 } = Api;

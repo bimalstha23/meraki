@@ -3,11 +3,10 @@ import productimg from '../../assets/productimg.png'
 import { MdAddShoppingCart } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useAddCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
+import { useAddCartMutation,  useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
 import { SnackBar } from '../SnackBar/SnackBar'
-// import { addToCart } from '../helper/helper'
 import { product } from '../../types'
-import { setLoginDialog } from '../../Redux/Reducer'
+import { setCartDialog, setLoginDialog } from '../../Redux/Reducer'
 type Productcardtype = {
     product: product,
     key: number
@@ -16,36 +15,41 @@ type Productcardtype = {
 
 export const ProductCard = (props: Productcardtype) => {
     const { product } = props;
-    const { name, price } = product;
     const currentUser = useSelector((state: any) => state.user.currentUser)
     const uid = currentUser?.uid;
     const dispatch = useDispatch();
     const [addCart] = useAddCartMutation();
+    // const [addComments] = useAddCommentsMutation()
     const [updateCart] = useUpdateCartMutation();
     const [open, setOpen] = useState(false)
 
     const { data } = useGetCartItemsQuery(currentUser?.uid)
-    const dataID   = data?.id;
+    const { name, price, rating, id } = product;
+
+    const cartdata = {
+        name,
+        price,
+        rating,
+        productId: id,
+        qty: 1
+    }
 
     const addToCartHandler = async () => {
         if (uid) {
-            const item = data.filter((data: any) => data.id === product.id);
-            console.log(item);
+            const item = data.filter((data: any) => data.productId === product.id);
             if (item.length <= 0) {
-                const quantity = 1
-                await addCart({ uid, ...product, qty:quantity }).then(() =>{
+                await addCart({name,price,rating,productId:id,uid,qty:1}).then(() => {
+                    dispatch(setCartDialog(true))
                     setOpen(true)
                 })
             } else {
-                const newqty = data[0].qty+1;
-                await updateCart({ uid,dataID, ...product, qty: newqty }).then(() => {
-                    setOpen(true)
-                })
+                dispatch(setCartDialog(true))
             }
         } else {
             dispatch(setLoginDialog(true))
         }
     }
+
     return (
         <>
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully adde to cart'} />
