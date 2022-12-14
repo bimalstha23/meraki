@@ -62,9 +62,12 @@ export const AddProducts = () => {
               tags: values.productTags.split(" "),
               name: values.productName,
               price: values.productPrice,
-              description: values.productDescription,
-              category: values.productCategory,
-              images: imageurls
+              Description: values.productDescription,
+              Category: values.productCategory,
+              Image: imageurls,
+              numReviews: 0,
+              rating: 0,
+              
             }
           }).then((res) => {
             setOpen(true)

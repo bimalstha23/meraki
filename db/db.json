@@ -75,144 +75,6 @@
   ],
   "Products": [
     {
-      "id": 1,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "rating": 3,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "numReviews": 22,
-      "actualPrice": 15000,
-      "price": 10000,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
-      "id": 2,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "rating": 3,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "numReviews": 22,
-      "actualPrice": 15000,
-      "price": 11000,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
-      "id": 3,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "price": 15000,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 20000,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
-      "id": 4,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "price": 10,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 15,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
-      "id": 5,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "price": 10,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "rating": 3,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "numReviews": 22,
-      "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
-      "id": 6,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "price": 10,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 15,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
-    },
-    {
       "id": 7,
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
@@ -230,10 +92,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
+      "Category": "Necklaces"
     },
     {
       "id": 8,
@@ -253,10 +112,7 @@
       ],
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
+      "Category": "Necklaces"
     },
     {
       "id": 9,
@@ -276,10 +132,7 @@
       ],
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
+      "Category": "Necklaces"
     },
     {
       "id": 10,
@@ -299,10 +152,7 @@
         "Necklace"
       ],
       "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
+      "Category": "Necklaces"
     },
     {
       "id": 11,
@@ -322,10 +172,7 @@
         "Necklace"
       ],
       "actualPrice": 15,
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      }
+      "Category": "Necklaces"
     },
     {
       "id": 12,
@@ -345,33 +192,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
-    },
-    {
-      "id": 13,
-      "name": "Metal liquid butterfly claw clips",
-      "Description": "Metal liquid butterfly claw clips",
-      "rating": 3,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "numReviews": 22,
-      "actualPrice": 15,
-      "price": 10,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
+      "Category": "Hair Accessories"
     },
     {
       "id": 14,
@@ -391,10 +212,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
+      "Category": "Hair Accessories"
     },
     {
       "id": 15,
@@ -414,10 +232,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
+      "Category": "Hair Accessories"
     },
     {
       "id": 16,
@@ -437,10 +252,7 @@
         "Necklace"
       ],
       "actualPrice": 15,
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
+      "Category": "Hair Accessories"
     },
     {
       "id": 17,
@@ -460,10 +272,7 @@
       ],
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
-        "id": 9,
-        "name": "Hair Accessories"
-      }
+      "Category": "Hair Accessories"
     },
     {
       "id": 18,
@@ -483,10 +292,7 @@
       ],
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 19,
@@ -506,10 +312,7 @@
       "rating": 3,
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 20,
@@ -529,10 +332,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 21,
@@ -552,10 +352,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 22,
@@ -575,10 +372,7 @@
         "Necklace"
       ],
       "actualPrice": 15,
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 23,
@@ -598,10 +392,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
     {
       "id": 24,
@@ -621,40 +412,22 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
-        "id": 4,
-        "name": "Earrings"
-      }
+      "Category": "Earrings"
     },
-
     {
       "tags": [
         "ASD",
         "ASDDW",
-        "",
         "C"
       ],
       "name": "HELLO WORLD",
       "price": 82099,
-      "description": "ASD ZC awD   F ASF",
-      "category": "Bangles",
+      "Description": "ASD ZC awD   F ASF",
+      "Category": "Bangles",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
       ],
       "id": 26
-    },
-    {
-      "tags": [
-        "asdddawwwww"
-      ],
-      "name": "asd",
-      "price": 654000,
-      "description": "hello world",
-      "category": "Pendants",
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
-      ],
-      "id": 27
     }
   ],
   "featuredProducts": [
@@ -790,29 +563,6 @@
   ],
   "users": [],
   "cart": [
-    {
-      "id": 1,
-      "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
-      "Image": "typicode",
-      "price": 10,
-      "rating": 3,
-      "numReviews": 22,
-      "actualPrice": 15,
-      "tags": [
-        "Necklaces",
-        "Black",
-        "Wings",
-        "Orb",
-        "Necklace"
-      ],
-      "Category": {
-        "id": 2,
-        "name": "Necklaces"
-      },
-      "qty": 1,
-      "userId": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3"
-    },
     {
       "name": "hell o world ",
       "Description": "Black orb wings necklace ",

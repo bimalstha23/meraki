@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import meraki from '../../../../assets/meraki.svg';
 import meraki from '../../../assets/meraki.svg'
 import { RiSettingsFill } from 'react-icons/ri';
 import { SiGoogletagmanager } from 'react-icons/si';
@@ -11,6 +10,7 @@ import { RiArrowDropDownLine } from 'react-icons/ri'
 import { Link } from 'react-router-dom';
 
 export const Sidebar = () => {
+
     const [open, setOpen] = useState<boolean>(false);
     const [display, setDisplay] = useState<string>('hidden')
 
@@ -28,7 +28,6 @@ export const Sidebar = () => {
             <div className=" overflow-y-auto flex flex-col justify-between py-4 pl-3 h-full bg-gray-50 rounded dark:bg-gray-800">
                     <a href="#" className="flex items-center justify-center pl-2.5 border-r-2 border-b-2 rounded-br-3xl">
                         <img src={meraki} />
-                        {/* <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
                     </a>
 
                 <ul className="space-y-2 border-r-2 rounded-r-3xl h-full py-5">

@@ -6,8 +6,8 @@ import { DashBoard } from '../../DashBoard/DashBoard'
 import { InnerContainer } from '../../Home/InnerContainer'
 import { AddProducts } from '../../AddProducts/AddProducts'
 import { Settings } from '../../Settings/Settings'
-import { ProtectedRoute } from '../ProtectedRoute'
 import { Main } from '../../Main/Main'
+import ManageProducts from '../../ManageProducts/ManageProducts'
 export const DashboardRoutes = () => {
 //   const dispatch = useDispatch();
 
@@ -27,6 +27,7 @@ export const DashboardRoutes = () => {
             // {/* </ProtectedRoute>}  */}
             /> 
             <Route path='/' index element={<Main/>}/>
+            <Route path='/ManageProducts' element={<ManageProducts/>}/>
           </Route>
           <Route path='/Settings' element={<Settings/>}/>
         </Route>

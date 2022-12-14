@@ -18,7 +18,6 @@ export const Api = createApi({
             providesTags: ['API']
         }),
 
-
         getFeaturedProducts: builder.query<product[], void>({
             query: () => `featuredProducts`,
             providesTags: ['API']
@@ -78,6 +77,14 @@ export const Api = createApi({
                 method: 'DELETE',
             }),
             invalidatesTags: ['API']
+        }),
+
+        deleteProduct: builder.mutation({
+            query: (id) => ({
+                url: `products/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['API']
         })
     })
 })
@@ -93,5 +100,6 @@ export const {
     useGetCartItemsQuery,
     useUpdateCartMutation,
     useDeleteCartMutation,
+    useDeleteProductMutation,
     // useAddCommentsMutation
 } = Api;

@@ -25,14 +25,6 @@ export const ProductCard = (props: Productcardtype) => {
     const { data } = useGetCartItemsQuery(currentUser?.uid)
     const { name, price, rating, id,} = product;
 
-    const cartdata = {
-        name,
-        price,
-        rating,
-        productId: id,
-        qty: 1
-    }
-
     const addToCartHandler = async () => {
         if (uid) {
             const item = data.filter((data: any) => data.productId === product.id);
@@ -52,7 +44,7 @@ export const ProductCard = (props: Productcardtype) => {
     return (
         <>
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully added to cart'} />
-            <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
+            <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer '>
                 <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${Image})` ,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
