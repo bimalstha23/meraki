@@ -81,8 +81,8 @@
       "Image": "typicode",
       "rating": 3,
       "numReviews": 22,
-      "actualPrice": 15,
-      "price": 10,
+      "actualPrice": 15000,
+      "price": 10000,
       "tags": [
         "Necklaces",
         "Black",
@@ -102,8 +102,8 @@
       "Image": "typicode",
       "rating": 3,
       "numReviews": 22,
-      "actualPrice": 15,
-      "price": 10,
+      "actualPrice": 15000,
+      "price": 11000,
       "tags": [
         "Necklaces",
         "Black",
@@ -121,10 +121,10 @@
       "name": "Black orb wings necklace ",
       "Description": "Black orb wings necklace ",
       "Image": "typicode",
-      "price": 10,
+      "price": 15000,
       "rating": 3,
       "numReviews": 22,
-      "actualPrice": 15,
+      "actualPrice": 20000,
       "tags": [
         "Necklaces",
         "Black",
@@ -713,13 +713,13 @@
   "users": [],
   "cart": [
     {
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 1,
-      "qty": 1,
       "name": "Black orb wings necklace ",
       "price": 10,
       "rating": 3,
-      "productId": 2
+      "productId": 3,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 1
     }
   ]
 }

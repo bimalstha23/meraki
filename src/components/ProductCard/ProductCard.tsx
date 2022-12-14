@@ -54,7 +54,11 @@ export const ProductCard = (props: Productcardtype) => {
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully added to cart'} />
             <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
 
-                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${productimg})` }}>
+                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${productimg})` ,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat'
+            }}>
 
                     <button onClick={(e) => {
                         if (!currentUser) {

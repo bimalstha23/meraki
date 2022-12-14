@@ -13,8 +13,8 @@ export const user = createSlice({
 });
 
 
-export const products = createSlice({
-    name: "products",
+export const product = createSlice({
+    name: "product",
     initialState: {
         currentProduct: [],
     },
@@ -60,6 +60,10 @@ const cartSlice = createSlice({
 
 
 
+
+
+
+
 export const { setUserLoginDetails  } = user.actions;
-export const { setCurrentProduct } = products.actions;
+export const { setCurrentProduct } = product.actions;
 export const { setLoginDialog, setRegisterDialog,setCartDialog } = modals.actions;
