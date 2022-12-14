@@ -10,7 +10,7 @@ import { signOut } from 'firebase/auth'
 import { buyerAuth } from '../../config/firebase'
 import { Cart } from '../CartComponent/Cart'
 import { RiShoppingCart2Fill } from 'react-icons/ri'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import {  BiSearchAlt } from 'react-icons/bi'
 
 function classNames(...classes: any) {
@@ -28,17 +28,15 @@ export const NavBar = () => {
     ]
     const userNavigation = [
 
-
-        { name: 'Your Profile', onclick: () => { } },
-        { name: 'Settings', onclick: () => { } },
+        { name: 'Your Profile', onclick: () => {}, Link:'/profile'},
+        { name: 'Settings', onclick: () => { },Link:'' },
         {
             name: 'Sign out', onClick: () => {
-                dispatch(setUserLoginDetails(null));
-                signOut(buyerAuth);
-            }
+               
+            },Link:''
         },
     ]
-    
+
 
     return (
         <div className='fixed w-full z-50'>
@@ -116,21 +114,51 @@ export const NavBar = () => {
                                                         leaveTo="transform opacity-0 scale-95"
                                                     >
                                                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                                            {userNavigation.map((item) => (
+                                                            {/* {userNavigation.map((item) => (
                                                                 <Menu.Item key={item.name}>
                                                                     {({ active }) => (
                                                                         <button
                                                                             onClick={item.onClick}
                                                                             className={classNames(
                                                                                 active ? 'bg-gray-100' : '',
-                                                                                'block px-4 py-2 text-sm text-gray-700'
+                                                                                'block px-4 py-2 text-sm text-gray-700 w-full'
                                                                             )}
                                                                         >
+                                                                            <Link to={item?.Link}>
                                                                             {item.name}
+                                                                            </Link>
                                                                         </button>
                                                                     )}
                                                                 </Menu.Item>
-                                                            ))}
+                                                            ))} */}
+
+                                                            <Menu.Item>
+                                                                <Link to={'/profile'}
+                                                                className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                >
+                                                                    {/* <Link to='/profile'> */}
+                                                                        Profile
+                                                                    {/* </Link> */}
+                                                                </Link>
+                                                            </Menu.Item>
+                                                            <Menu.Item>
+                                                                <Link to={'/profile/settings'}
+                                                                className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                >
+                                                                        Settings
+                                                                </Link>
+                                                            </Menu.Item>
+                                                            <Menu.Item>
+                                                                <button
+                                                                onClick={() => {
+                                                                    dispatch(setUserLoginDetails(null));
+                                                                    signOut(buyerAuth);
+                                                                }}
+                                                                className='block px-4 py-2 text-start text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                >
+                                                                        SignOut
+                                                                </button>
+                                                            </Menu.Item>
                                                         </Menu.Items>
                                                     </Transition>
                                                 </Menu>
@@ -193,7 +221,7 @@ export const NavBar = () => {
                                             key={item.name}
                                             as="a"
                                             onClick={item.onClick}
-                                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
+                                            className="block w-full rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                                         >
                                             {item.name}
                                         </Disclosure.Button>

@@ -1,15 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { doc, getDoc } from 'firebase/firestore';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { buyerDb } from '../../config/firebase';
+
+
+export const getUserDetails = createAsyncThunk(
+    'user/getUserDetails',
+    async (uid:any) => {
+            const userRef = doc(buyerDb, "users", uid);
+            const docSnap = await getDoc(userRef);
+            if (docSnap.exists()) {
+                return docSnap.data()
+            }
+            else {
+                return null
+            }
+    }
+)
+
 
 export const user = createSlice({
     name: "user",
     initialState: {
         currentUser: null,
+        userDetails:{} as any
     },
     reducers: {
         setUserLoginDetails: (state, action) => {
             state.currentUser = action.payload;
         },
     },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getUserDetails.fulfilled, (state, action) => {
+                state.userDetails = action.payload;
+            })
+    }
 });
 
 
@@ -64,6 +89,6 @@ const cartSlice = createSlice({
 
 
 
-export const { setUserLoginDetails  } = user.actions;
+export const { setUserLoginDetails ,   } = user.actions;
 export const { setCurrentProduct } = product.actions;
 export const { setLoginDialog, setRegisterDialog,setCartDialog } = modals.actions;

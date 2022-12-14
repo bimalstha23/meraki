@@ -23,8 +23,9 @@ export const SingleProductPage = () => {
 
     const { data:cartdata } = useGetCartItemsQuery(currentUser?.uid)
     const {name,price, rating,id}=data;
-
     const [open,setOpen] = useState(false);
+
+    const datarating = data?.rating;
      
     const addToCartHandler = async () => {
         if (uid) {
@@ -62,7 +63,10 @@ export const SingleProductPage = () => {
                         <div className='flex flex-col mt-12 gap-4 '>
                             <h1 className='text-2xl font-bold'>{data?.name}</h1>
                             <div className='flex flex-row items-center gap-2'>
-                                <Rating name="read-only" value={data.rating} readOnly />
+                                {data.rating &&(
+                                    <Rating name="read-only" value={datarating} readOnly />
+                                )
+                                }
                                 <p className='text-gray-500 text-sm'>{data?.numReviews} (Reviews)</p>
                             </div>
                             <p className='text-gray-500 text-sm'>In Stock</p>

@@ -4,6 +4,7 @@ import { HomePage } from '../components/HomePage/HomePage'
 import { SingleProductPage } from '../components/SigleProductPage/SingleProductPage'
 import { Products } from '../components/Products/Products'
 import { Home } from '../components/home/home'
+import { ProfilePage } from '../components/ProfilePage/ProfilePage'
 export const AppRouter = () => {
   return (
     <>
@@ -12,6 +13,7 @@ export const AppRouter = () => {
       <Route path='/' index element={<HomePage/>}/>
       <Route path='/:productid' element={<SingleProductPage/>}/>
       <Route path='/products' element={<Products/>} />
+      <Route path='/profile' element={<ProfilePage/>}/>
       </Route>
     </Routes>
     </>

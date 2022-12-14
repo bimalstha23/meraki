@@ -14,9 +14,6 @@ import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
 
 
-
-
-
 const filters = [
   {
     id: 'color',
@@ -72,7 +69,7 @@ export const  Products = ()=> {
         { name: 'Price: High to Low', onclick:()=>{dispatch(sortProductsbyPriceDesc())} , current: false },
       ]
 
-      const handleFilter = (name:string)=>{
+    const handleFilter = (name:string)=>{
         dispatch(filterProductsbyCategory(name));
     }
 
@@ -129,7 +126,7 @@ export const  Products = ()=> {
                   </div>
 
                   {/* Filters */}
-                  <form className="mt-4 border-t border-gray-200">
+                  <div className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                       {Categories?.map((category) => (
@@ -183,7 +180,7 @@ export const  Products = ()=> {
                         )}
                       </Disclosure>
                     ))}
-                  </form>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -260,7 +257,7 @@ export const  Products = ()=> {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
-              <form className="hidden lg:block">
+              <div className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {Categories?.map((category) => (
@@ -312,7 +309,7 @@ export const  Products = ()=> {
                     )}
                   </Disclosure>
                 ))}
-              </form>
+              </div>
 
               {/* Product grid */}
               <div className="lg:col-span-3">

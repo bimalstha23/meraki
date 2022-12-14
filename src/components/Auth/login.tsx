@@ -34,6 +34,7 @@ export const Login = () => {
                 photoURL: user.photoURL,
                 uid: user.uid,
             })
+            Dispatch(setLoginDialog(false))
         });
     }
 
