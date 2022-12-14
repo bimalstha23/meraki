@@ -5,6 +5,7 @@ import { SingleProductPage } from '../components/SigleProductPage/SingleProductP
 import { Products } from '../components/Products/Products'
 import { Home } from '../components/home/home'
 import { ProfilePage } from '../components/ProfilePage/ProfilePage'
+import { DashBoardHome } from '../components/AdminDashBoard/Home/Home'
 export const AppRouter = () => {
   return (
     <>
@@ -15,6 +16,11 @@ export const AppRouter = () => {
       <Route path='/products' element={<Products/>} />
       <Route path='/profile' element={<ProfilePage/>}/>
       </Route>
+
+
+
+      <Route path='/sellerDashBoard/*' element = {<DashBoardHome/>}/> 
+      <Route path='*' element={<h1>404 Not Found</h1>} />
     </Routes>
     </>
     )

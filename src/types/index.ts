@@ -8,7 +8,7 @@ export  interface product {
         name:string,
         id:string | number
     }
-    image: string,
+    Image:any,
     rating: number,
     numReviews: number,
     countInStock?: number,

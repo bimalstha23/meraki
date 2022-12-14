@@ -23,7 +23,7 @@ export const ProductCard = (props: Productcardtype) => {
     const [open, setOpen] = useState(false);
 
     const { data } = useGetCartItemsQuery(currentUser?.uid)
-    const { name, price, rating, id } = product;
+    const { name, price, rating, id,} = product;
 
     const cartdata = {
         name,
@@ -48,13 +48,12 @@ export const ProductCard = (props: Productcardtype) => {
             dispatch(setLoginDialog(true))
         }
     }
-
+    const Image = product?.Image[0];
     return (
         <>
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully added to cart'} />
             <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer c'>
-
-                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${productimg})` ,
+                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${Image})` ,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'

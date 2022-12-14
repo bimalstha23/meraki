@@ -22,7 +22,7 @@ export const SingleProductPage = () => {
     },[data])
 
     const { data:cartdata } = useGetCartItemsQuery(currentUser?.uid)
-    const {name,price, rating,id}=data;
+    const {name,price, rating,id,Image}=data;
     const [open,setOpen] = useState(false);
 
     const datarating = data?.rating;
@@ -56,7 +56,7 @@ export const SingleProductPage = () => {
                 </div>
                 <div className='flex flex-row gap-5 mx-52 my-10 p-5 rounded-lg shadow-lg'>
                     <div className='w-1/2 rounded-lg '>
-                        <ImageSwiper images={data?.image} />
+                        <ImageSwiper Image={Image} />
                     </div>
                     {data ? (
 

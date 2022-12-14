@@ -2,14 +2,14 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
 import { GiCrossMark } from 'react-icons/gi'
-import {FiPlus} from 'react-icons/fi';
+import { FiPlus } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux'
-import {IoMdFunnel} from 'react-icons/io';
-import {AiOutlineMinus} from 'react-icons/ai';
-import {BiChevronDown} from 'react-icons/bi';
-import {BsGridFill}   from 'react-icons/bs';
+import { IoMdFunnel } from 'react-icons/io';
+import { AiOutlineMinus } from 'react-icons/ai';
+import { BiChevronDown } from 'react-icons/bi';
+import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery } from '../../Redux/Api/Api';
-import { filterProductsbyCategory, getProducts,  sortProductsbyPriceAsc,  sortProductsbyPriceDesc,  sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
+import { filterProductsbyCategory, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
 
@@ -52,37 +52,37 @@ const filters = [
   },
 ]
 
-function classNames(...classes:any) {
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export const  Products = ()=> {
-    
-
-  
+export const Products = () => {
 
 
-    const dispatch = useDispatch<AppDispatch>()
-    const sortOptions = [
-        { name: 'Best Rating', onclick:()=>{dispatch(sortProductsbyrating())} , current: false },
-        { name: 'Price: Low to High', onclick:()=>{dispatch(sortProductsbyPriceAsc())} ,  current: false },
-        { name: 'Price: High to Low', onclick:()=>{dispatch(sortProductsbyPriceDesc())} , current: false },
-      ]
 
-    const handleFilter = (name:string)=>{
-        dispatch(filterProductsbyCategory(name));
-    }
 
-    useEffect(()=>{
-          dispatch(getProducts());
-    },[]);
-  
-  const {filteredProducts} = useSelector((state:any) => state.products)
 
-  const {data:Categories} = useGetCategoriesQuery();
+  const dispatch = useDispatch<AppDispatch>()
+  const sortOptions = [
+    { name: 'Best Rating', onclick: () => { dispatch(sortProductsbyrating()) }, current: false },
+    { name: 'Price: Low to High', onclick: () => { dispatch(sortProductsbyPriceAsc()) }, current: false },
+    { name: 'Price: High to Low', onclick: () => { dispatch(sortProductsbyPriceDesc()) }, current: false },
+  ]
+
+  const handleFilter = (name: string) => {
+    dispatch(filterProductsbyCategory(name));
+  }
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+  const { filteredProducts } = useSelector((state: any) => state.products)
+
+  const { data: Categories } = useGetCategoriesQuery();
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-    
+
 
   return (
     <div className="bg-white">
@@ -131,7 +131,7 @@ export const  Products = ()=> {
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
                       {Categories?.map((category) => (
                         <li key={category.name}>
-                          <button onClick={(e)=> handleFilter(category.name)} className="block px-2 py-3">
+                          <button onClick={(e) => handleFilter(category.name)} className="block px-2 py-3">
                             {category.name}
                           </button>
                         </li>
@@ -262,7 +262,7 @@ export const  Products = ()=> {
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                   {Categories?.map((category) => (
                     <li key={category.name}>
-                      <button onClick={(e)=> handleFilter(category.name)}>{category.name}</button>
+                      <button onClick={(e) => handleFilter(category.name)}>{category.name}</button>
                     </li>
                   ))}
                 </ul>
@@ -317,11 +317,13 @@ export const  Products = ()=> {
                 {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
                 {/* /End replace */}
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                    {filteredProducts.map((product:any,key:number) => (
-                        <ProductCard product={product} key={key}/>
-                    ))}
+                  {filteredProducts &&
+                    (filteredProducts.map((product: any, key: number) => (
+                      <ProductCard product={product} key={key} />
+                    )))
+                  }
 
-                 </div>
+                </div>
               </div>
             </div>
           </section>

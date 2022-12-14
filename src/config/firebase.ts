@@ -5,6 +5,8 @@ import { getAuth } from 'firebase/auth'
 
 // import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+
 
 //config for buyer account
 const BuyerConfig = {
@@ -43,4 +45,5 @@ export const sellerDb = getFirestore(sellerApp);
 export const sellerAuth = getAuth(sellerApp)
 export const buyerDb = getFirestore(buyerApp);
 export const buyerAuth = getAuth(buyerApp);
+export const sellerStorage = getStorage(sellerApp); 
 
