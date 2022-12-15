@@ -24,7 +24,7 @@ export const getProductSlice = createSlice({
     reducers: {
         filterProductsbyCategory: (state, action) => {
             state.filteredProducts = state.products.filter((product :any) => {
-                return product?.Category?.name === action.payload
+                return product?.Category === action.payload
             })
         },
         filterProductsbyPrice: (state, action) => {
