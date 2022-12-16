@@ -9,9 +9,10 @@ import { AiOutlineMinus } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery } from '../../Redux/Api/Api';
-import { filterProductsbyCategory, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
+import { filterProductsbyCategory, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating, filterProductsbyPriceRange } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
+import { Slider } from '@mui/material';
 
 
 const filters = [
@@ -61,7 +62,6 @@ export const Products = () => {
 
 
 
-
   const dispatch = useDispatch<AppDispatch>()
   const sortOptions = [
     { name: 'Best Rating', onclick: () => { dispatch(sortProductsbyrating()) }, current: false },
@@ -77,12 +77,32 @@ export const Products = () => {
     dispatch(getProducts());
   }, []);
 
+  //filterProducts by price range
+
+
+  //get minimum and maximum price from the products list 
+
+
+
+
   const { filteredProducts } = useSelector((state: any) => state.products)
+  const minPrice = Math.min(...filteredProducts.map((product: any) => product.price));
+  const maxPrice = Math.max(...filteredProducts.map((product: any) => product.price));
 
   const { data: Categories } = useGetCategoriesQuery();
 
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
 
+  const [value, setValue] = useState<number[]>([minPrice, maxPrice]);
+
+  const handleChange = (event:Event, newValue: number | number[]) => {
+    setValue(newValue as number[]);
+     
+  };
+
+  const handleFilterByPriceRange = (min: number, max: number) => {
+    dispatch(filterProductsbyPriceRange({ min, max }));
+  }
 
   return (
     <div className="bg-white">
@@ -266,6 +286,25 @@ export const Products = () => {
                     </li>
                   ))}
                 </ul>
+                <div className='border-b border-gray-200 py-6'>
+                  <h3 className='-my-3 flow-root pb-6 text-sm font-medium text-gray-900'>
+                    Price
+                  </h3>
+                  <div className='flex items-center'>
+                    <Slider
+                      value={value}
+                      onChange={handleChange}
+                      valueLabelDisplay='auto'
+                      aria-labelledby='range-slider'
+                      min={minPrice}
+                      max={maxPrice}
+                    />
+
+                  </div>
+
+
+                </div>
+
 
                 {filters.map((section) => (
                   <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">

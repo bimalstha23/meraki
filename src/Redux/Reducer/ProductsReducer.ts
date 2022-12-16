@@ -18,40 +18,47 @@ export const getProductSlice = createSlice({
     initialState: {
         products: [] as any,
         status: 'idle',
-        filteredProducts:[] as any
+        filteredProducts: [] as any
     },
 
     reducers: {
         filterProductsbyCategory: (state, action) => {
-            state.filteredProducts = state.products.filter((product :any) => {
+            state.filteredProducts = state.products.filter((product: any) => {
                 return product?.Category === action.payload
             })
         },
-        filterProductsbyPrice: (state, action) => {
-            state.filteredProducts = state.products.filter((product :any) => {
-                return product.price <= action.payload
+
+        //filter products by min and max price 
+        filterProductsbyPriceRange: (state, action) => {
+            state.filteredProducts = state.products.filter((product: any) => {
+                return product.price >= action.payload.min && product.price <= action.payload.max
             })
         },
+
+
+
         filterProductsbyRating: (state, action) => {
-            state.filteredProducts = state.products.filter((product :any) => {
+            state.filteredProducts = state.products.filter((product: any) => {
                 return product.rating >= action.payload
             })
         },
+
+
         filterProductsbySearch: (state, action) => {
-            state.filteredProducts = state.products.filter((product :any) => {
+            state.filteredProducts = state.products.filter((product: any) => {
                 return product.name.toLowerCase().includes(action.payload.toLowerCase())
             })
         },
 
         sortProductsbyrating: (state) => {
-            state.filteredProducts = state.filteredProducts.sort((a:any,b:any) => b.rating - a.rating)
+            state.filteredProducts = state.filteredProducts.sort((a: any, b: any) => b.rating - a.rating)
         },
 
         sortProductsbyPriceAsc: (state) => {
-            state.filteredProducts = state.filteredProducts.sort((a:any,b:any) => a.price - b.price)
+            state.filteredProducts = state.filteredProducts.sort((a: any, b: any) => a.price - b.price)
         },
         sortProductsbyPriceDesc: (state) => {
-            state.filteredProducts = state.filteredProducts.sort((a:any,b:any) => b.price - a.price)
+            state.filteredProducts = state.filteredProducts.sort((a: any, b: any) => b.price - a.price)
         },
 
     },
@@ -72,4 +79,10 @@ export const getProductSlice = createSlice({
 
 })
 
-export const { sortProductsbyrating,sortProductsbyPriceAsc,sortProductsbyPriceDesc, filterProductsbyCategory} = getProductSlice.actions;
+export const {
+    sortProductsbyrating,
+    sortProductsbyPriceAsc,
+    sortProductsbyPriceDesc,
+    filterProductsbyCategory,
+    filterProductsbyPriceRange
+} = getProductSlice.actions;
