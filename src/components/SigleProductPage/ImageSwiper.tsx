@@ -8,7 +8,6 @@ import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from 'swiper';
 export const ImageSwiper = (props: any) => {
     const { Image } = props
-    
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
     return (
         <>
@@ -19,8 +18,7 @@ export const ImageSwiper = (props: any) => {
             >
                 {Image?.map((image: any) => (
                     <SwiperSlide key={image.id}>
-                        <img className=' w-full h-full' src={image.url
-                        } alt="" />
+                        <img className=' w-full h-full' src={image} alt="" />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -35,7 +33,7 @@ export const ImageSwiper = (props: any) => {
             >
                 {Image?.map((image: any) => (
                     <SwiperSlide  key={image.id}>
-                        <img  className='rounded-lg' src={image.url
+                        <img  className='rounded-lg' src={image
                         } alt="" />
                     </SwiperSlide>
                 ))}

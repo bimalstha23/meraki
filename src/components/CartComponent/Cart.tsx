@@ -6,15 +6,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setCartDialog } from '../../Redux/Reducer'
 import { useDeleteCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
 
-
-
-
-
 export const Cart = () => {
-
   const cartDialog = useSelector((state: any) => state.modals.cartDialog)
   const currentUser = useSelector((state: any) => state.user.currentUser)
   const { data, isLoading, error } = useGetCartItemsQuery(currentUser?.uid)
+
   const dispatch = useDispatch()
   const handleClose = () => {
     dispatch(setCartDialog(false))
@@ -32,7 +28,9 @@ export const Cart = () => {
       price: product.price,
       rating: product.rating,
       productId: product.productId,
-      uid: product.uid
+      uid: product.uid,
+      Image: product.Image
+
     }
     await updateCart(newcart)
   }
@@ -50,8 +48,10 @@ export const Cart = () => {
         price: product.price,
         rating: product.rating,
         productId: product.productId,
-        uid: product.uid
+        uid: product.uid,
+        Image: product.Image
       }
+      console.log(newcart);
       await updateCart(newcart)
     }
 
@@ -111,64 +111,63 @@ export const Cart = () => {
                       <div className="mt-8">
                         <div className="flow-root">
 
-
-
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
-                            {data?.map((product: any) => (
-                              <li key={product.id} className="flex py-6">
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                                  <img
-                                    // src={product.image}
-                                    src={'https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg'}
-                                    alt={product.name}
-                                    className="h-full w-full object-cover object-center"
-                                  />
-                                </div>
 
-                                <div className="ml-4 flex flex-1 flex-col">
-                                  <div>
-                                    <div className="flex justify-between text-base font-medium text-gray-900">
-                                      <h3>
-                                        <a href={product.href}>{product.name}</a>
-                                      </h3>
-                                      <p className="ml-4">{convertCurrency(product.price)}</p>
+                            {data && 
+                              data?.map((product: any) => (
+                                <li key={product?.id} className="flex py-6">
+                                  <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                    <img
+                                      alt={product?.name}
+                                      src={ product?.Image ? product?.Image[0] : 'https://via.placeholder.com/150' }
+                                      className="h-full w-full object-cover object-center"
+                                    />
+                                  </div>
+
+                                  <div className="ml-4 flex flex-1 flex-col">
+                                    <div>
+                                      <div className="flex justify-between text-base font-medium text-gray-900">
+                                        <h3>
+                                          {product.name}
+                                        </h3>
+                                        <p className="ml-4">{convertCurrency(product.price)}</p>
+                                      </div>
+                                    </div>
+                                    <div className="flex flex-1 items-end justify-between text-sm">
+                                      <div className="flex gap-4">
+
+                                        <button
+                                          onClick={() => updateDecreaseCart(product?.id, product?.qty, product)}
+                                          type="button"
+                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        >
+                                          -
+                                        </button>
+                                        <p className="text-gray-500">Qty {product.qty}</p>
+                                        <button
+                                          onClick={() => updateIncreaseCart(product?.id, product)}
+                                          type="button"
+                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        >
+                                          +
+                                        </button>
+                                      </div>
+                                      <div className="flex">
+                                        <button
+                                          onClick={() => deleteCartHandler(product?.id)}
+                                          type="button"
+                                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                                        >
+                                          Remove
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
-                                  <div className="flex flex-1 items-end justify-between text-sm">
-                                    <div className="flex gap-4">
+                                </li>
+                              ))
+                            }
 
-                                      <button
-                                        onClick={() => updateDecreaseCart(product?.id, product?.qty, product)}
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        -
-                                      </button>
-                                      <p className="text-gray-500">Qty {product.qty}</p>
-                                      <button
-                                        onClick={() => updateIncreaseCart(product?.id, product)}
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        +
-                                      </button>
-                                    </div>
-                                    <div className="flex">
-                                      <button
-                                        onClick={() => deleteCartHandler(product?.id)}
-                                        type="button"
-                                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                                      >
-                                        Remove
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </li>
-                            ))}
                           </ul>
-
-
 
                         </div>
                       </div>
@@ -182,6 +181,8 @@ export const Cart = () => {
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
                         <button
+                          type="button"
+                          onClick={() => { }}
                           className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-[#FFBA98] to-[#FCCAB1] transition-allpx-6 py-3 text-base font-medium text-[#121212] shadow-sm "
                         >
                           Checkout

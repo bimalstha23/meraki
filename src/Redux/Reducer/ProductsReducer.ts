@@ -18,7 +18,7 @@ export const getProductSlice = createSlice({
     initialState: {
         products: [] as any,
         status: 'idle',
-        filteredProducts: [] as any
+        filteredProducts: [] as any,
     },
 
     reducers: {
@@ -28,13 +28,8 @@ export const getProductSlice = createSlice({
             })
         },
 
-        //filter products by min and max price 
-        filterProductsbyPriceRange: (state, action) => {
-            state.filteredProducts = state.products.filter((product: any) => {
-                return product.price >= action.payload.min && product.price <= action.payload.max
-            })
-        },
 
+        //filter products by rating
 
 
         filterProductsbyRating: (state, action) => {
@@ -84,5 +79,5 @@ export const {
     sortProductsbyPriceAsc,
     sortProductsbyPriceDesc,
     filterProductsbyCategory,
-    filterProductsbyPriceRange
+    filterProductsbyRating,
 } = getProductSlice.actions;

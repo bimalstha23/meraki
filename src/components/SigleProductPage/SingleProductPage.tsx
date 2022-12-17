@@ -72,7 +72,7 @@ export const SingleProductPage = () => {
                             <p className='text-gray-500 text-sm'>In Stock</p>
                             <div className='flex flex-row items-center gap-6'>
                             <h1 className='text-lg font-normal'>{convertCurrency( data?.price)}</h1>
-                            <h1 className='text-lg font-normal line-through'>{convertCurrency(data?.actualPrice)}</h1>
+                            <h1 className='text-lg font-normal line-through'>{data?.actualPrice ?  convertCurrency(data?.actualPrice):''}</h1>
                             </div>
                             <p className='text-gray-500 text-sm'>{data?.description}</p>
                             <button

@@ -23,13 +23,13 @@ export const ProductCard = (props: Productcardtype) => {
     const [open, setOpen] = useState(false);
 
     const { data } = useGetCartItemsQuery(currentUser?.uid)
-    const { name, price, rating, id,} = product;
+    const { name, price, rating, id, Image} = product;
 
     const addToCartHandler = async () => {
         if (uid) {
             const item = data.filter((data: any) => data.productId === product.id);
             if (item.length <= 0) {
-                await addCart({ name, price, rating, productId: id, uid, qty: 1 }).then(() => {
+                await addCart({ name, price, rating, Image , productId: id, uid, qty: 1 }).then(() => {
                     dispatch(setCartDialog(true))
                     setOpen(true)
                 })
@@ -40,12 +40,12 @@ export const ProductCard = (props: Productcardtype) => {
             dispatch(setLoginDialog(true))
         }
     }
-    const Image = product?.Image[0];
+    const Images = product?.Image[0];   
     return (
         <>
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully added to cart'} />
             <div className='group flex flex-col h-80 rounded-3xl box shadow-2xl cursor-pointer '>
-                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${Image})` ,
+                <div className='h-full rounded-3xl p-3' style={{ backgroundImage: `url(${Images})` ,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat'

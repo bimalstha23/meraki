@@ -5,61 +5,24 @@ import { GiCrossMark } from 'react-icons/gi'
 import { FiPlus } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux'
 import { IoMdFunnel } from 'react-icons/io';
-import { AiOutlineMinus } from 'react-icons/ai';
+import { AiFillStar, AiOutlineMinus } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery } from '../../Redux/Api/Api';
-import { filterProductsbyCategory, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating, filterProductsbyPriceRange } from '../../Redux/Reducer/ProductsReducer';
+import { filterProductsbyCategory, filterProductsbyRating, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
-import { Slider } from '@mui/material';
+import { convertCurrency } from '../../helper/helper';
+import { AiOutlineStar } from 'react-icons/ai'
 
 
-const filters = [
-  {
-    id: 'color',
-    name: 'Color',
-    options: [
-      { value: 'white', label: 'White', checked: false },
-      { value: 'beige', label: 'Beige', checked: false },
-      { value: 'blue', label: 'Blue', checked: true },
-      { value: 'brown', label: 'Brown', checked: false },
-      { value: 'green', label: 'Green', checked: false },
-      { value: 'purple', label: 'Purple', checked: false },
-    ],
-  },
-  {
-    id: 'category',
-    name: 'Category',
-    options: [
-      { value: 'new-arrivals', label: 'New Arrivals', checked: false },
-      { value: 'sale', label: 'Sale', checked: false },
-      { value: 'travel', label: 'Travel', checked: true },
-      { value: 'organization', label: 'Organization', checked: false },
-      { value: 'accessories', label: 'Accessories', checked: false },
-    ],
-  },
-  {
-    id: 'size',
-    name: 'Size',
-    options: [
-      { value: '2l', label: '2L', checked: false },
-      { value: '6l', label: '6L', checked: false },
-      { value: '12l', label: '12L', checked: false },
-      { value: '18l', label: '18L', checked: false },
-      { value: '20l', label: '20L', checked: false },
-      { value: '40l', label: '40L', checked: true },
-    ],
-  },
-]
+
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
 export const Products = () => {
-
-
 
 
   const dispatch = useDispatch<AppDispatch>()
@@ -77,31 +40,24 @@ export const Products = () => {
     dispatch(getProducts());
   }, []);
 
-  //filterProducts by price range
+  const filterPrice = useSelector((state: any) => state.products.price);
 
 
-  //get minimum and maximum price from the products list 
-
-
-
+  const handleFilterbyRating = (rating: any) => {
+    console.log(rating);
+    dispatch(filterProductsbyRating(rating));
+  }
 
   const { filteredProducts } = useSelector((state: any) => state.products)
   const minPrice = Math.min(...filteredProducts.map((product: any) => product.price));
   const maxPrice = Math.max(...filteredProducts.map((product: any) => product.price));
 
   const { data: Categories } = useGetCategoriesQuery();
-
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+  const [price, setPrice] = useState<any>();
 
-  const [value, setValue] = useState<number[]>([minPrice, maxPrice]);
-
-  const handleChange = (event:Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
-     
-  };
-
-  const handleFilterByPriceRange = (min: number, max: number) => {
-    dispatch(filterProductsbyPriceRange({ min, max }));
+  const handlePriceRange = (event: any, newValue: any) => {
+    setPrice(newValue);
   }
 
   return (
@@ -158,48 +114,6 @@ export const Products = () => {
                       ))}
                     </ul>
 
-                    {filters.map((section) => (
-                      <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
-                        {({ open }) => (
-                          <>
-                            <h3 className="-mx-2 -my-3 flow-root">
-                              <Disclosure.Button className="flex w-full items-center justify-between bg-white px-2 py-3 text-gray-400 hover:text-gray-500">
-                                <span className="font-medium text-gray-900">{section.name}</span>
-                                <span className="ml-6 flex items-center">
-                                  {open ? (
-                                    <AiOutlineMinus className="h-5 w-5" aria-hidden="true" />
-                                  ) : (
-                                    <FiPlus className="h-5 w-5" aria-hidden="true" />
-                                  )}
-                                </span>
-                              </Disclosure.Button>
-                            </h3>
-                            <Disclosure.Panel className="pt-6">
-                              <div className="space-y-6">
-                                {section.options.map((option, optionIdx) => (
-                                  <div key={option.value} className="flex items-center">
-                                    <input
-                                      id={`filter-mobile-${section.id}-${optionIdx}`}
-                                      name={`${section.id}[]`}
-                                      defaultValue={option.value}
-                                      type="checkbox"
-                                      defaultChecked={option.checked}
-                                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                    />
-                                    <label
-                                      htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                      className="ml-3 min-w-0 flex-1 text-gray-500"
-                                    >
-                                      {option.label}
-                                    </label>
-                                  </div>
-                                ))}
-                              </div>
-                            </Disclosure.Panel>
-                          </>
-                        )}
-                      </Disclosure>
-                    ))}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -288,73 +202,53 @@ export const Products = () => {
                 </ul>
                 <div className='border-b border-gray-200 py-6'>
                   <h3 className='-my-3 flow-root pb-6 text-sm font-medium text-gray-900'>
-                    Price
+                    Ratings
                   </h3>
-                  <div className='flex items-center'>
-                    <Slider
-                      value={value}
-                      onChange={handleChange}
-                      valueLabelDisplay='auto'
-                      aria-labelledby='range-slider'
-                      min={minPrice}
-                      max={maxPrice}
-                    />
+                  <div className='flex flex-col'>
+                        <button onClick={(e) => handleFilterbyRating(5)} className='flex flex-row'>
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                        </button>
+                        <button onClick={(e) => handleFilterbyRating(4)} className='flex flex-row'>
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                        </button>  
+                          <button onClick={(e) => handleFilterbyRating(3)} className='flex flex-row'>
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                        </button>
+                        <button onClick={(e) => handleFilterbyRating(2)} className='flex flex-row'>
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                        </button>
+                        <button onClick={(e) => handleFilterbyRating(1)} className='flex flex-row'>
+                              <AiFillStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                        </button>
+
 
                   </div>
-
-
                 </div>
-
-
-                {filters.map((section) => (
-                  <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
-                    {({ open }) => (
-                      <>
-                        <h3 className="-my-3 flow-root">
-                          <Disclosure.Button className="flex w-full items-center justify-between bg-white py-3 text-sm text-gray-400 hover:text-gray-500">
-                            <span className="font-medium text-gray-900">{section.name}</span>
-                            <span className="ml-6 flex items-center">
-                              {open ? (
-                                <AiOutlineMinus className="h-5 w-5" aria-hidden="true" />
-                              ) : (
-                                <FiPlus className="h-5 w-5" aria-hidden="true" />
-                              )}
-                            </span>
-                          </Disclosure.Button>
-                        </h3>
-                        <Disclosure.Panel className="pt-6">
-                          <div className="space-y-4">
-                            {section.options.map((option, optionIdx) => (
-                              <div key={option.value} className="flex items-center">
-                                <input
-                                  id={`filter-${section.id}-${optionIdx}`}
-                                  name={`${section.id}[]`}
-                                  defaultValue={option.value}
-                                  type="checkbox"
-                                  defaultChecked={option.checked}
-                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <label
-                                  htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="ml-3 text-sm text-gray-600"
-                                >
-                                  {option.label}
-                                </label>
-                              </div>
-                            ))}
-                          </div>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))}
               </div>
 
               {/* Product grid */}
               <div className="lg:col-span-3">
-                {/* Replace with your content */}
-                {/* <div className="h-96 rounded-lg border-4 border-dashed border-gray-200 lg:h-full" /> */}
-                {/* /End replace */}
+
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                   {filteredProducts &&
                     (filteredProducts.map((product: any, key: number) => (

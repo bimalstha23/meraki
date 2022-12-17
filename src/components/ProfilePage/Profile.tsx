@@ -96,8 +96,6 @@ export const Profile = () => {
                       />
                     </div>
 
-
-
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
