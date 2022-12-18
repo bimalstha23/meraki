@@ -11,34 +11,29 @@ import {
 export const Api = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
-    tagTypes: ['API'],
+    tagTypes: ['cart','product'],
     endpoints: (builder) => ({
         getCategories: builder.query<category[], void>({
             query: () => `categories`,
-            providesTags: ['API']
         }),
 
         getFeaturedProducts: builder.query<product[], void>({
             query: () => `featuredProducts`,
-            providesTags: ['API']
 
         }),
 
         getSingleProduct: builder.query({
             query: (id) => `products/${id}`,
-            providesTags: ['API']
 
         }),
 
         getCommentsOfProduct: builder.query<Comment[], string | number | undefined>({
             query: (id) => `products/${id}/comments/`,
-            providesTags: ['API']
-
         }),
 
         getCartItems: builder.query<any,any>({
             query: (uid) => `user/${uid}/cart/`,
-            providesTags: ['API']
+            providesTags: ['cart']
         }),
 
         addUser: builder.mutation({
@@ -47,7 +42,6 @@ export const Api = createApi({
                 method: 'POST',
                 body: data
             }),
-            invalidatesTags: ['API']
         }),
 
         addCart:builder.mutation({
@@ -56,7 +50,7 @@ export const Api = createApi({
                 method: 'POST',
                 body: data,
         }),
-        invalidatesTags: ['API']
+        invalidatesTags: ['cart']
 
         }),
 
@@ -68,7 +62,7 @@ export const Api = createApi({
                 method: 'PUT',
                 body: {uid,id,...data}
             }),
-            invalidatesTags: ['API']
+            invalidatesTags: ['cart']
 
         }),
         deleteCart: builder.mutation({
@@ -76,7 +70,7 @@ export const Api = createApi({
                 url: `user/${uid}/cart/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['API']
+            invalidatesTags: ['cart']
         }),
 
         deleteProduct: builder.mutation({
@@ -84,8 +78,15 @@ export const Api = createApi({
                 url: `products/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['API']
-        })
+            invalidatesTags: ['product']
+        }),
+
+        getAllProducts : builder.query<product[], void>({
+            query: () => `products`,
+            providesTags: ['product']
+        }),
+
+
     })
 })
 
@@ -101,5 +102,7 @@ export const {
     useUpdateCartMutation,
     useDeleteCartMutation,
     useDeleteProductMutation,
+    useGetAllProductsQuery,
+
     // useAddCommentsMutation
 } = Api;

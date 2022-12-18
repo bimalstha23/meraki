@@ -9,18 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../../Redux/Store'
-import { useDeleteProductMutation } from '../../../Redux/Api/Api';
+import { useDeleteProductMutation, useGetAllProductsQuery } from '../../../Redux/Api/Api';
 
 
 
 
 export default function ManageProducts() {
-    const { filteredProducts } = useSelector((state: any) => state.products)
-    const dispatch = useDispatch<AppDispatch>()
-    useEffect(() => {
-        dispatch(getProducts())
-    })
-
+    const {data} = useGetAllProductsQuery();
     const [deleteProduct] = useDeleteProductMutation();
 
     return (
@@ -44,7 +39,7 @@ export default function ManageProducts() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {filteredProducts?.map((row: any) => (
+                    {data?.map((row: any) => (
                         <TableRow
                             key={row.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -62,7 +57,6 @@ export default function ManageProducts() {
                                     <button onClick={
                                         () => {
                                             deleteProduct(row.id)
-                                            dispatch(getProducts())
                                         }
                                     } className='bg-red-500 text-white px-2 py-1 rounded-md'>Delete</button>
                                     <button className='bg-blue-500 text-white px-2 py-1 rounded-md'>Edit</button>

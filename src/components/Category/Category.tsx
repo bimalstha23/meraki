@@ -1,14 +1,14 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import {  Pagination, Scrollbar } from 'swiper';
+import { Mousewheel, Pagination, Scrollbar } from 'swiper';
 import "swiper/css";
 import "swiper/css/pagination";
 
 
-import {useGetCategoriesQuery}  from '../../Redux/Api/Api'
+import { useGetCategoriesQuery } from '../../Redux/Api/Api'
 import { CategoryCard } from './CategoryCard'
 export const Category = () => {
-    const {data, error, isLoading} = useGetCategoriesQuery();
+    const { data, error, isLoading } = useGetCategoriesQuery();
     return (
         <div className='flex flex-col px-28 mt-10'>
             <div className='flex flex-col  justify-center items-center'>
@@ -17,21 +17,22 @@ export const Category = () => {
             </div>
             <div className='mt-4'>
 
-            <Swiper
-            slidesPerView={3}
-            spaceBetween={30}
-                pagination={true}
-                modules={[Pagination,]}
-                  className="mySwiper h-72"
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    pagination={true}
+                    mousewheel={true}
+                    modules={[Pagination,Mousewheel]}
+                    className="mySwiper h-72"
                 >
-                {isLoading?<h1>loading</h1>: data?.map((category:any)=>(
-                    <SwiperSlide key={category.id}>
-                        <CategoryCard category={category}/>
-                    </SwiperSlide>
+                    {isLoading ? <h1>loading</h1> : data?.map((category: any) => (
+                        <SwiperSlide key={category.id}>
+                            <CategoryCard category={category} />
+                        </SwiperSlide>
 
-                ))}
-            </Swiper>
-                </div>
+                    ))}
+                </Swiper>
+            </div>
 
         </div>
     )
