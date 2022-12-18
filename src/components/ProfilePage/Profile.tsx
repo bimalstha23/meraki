@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, useFormik } from 'formik';
 
 export const Profile = () => {
-    const dispatch = useDispatch();
     const userDetails = useSelector((state: any) => state.user.userDetails);
     const firstName = userDetails?.displayName?.split(' ').slice(0, -1).join(' ');
     const lastName = userDetails?.displayName?.split(' ').slice(-1).join(' ');
@@ -28,9 +27,7 @@ export const Profile = () => {
             <form action="#" method="POST">
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
-                    
                   <div className="grid grid-cols-6 gap-6">
-
                     <div className="col-span-6 sm:col-span-3">
                       <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
                         First name

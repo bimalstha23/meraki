@@ -11,7 +11,7 @@ import {
 export const Api:any = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
-    tagTypes: ['cart','product'],
+    tagTypes: ['cart','product','address'],
     endpoints: (builder) => ({
         getCategories: builder.query<category[], void>({
             query: () => `categories`,
@@ -87,9 +87,16 @@ export const Api:any = createApi({
         }),
         getAddress: builder.query({
             query: (uid) => `user/${uid}/address/`,
+            providesTags: ['address']
         }),
-
-
+        addAddress: builder.mutation({
+            query: (data) => ({
+                url: `address`,
+                method: 'POST',
+                body: data
+            }),
+            invalidatesTags: ['address']
+        }),
     })
 })
 
@@ -107,6 +114,7 @@ export const {
     useDeleteProductMutation,
     useGetAllProductsQuery,
     useGetAddressQuery,
+    useAddAddressMutation,
 
     // useAddCommentsMutation
 } = Api;

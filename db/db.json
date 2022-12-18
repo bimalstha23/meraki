@@ -279,28 +279,25 @@
       "date": "2020-10-10",
       "id": 2
     }
-    
   ],
   "users": [],
   "cart": [
     {
-      "name": "Snake chain necklace choker 💚 ",
-      "price": 80000,
-      "rating": 2,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319697454_211114241336088_5614761795693694810_n.jpg?alt=media&token=8586105c-b645-44d1-a961-0f2e53a2ef51",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319907914_640301407877304_2748274767004384747_n.jpg?alt=media&token=e774f4fc-b5d5-48e5-b1b1-f4f1a4da141b",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319939774_1861248334213991_1752967562174108008_n.jpg?alt=media&token=f3563e15-6473-4104-940a-5333cac09303",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320024948_1207202463212941_5968889734289802763_n.jpg?alt=media&token=527c9ce8-32af-4acd-ae0a-c691d063bb8a",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320241395_899997034694376_5952828850086108133_n.jpg?alt=media&token=0e13672d-97ca-45de-b4e3-cd04b8e2cd9f"
-      ],
-      "productId": 1,
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "qty": 1,
-      "id": 1
+      "id": 1,
+      "qty": 4,
+      "name": "Hair claw clip with cross and safety pin",
+      "price": 50000,
+      "rating": 4,
+      "productId": 2,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319342533_524362502762638_3873250713088204801_n.jpg?alt=media&token=810fa2a0-1112-486d-835d-d34d80eccb87",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319570137_865887911423751_1320837184223910938_n.jpg?alt=media&token=eba50ce7-2ec0-4896-bad1-40ed501e442d",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319558362_817389726007567_262352945944919046_n.jpg?alt=media&token=f2349f1b-04d3-4473-93e5-bb2162590566",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319476228_1193155237992310_3459234462246679738_n.jpg?alt=media&token=5d3b534c-f818-4b46-8db7-8ba492348aa6"
+      ]
     }
   ],
-
   "Address": [
     {
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
@@ -313,6 +310,16 @@
       "phone": "9840000245",
       "landmark": "near pulchowk",
       "id": 1
+    },
+    {
+      "name": "Bimal Shrestha",
+      "phone": 9823711182,
+      "state": "bagmati",
+      "city": "kathmandu",
+      "address": "Kathmandu, Putalisadak",
+      "landmark": "kantipur City College",
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 2
     }
   ]
 }
