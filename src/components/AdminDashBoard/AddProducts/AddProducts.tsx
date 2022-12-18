@@ -7,6 +7,7 @@ import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 import { sellerStorage } from '../../../config/firebase';
 import axios from 'axios';
 import { SnackBar } from '../../SnackBar/SnackBar';
+import { Backdrop, CircularProgress } from '@mui/material';
 
 
 
@@ -14,6 +15,7 @@ export const AddProducts = () => {
   const { data } = useGetCategoriesQuery()
   const [fileList, setFileList] = useState<any>([]);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   type initialValues = {
     productName: string,
@@ -44,6 +46,7 @@ export const AddProducts = () => {
     validationSchema: formvalidation,
     onSubmit: async (values: initialValues) => {
       if (fileList) {
+        setLoading(true);
         const imageurls = await uploadImages(fileList);
         axios({
           method: 'post',
@@ -51,7 +54,7 @@ export const AddProducts = () => {
           data: {
             tags: values.productTags.split(" "),
             name: values.productName,
-            price: values.productPrice,
+            price: values.productPrice * 100,
             Description: values.productDescription,
             Category: values.productCategory,
             Image: imageurls,
@@ -59,7 +62,7 @@ export const AddProducts = () => {
             rating: 0,
           }
         }).then((res) => {
-          console.log(res)
+          setLoading(false);
           setOpen(true)
         }).catch(e => console.log(e))
       }
@@ -81,6 +84,15 @@ export const AddProducts = () => {
 
   return (
     <div className='flex flex-row gap-10 p-10 w-full'>
+
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
+
+
       <SnackBar open={open} setOpen={setOpen} messege={'Product added'} />
       <div className='flex flex-col w-full'>
         <div className="md:col-span-1">
@@ -101,6 +113,7 @@ export const AddProducts = () => {
               <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
                 Product Name
                 <input onChange={formik.handleChange} value={formik.values.productName} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productName' name='productName' type="text" placeholder='Mobile Phone' />
+                {formik.errors.productName && formik.touched.productName ? <span className='text-xs text-red-500'>{formik.errors.productName}</span> : null}
               </label>
             </div>
 
@@ -110,6 +123,8 @@ export const AddProducts = () => {
               <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
                 Product Price (Rs)
                 <input onChange={formik.handleChange} value={formik.values.productPrice} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productPrice' name='productPrice' type="number" placeholder='30000' />
+                {formik.errors.productPrice && formik.touched.productPrice ? <span className='text-xs text-red-500'>{formik.errors.productPrice}</span> : null}
+
               </label>
             </div>
 
@@ -118,10 +133,13 @@ export const AddProducts = () => {
                 Product Category:
                 <br />
                 <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
-                  {data?.map((item) => {
+                  <option value=''>Select Category</option>
+                  {data?.map((item: any) => {
                     return <option>{item.name}</option>
                   })}
                 </select>
+                {formik.errors.productCategory && formik.touched.productCategory ? <span className='text-xs text-red-500'>{formik.errors.productCategory}</span> : null}
+
               </label>
             </div>
 
@@ -129,13 +147,17 @@ export const AddProducts = () => {
               <label htmlFor="producttags" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
                 Product tags (give space after one tag)
                 <input onChange={formik.handleChange} value={formik.values.productTags} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productTags' name='productTags' type="string" placeholder='tags' />
+                {formik.errors.productTags && formik.touched.productTags ? <span className='text-xs text-red-500'>{formik.errors.productTags}</span> : null}
               </label>
+
             </div>
 
             <div className='flex flex-row justify-center items-center  mt-5'>
               <label htmlFor="productDescription" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
                 Product Description
                 <textarea onChange={formik.handleChange} value={formik.values.productDescription} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productDescription' name='productDescription' placeholder='Best mobile Phone on the town ' />
+
+                {formik.errors.productDescription && formik.touched.productDescription ? <span className='text-xs text-red-500'>{formik.errors.productDescription}</span> : null}
               </label>
             </div>
             <button type='submit'>submit</button>

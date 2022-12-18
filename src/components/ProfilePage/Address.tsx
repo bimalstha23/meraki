@@ -17,7 +17,7 @@ export const Address = () => {
 
     return (
         <div className='w-full'>
-                
+                    
             <div className='flex flex-row justify-between items-baseline'>
                 <h1 className='font-bold text-lg'>Address</h1>
                 <button onClick={() => dispatch(setAddressDialog(true)

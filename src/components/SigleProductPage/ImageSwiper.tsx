@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react';
-import type { Swiper as SwiperType } from 'swiper'
+import { Mousewheel, Swiper as SwiperType } from 'swiper'
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -27,8 +27,9 @@ export const ImageSwiper = (props: any) => {
                 onSwiper={setThumbsSwiper}
                 slidesPerView={4}
                 // freeMode={true}
+                mousewheel={true}
                 watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
+                modules={[FreeMode, Navigation, Thumbs,Mousewheel]}
                 className="mySwiper rounded-lg py-2 h-24"
             >
                 {Image?.map((image: any) => (

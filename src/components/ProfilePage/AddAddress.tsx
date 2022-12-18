@@ -7,11 +7,12 @@ import * as Yup from 'yup';
 import { useAddAddressMutation } from '../../Redux/Api/Api';
 import { useState } from 'react';
 import { SnackBar } from '../SnackBar/SnackBar';
+import { Backdrop, CircularProgress } from '@mui/material';
 
 export default function AddAddress() {
     const dispatch = useDispatch<AppDispatch>();
     const [snackbar, setSnackbar] = useState(false);
-
+    const [loading, setLoading] = useState(false);
     const [addAddress] = useAddAddressMutation();
     const currentUser = useSelector((state: any) => state.user.currentUser)
 
@@ -43,8 +44,10 @@ export default function AddAddress() {
             const data = {
                 ...values, uid: currentUser?.uid
             }
+            setLoading(true);
             addAddress(data).then(() => {
                 setSnackbar(true);
+                setLoading(false);
                 handleClose();
             })
         }
@@ -57,6 +60,12 @@ export default function AddAddress() {
         <div>
             <SnackBar open={snackbar} setOpen={setSnackbar} messege='Address Added' />
 
+            <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={loading}
+            >
+                <CircularProgress color="inherit" />
+            </Backdrop>
             <Dialog fullWidth open={addressDialog} onClose={handleClose}>
                 <div className='flex flex-col   p-5 w-full'>
                     <h1>Add Address</h1>
@@ -77,7 +86,7 @@ export default function AddAddress() {
                                 autoComplete="email"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.name && formik.errors.name ? (<span className=' text-xs text-red-400 '> { formik.errors.name}  </span>) : null }
+                            {formik.touched.name && formik.errors.name ? (<span className=' text-xs text-red-400 '> {formik.errors.name}  </span>) : null}
 
                         </div>
                         <div className="col-span-6 sm:col-span-4 w-full">
@@ -93,7 +102,7 @@ export default function AddAddress() {
                                 autoComplete="phone"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.phone && formik.errors.phone ? (<span className=' text-xs text-red-400 '> { formik.errors.phone}  </span>) : null }
+                            {formik.touched.phone && formik.errors.phone ? (<span className=' text-xs text-red-400 '> {formik.errors.phone}  </span>) : null}
 
                         </div>
                         <div className="col-span-6 sm:col-span-4 w-full">
@@ -109,7 +118,7 @@ export default function AddAddress() {
                                 autoComplete="address"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.address && formik.errors.address ? (<span className=' text-xs text-red-400 '> { formik.errors.address}  </span>) : null }
+                            {formik.touched.address && formik.errors.address ? (<span className=' text-xs text-red-400 '> {formik.errors.address}  </span>) : null}
 
                         </div>
 
@@ -126,7 +135,7 @@ export default function AddAddress() {
                                 autoComplete="state"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.state && formik.errors.state ? (<span className=' text-xs text-red-400 '> { formik.errors.state}  </span>) : null }
+                            {formik.touched.state && formik.errors.state ? (<span className=' text-xs text-red-400 '> {formik.errors.state}  </span>) : null}
 
                         </div>
                         <div className="col-span-6 sm:col-span-4 w-full">
@@ -142,7 +151,7 @@ export default function AddAddress() {
                                 autoComplete="city"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.city && formik.errors.city ? (<span className=' text-xs text-red-400 '> { formik.errors.city}  </span>) : null }
+                            {formik.touched.city && formik.errors.city ? (<span className=' text-xs text-red-400 '> {formik.errors.city}  </span>) : null}
 
                         </div>
                         <div className="col-span-6 sm:col-span-4 w-full">
@@ -158,7 +167,7 @@ export default function AddAddress() {
                                 autoComplete="landmark"
                                 className="mt-1 block w-full border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                             />
-                            { formik.touched.landmark && formik.errors.landmark ? (<span  className=' text-xs text-red-400 '> { formik.errors.landmark}  </span>) : null }
+                            {formik.touched.landmark && formik.errors.landmark ? (<span className=' text-xs text-red-400 '> {formik.errors.landmark}  </span>) : null}
                         </div>
                         <button type='submit' className='mt-3 bg-gradient-to-tr from-[#FDC1A2] to-[#FFEFE8] w-32 py-2 rounded-lg'>
                             Add Address
