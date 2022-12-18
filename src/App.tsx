@@ -5,11 +5,11 @@ import { useEffect } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { buyerAuth } from "./config/firebase"
 import { getUserDetails, setUserLoginDetails } from "./Redux/Reducer"
-import { AppDispatch } from "./Redux/Store"
+import { AppDispatch, RootState } from "./Redux/Store"
 
 function App() {
   const Dispatch = useDispatch<AppDispatch>()
-  const currentUser = useSelector((state: any) => state.user.currentUser)
+  const currentUser = useSelector<RootState>((state) => state.user.currentUser)
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(buyerAuth, (user) => {
       if (user) {

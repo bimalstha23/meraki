@@ -13,14 +13,21 @@ export const getProducts = createAsyncThunk(
     }
 )
 
+interface ProductsState {
+    products: [] | any ;
+    status: string;
+    filteredProducts: [] | any;
+}
+const initialState: ProductsState = {
+    products: [],
+    status: 'idle',
+    filteredProducts: [],
+}
+
+
 export const getProductSlice = createSlice({
     name: "Products",
-    initialState: {
-        products: [] as any,
-        status: 'idle',
-        filteredProducts: [] as any,
-    },
-
+    initialState,
     reducers: {
         filterProductsbyCategory: (state, action) => {
             state.filteredProducts = state.products.filter((product: any) => {

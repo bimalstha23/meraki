@@ -1,18 +1,17 @@
 
 import { Fragment, useEffect, useState } from 'react'
-import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react'
+import { Dialog, Menu, Transition } from '@headlessui/react'
 import { GiCrossMark } from 'react-icons/gi'
 import { FiPlus } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux'
 import { IoMdFunnel } from 'react-icons/io';
-import { AiFillStar, AiOutlineMinus } from 'react-icons/ai';
+import { AiFillStar, } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery } from '../../Redux/Api/Api';
 import { filterProductsbyCategory, filterProductsbyRating, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
-import { convertCurrency } from '../../helper/helper';
 import { AiOutlineStar } from 'react-icons/ai'
 
 

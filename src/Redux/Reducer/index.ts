@@ -17,13 +17,20 @@ export const getUserDetails = createAsyncThunk(
     }
 )
 
+interface UserState {
+    currentUser: any | null | {} | undefined;
+    userDetails: any | {};
+}
+
+const initialState: UserState = {
+    currentUser: null,
+    userDetails: {},
+}
+
 
 export const user = createSlice({
     name: "user",
-    initialState: {
-        currentUser: null,
-        userDetails:{} as any
-    },
+    initialState,
     reducers: {
         setUserLoginDetails: (state, action) => {
             state.currentUser = action.payload;

@@ -29,7 +29,7 @@ export const Cart = () => {
       rating: product.rating,
       productId: product.productId,
       uid: product.uid,
-      Image: product.Image
+        Image: product.Image
 
     }
     await updateCart(newcart)

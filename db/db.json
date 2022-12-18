@@ -545,12 +545,11 @@
   "cart": [
     {
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 1,
-      "qty": 1,
-      "name": "Black orb wings necklace ",
-      "price": 10,
-      "rating": 3,
-      "productId": 8,
+      "id": 2,
+      "qty": 2,
+      "name": "HELLO WORLD",
+      "price": 82099,
+      "productId": 26,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesreceived_313467523449928%201.png?alt=media&token=4367c690-50b9-419d-bc2d-fc6df444f15a"
       ]
