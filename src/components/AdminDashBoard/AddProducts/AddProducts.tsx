@@ -43,52 +43,39 @@ export const AddProducts = () => {
     initialValues: initalvalues,
     validationSchema: formvalidation,
     onSubmit: async (values: initialValues) => {
-
       if (fileList) {
-        const imageurls = [] as any;
-        fileList.map(async (file: any) => {
-          const storageRef = ref(sellerStorage, `Products/Images${file.name}`);
-          await uploadBytesResumable(storageRef, file);
-          await getDownloadURL(storageRef).then((imgurl) => {
-            imageurls.push(imgurl);
-          });
-        })
-
-        setTimeout(() => {
-          axios({
-            method: 'post',
-            url: 'http://localhost:3000/products/',
-            data: {
-              tags: values.productTags.split(" "),
-              name: values.productName,
-              price: values.productPrice,
-              Description: values.productDescription,
-              Category: values.productCategory,
-              Image: imageurls,
-              numReviews: 0,
-              rating: 0,
-              
-            }
-          }).then((res) => {
-            setOpen(true)
-            console.log(res)
-          }).catch(e => console.log(e))
-        }, 1000);
+        const imageurls = await uploadImages(fileList);
+        axios({
+          method: 'post',
+          url: 'http://localhost:3000/products/',
+          data: {
+            tags: values.productTags.split(" "),
+            name: values.productName,
+            price: values.productPrice,
+            Description: values.productDescription,
+            Category: values.productCategory,
+            Image: imageurls,
+            numReviews: 0,
+            rating: 0,
+          }
+        }).then((res) => {
+          console.log(res)
+          setOpen(true)
+        }).catch(e => console.log(e))
       }
     },
   })
 
-  // const addPost = (makepost:()=>{})=>{
-  //   if (fileList) {
-  //     fileList.map(async (file: any) => {
-  //       const storageRef = ref(sellerStorage, `Products/Images${file.name}`);
-  //       await uploadBytesResumable(storageRef,file);
-  //       await getDownloadURL(storageRef).then((imgurl)=>{
-  //         imageurls.push(imgurl);
-  //       });
-  //     })
-  //   }
-  // }
+  const uploadImages = async (fileList: any[]) => {
+    const imageurls = [] as any;
+    for (const file of fileList) {
+      const storageRef = ref(sellerStorage, `Products/Images${file.name}`);
+      await uploadBytesResumable(storageRef, file);
+      const imgurl = await getDownloadURL(storageRef);
+      imageurls.push(imgurl);
+    }
+    return imageurls;
+  }
 
 
 

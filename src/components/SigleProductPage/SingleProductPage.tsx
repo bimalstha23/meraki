@@ -30,12 +30,11 @@ export const SingleProductPage = () => {
     const addToCartHandler = async () => {
         if (uid) {
             const item = cartdata?.filter((cart: any) =>{
-                console.log(cart.productId,productid)
                 return cart.productId == productid;
             } )
             console.log(item);
             if (item.length <= 0) {
-                await addCart({ name, price, rating, productId: id, uid, qty: 1 }).then(() => {
+                await addCart({ name, price, rating,Image, productId: id, uid, qty: 1 }).then(() => {
                     dispatch(setCartDialog(true))
                     setOpen(true)
                 })

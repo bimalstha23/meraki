@@ -63,6 +63,7 @@ export const Cart = () => {
 
   const totalPrice = data?.reduce((acc: any, item: any) => acc + item.price * item.qty, 0)
 
+  
 
   return (
     <Transition.Root show={cartDialog} as={Fragment}>
