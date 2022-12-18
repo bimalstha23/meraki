@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { useSelector } from 'react-redux'
 import { Comments } from './Comments'
+import { Description } from './Description'
 function classNames(...classes:any) {
   return classes.filter(Boolean).join(' ')
 }
@@ -13,7 +14,7 @@ export  function OtherProductDetails() {
     'videos',
 
 ]
-    const currentProduct  = useSelector((state:any)=>state.currentProduct)    
+    const currentProduct  = useSelector((state:any)=>state.product.currentProduct)    
 
   return (
     <div className="w-full px-2 py-16 sm:px-0">
@@ -38,7 +39,7 @@ export  function OtherProductDetails() {
         </Tab.List>
         <Tab.Panels className="mt-2">
           <Tab.Panel>
-                hello Description
+              <Description Description = {currentProduct?.Description}/>
           </Tab.Panel>
           <Tab.Panel>
                 hello Reviews
