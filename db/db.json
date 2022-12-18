@@ -264,47 +264,22 @@
   ],
   "comments": [
     {
-      "productId": 1,
-      "name": "John",
-      "comment": "This is a comment",
+      "productId": 6,
+      "name": "John Doe",
+      "comment": "loreum ipsum Est amet cupidatat reprehenderit officia. Labore Lorem amet excepteur ullamco cillum et quis aute. Aliquip excepteur irure aute occaecat incididunt nostrud do quis. Voluptate minim aliquip fugiat pariatur commodo Lorem sint eiusmod nulla ullamco consequat. Ea laborum occaecat voluptate tempor eu velit amet fugiat ea. Laborum sunt amet excepteur pariatur minim sint.",
       "rating": 3,
       "date": "2020-10-10",
       "id": 1
     },
     {
-      "productId": 1,
-      "name": "Bimal Don",
-      "comment": "This is a comment",
-      "rating": 3,
+      "productId": 6,
+      "name": "Ram das ",
+      "comment": "loreum ipsum Est amet cupidatat reprehenderit officia. Labore Lorem amet excepteur ullamco cillum et quis aute. Aliquip excepteur irure aute occaecat incididunt nostrud do quis. Voluptate minim aliquip fugiat pariatur commodo Lorem sint eiusmod nulla ullamco consequat. Ea laborum occaecat voluptate tempor eu velit amet fugiat ea. Laborum sunt amet excepteur pariatur minim sint.",
+      "rating": 4,
       "date": "2020-10-10",
       "id": 2
-    },
-    {
-      "productId": 2,
-      "name": "Bimal shrestha",
-      "comment": "This is a comment",
-      "rating": 3,
-      "date": "2020-10-10",
-      "id": 2
-    },
-    {
-      "name": "Black orb wings necklace ",
-      "price": 10,
-      "rating": 3,
-      "productId": "undefined",
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "qty": 1,
-      "id": 3
-    },
-    {
-      "name": "Black orb wings necklace ",
-      "price": 10,
-      "rating": 3,
-      "productId": "undefined",
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "qty": 1,
-      "id": 4
     }
+    
   ],
   "users": [],
   "cart": [

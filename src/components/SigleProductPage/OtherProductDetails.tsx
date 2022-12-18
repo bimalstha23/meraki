@@ -3,24 +3,25 @@ import { Tab } from '@headlessui/react'
 import { useSelector } from 'react-redux'
 import { Comments } from './Comments'
 import { Description } from './Description'
-function classNames(...classes:any) {
+import { ProductVideo } from './ProductVideo'
+function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
-export  function OtherProductDetails() {
+export function OtherProductDetails() {
   const tabList = [
     'Description',
     'Reviews',
     'videos',
 
-]
-    const currentProduct  = useSelector((state:any)=>state.product.currentProduct)    
+  ]
+  const currentProduct = useSelector((state: any) => state.product.currentProduct)
 
   return (
     <div className="w-full px-2 py-16 sm:px-0">
       <Tab.Group>
         <Tab.List className="flex flex-row justify-start rounded-xl">
-          {tabList.map((category,key) => (
+          {tabList.map((category, key) => (
             <Tab
               key={key}
               className={({ selected }) =>
@@ -39,14 +40,13 @@ export  function OtherProductDetails() {
         </Tab.List>
         <Tab.Panels className="mt-2">
           <Tab.Panel>
-              <Description Description = {currentProduct?.Description}/>
+            <Description Description={currentProduct?.Description} />
           </Tab.Panel>
           <Tab.Panel>
-                hello Reviews
-                <Comments productId = {currentProduct?.id} />
+            <Comments productId={currentProduct?.id} />
           </Tab.Panel>
           <Tab.Panel>
-                hello video
+            <ProductVideo video='' />
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

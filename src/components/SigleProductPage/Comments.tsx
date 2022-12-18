@@ -13,8 +13,17 @@ export const Comments = (props: commentsprops) => {
 
 
     return (
-        <div className='flex flex-col'>
-          
+        <div className='flex flex-col '>
+            <h1 className='text-2xl font-bold'>Revies</h1>
+            {data?.map((comment: any) => (
+                <div className='flex flex-col  border-b border-gray-200 py-4'>
+                    <div className='flex flex-col justify-between'>
+                        <h1 className='text-lg font-bold'>{comment.name}</h1>
+                        <Rating name="read-only" value={comment.rating} readOnly />
+                        <p className='text-gray-500 text-sm '>{comment.comment} </p>
+                    </div>
+                </div>
+            ))}
         </div>
     )
 }
