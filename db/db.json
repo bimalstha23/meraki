@@ -299,5 +299,20 @@
       "qty": 1,
       "id": 1
     }
+  ],
+
+  "Address": [
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "name": "Bimal Shrestha",
+      "address": "Pulchowk",
+      "city": "lalitpur",
+      "state": "Bagmati",
+      "zip": "94111",
+      "country": "Nepal",
+      "phone": "9840000245",
+      "landmark": "near pulchowk",
+      "id": 1
+    }
   ]
 }

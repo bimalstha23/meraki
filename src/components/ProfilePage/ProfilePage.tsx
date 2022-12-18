@@ -1,6 +1,5 @@
-import React from 'react'
-import { Profile } from './Profile'
 import { ProfileNavigation } from './ProfileNavigation'
+import { Outlet } from 'react-router-dom'
 
 export const ProfilePage = () => {
     return (
@@ -8,8 +7,8 @@ export const ProfilePage = () => {
              <div>
              <ProfileNavigation/>
              </div>
-             <div>
-                <Profile/>
+             <div className='w-full'>
+                <Outlet/>
              </div>
 
         </div>

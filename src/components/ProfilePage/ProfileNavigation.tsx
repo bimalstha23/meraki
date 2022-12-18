@@ -34,7 +34,7 @@ export const ProfileNavigation = () => {
 
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col border-r border-gray-200'>
       <div className='flex flex-col gap-10'>
         {profileNavigation.map((items, key) => (
           <div key={key} className='flex flex-col'>

@@ -104,7 +104,7 @@ export const Products = () => {
                   <div className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {Categories?.map((category) => (
+                      {Categories?.map((category:any) => (
                         <li key={category.name}>
                           <button onClick={(e) => handleFilter(category.name)} className="block px-2 py-3">
                             {category.name}
@@ -193,7 +193,7 @@ export const Products = () => {
               <div className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-                  {Categories?.map((category) => (
+                  {Categories?.map((category:any) => (
                     <li key={category.name}>
                       <button onClick={(e) => handleFilter(category.name)}>{category.name}</button>
                     </li>

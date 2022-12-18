@@ -8,7 +8,7 @@ import {
     product,
     // cart
 } from '../../types'
-export const Api = createApi({
+export const Api:any = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
     tagTypes: ['cart','product'],
@@ -85,6 +85,9 @@ export const Api = createApi({
             query: () => `products`,
             providesTags: ['product']
         }),
+        getAddress: builder.query({
+            query: (uid) => `user/${uid}/address/`,
+        }),
 
 
     })
@@ -103,6 +106,7 @@ export const {
     useDeleteCartMutation,
     useDeleteProductMutation,
     useGetAllProductsQuery,
+    useGetAddressQuery,
 
     // useAddCommentsMutation
 } = Api;

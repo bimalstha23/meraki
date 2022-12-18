@@ -13,8 +13,8 @@ export function OtherProductDetails() {
     'Description',
     'Reviews',
     'videos',
-
   ]
+  
   const currentProduct = useSelector((state: any) => state.product.currentProduct)
 
   return (
