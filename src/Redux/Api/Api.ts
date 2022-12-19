@@ -8,10 +8,10 @@ import {
     product,
     // cart
 } from '../../types'
-export const Api:any = createApi({
+export const Api: any = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
-    tagTypes: ['cart','product','address'],
+    tagTypes: ['cart', 'product', 'address'],
     endpoints: (builder) => ({
         getCategories: builder.query<category[], void>({
             query: () => `categories`,
@@ -31,7 +31,7 @@ export const Api:any = createApi({
             query: (id) => `products/${id}/comments/`,
         }),
 
-        getCartItems: builder.query<any,any>({
+        getCartItems: builder.query<any, any>({
             query: (uid) => `user/${uid}/cart/`,
             providesTags: ['cart']
         }),
@@ -44,23 +44,23 @@ export const Api:any = createApi({
             }),
         }),
 
-        addCart:builder.mutation({
+        addCart: builder.mutation({
             query: (data) => ({
                 url: `/cart`,
                 method: 'POST',
                 body: data,
-        }),
-        invalidatesTags: ['cart']
+            }),
+            invalidatesTags: ['cart']
 
         }),
 
 
         updateCart: builder.mutation({
             query: ({ uid, id, ...data }) =>
-             ({
+            ({
                 url: `cart/${id}`,
                 method: 'PUT',
-                body: {uid,id,...data}
+                body: { uid, id, ...data }
             }),
             invalidatesTags: ['cart']
 
@@ -81,7 +81,7 @@ export const Api:any = createApi({
             invalidatesTags: ['product']
         }),
 
-        getAllProducts : builder.query<product[], void>({
+        getAllProducts: builder.query<product[], void>({
             query: () => `products`,
             providesTags: ['product']
         }),
@@ -94,6 +94,13 @@ export const Api:any = createApi({
                 url: `address`,
                 method: 'POST',
                 body: data
+            }),
+            invalidatesTags: ['address']
+        }),
+        deleteAddress: builder.mutation({
+            query: (id) => ({
+                url: `address/${id}`,
+                method: 'DELETE',
             }),
             invalidatesTags: ['address']
         }),
@@ -115,6 +122,6 @@ export const {
     useGetAllProductsQuery,
     useGetAddressQuery,
     useAddAddressMutation,
+    useDeleteAddressMutation,
 
-    // useAddCommentsMutation
 } = Api;

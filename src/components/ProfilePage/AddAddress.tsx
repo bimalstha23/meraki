@@ -19,7 +19,6 @@ export default function AddAddress() {
     const handleClose = () => {
         dispatch(setAddressDialog(false));
     };
-
     const validationSchema = Yup.object({
         name: Yup.string().required('Required'),
         phone: Yup.number().required('Required').min(10, 'Invalid Phone Number'),

@@ -124,7 +124,9 @@
       "price": 40000,
       "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
       "Category": "Earrings",
-      "Image": [],
+      "Image": [
+        "        https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
+      ],
       "numReviews": 0,
       "rating": 0,
       "id": 3
@@ -137,7 +139,9 @@
       "price": 35000,
       "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
       "Category": "Necklaces",
-      "Image": [],
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
+      ],
       "numReviews": 0,
       "rating": 0,
       "id": 4
@@ -377,26 +381,14 @@
   ],
   "Address": [
     {
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "name": "Bimal Shrestha",
-      "address": "Pulchowk",
-      "city": "lalitpur",
-      "state": "Bagmati",
-      "zip": "94111",
-      "country": "Nepal",
-      "phone": "9840000245",
-      "landmark": "near pulchowk",
-      "id": 1
-    },
-    {
-      "name": "Bimal Shrestha",
-      "phone": 9823711182,
+      "phone": 9840000245,
       "state": "bagmati",
-      "city": "kathmandu",
-      "address": "Kathmandu, Putalisadak",
-      "landmark": "kantipur City College",
+      "city": "Pulchwok",
+      "address": "Pulchwok",
+      "landmark": "Pimbahal",
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 2
+      "id": 1
     }
   ]
 }
