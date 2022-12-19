@@ -65,6 +65,7 @@ export const modals = createSlice({
         cartDialog: false,
         addressDialog: false,
         updateAddressDialog: false,
+        updateProductDialog: false,
     },
     reducers: {
         setLoginDialog: (state, action) => {
@@ -81,7 +82,11 @@ export const modals = createSlice({
         },
         setUpdateAddressDialog: (state, action) => {
             state.updateAddressDialog = action.payload;
+        },
+        setUpdateProductDialog: (state, action) => {
+            state.updateProductDialog = action.payload;
         }
+
 
     },
 
@@ -94,4 +99,4 @@ export const modals = createSlice({
 
 export const { setUserLoginDetails, } = user.actions;
 export const { setCurrentProduct } = product.actions;
-export const { setLoginDialog, setRegisterDialog, setCartDialog, setAddressDialog, setUpdateAddressDialog } = modals.actions;
+export const { setLoginDialog, setRegisterDialog, setCartDialog, setAddressDialog, setUpdateAddressDialog,setUpdateProductDialog } = modals.actions;

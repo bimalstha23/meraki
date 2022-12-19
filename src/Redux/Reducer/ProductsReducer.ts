@@ -15,7 +15,7 @@ export const getProducts = createAsyncThunk(
 
 interface ProductsState {
     products: [] | any ;
-    status: string;
+status: string;
     filteredProducts: [] | any;
 }
 const initialState: ProductsState = {

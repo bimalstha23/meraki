@@ -75,25 +75,22 @@
   ],
   "Products": [
     {
-      "tags": [
-        "Necklace",
-        "white",
-        "women"
-      ],
       "name": "Snake chain necklace choker 💚 ",
       "price": 80000,
       "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
       "Category": "Necklaces",
+      "tags": [
+        "Necklace",
+        "white"
+      ],
+      "id": 1,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319697454_211114241336088_5614761795693694810_n.jpg?alt=media&token=8586105c-b645-44d1-a961-0f2e53a2ef51",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319907914_640301407877304_2748274767004384747_n.jpg?alt=media&token=e774f4fc-b5d5-48e5-b1b1-f4f1a4da141b",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319939774_1861248334213991_1752967562174108008_n.jpg?alt=media&token=f3563e15-6473-4104-940a-5333cac09303",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320024948_1207202463212941_5968889734289802763_n.jpg?alt=media&token=527c9ce8-32af-4acd-ae0a-c691d063bb8a",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320241395_899997034694376_5952828850086108133_n.jpg?alt=media&token=0e13672d-97ca-45de-b4e3-cd04b8e2cd9f"
-      ],
-      "numReviews": 1,
-      "rating": 2,
-      "id": 1
+      ]
     },
     {
       "tags": [
@@ -386,7 +383,7 @@
       "state": "bagmati",
       "city": "Pulchwok",
       "address": "Pulchwok",
-      "landmark": "labimmall",
+      "landmark": "Pimbahal",
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "id": 1
     }

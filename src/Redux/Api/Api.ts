@@ -1,3 +1,4 @@
+import { UpdateProducts } from './../../components/AdminDashBoard/ManageProducts/UpdateProducts';
 import {
     createApi,
     fetchBaseQuery
@@ -112,6 +113,14 @@ export const Api: any = createApi({
             }),
             invalidatesTags: ['address']
         }),
+        UpdateProducts: builder.mutation({
+            query: (data) => ({
+                url: `products/${data.id}`,
+                method: 'PUT',
+                body: data
+            }),
+            invalidatesTags: ['product']
+        })
 
     })
 })
@@ -132,5 +141,6 @@ export const {
     useGetAddressQuery,
     useAddAddressMutation,
     useDeleteAddressMutation,
-    useUpdateAddressMutation
+    useUpdateAddressMutation,
+    useUpdateProductsMutation
 } = Api;

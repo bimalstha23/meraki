@@ -64,9 +64,14 @@ export const AddProducts = () => {
         }).then((res) => {
           setLoading(false);
           setOpen(true)
+          formik.resetForm();
         }).catch(e => console.log(e))
       }
     },
+    onReset: () => {
+      setFileList([]);
+      formik.resetForm();
+    }
   })
 
   const uploadImages = async (fileList: any[]) => {

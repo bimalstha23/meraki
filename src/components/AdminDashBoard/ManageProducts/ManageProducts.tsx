@@ -5,18 +5,18 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { getProducts } from '../../../Redux/Reducer/ProductsReducer';
-import { AppDispatch } from '../../../Redux/Store'
 import { useDeleteProductMutation, useGetAllProductsQuery } from '../../../Redux/Api/Api';
+import { UpdateProducts } from './UpdateProducts';
+import { useDispatch } from 'react-redux';
+import { setCurrentProduct, setUpdateAddressDialog, setUpdateProductDialog } from '../../../Redux/Reducer';
 
 
 
 
 export default function ManageProducts() {
-    const {data} = useGetAllProductsQuery();
+    const { data } = useGetAllProductsQuery();
     const [deleteProduct] = useDeleteProductMutation();
+    const dispatch = useDispatch();
 
     return (
         <TableContainer
@@ -47,7 +47,7 @@ export default function ManageProducts() {
                             <TableCell component="th" scope="row">
                                 {row.name}
                             </TableCell>
-                            <TableCell align="right">{row.price}</TableCell>
+                            <TableCell align="right">{row.price / 100}</TableCell>
                             <TableCell align="right">{row.Category}</TableCell>
                             <TableCell align="right">{row.rating}</TableCell>
                             <TableCell align="right">{row.Description}</TableCell>
@@ -59,12 +59,19 @@ export default function ManageProducts() {
                                             deleteProduct(row.id)
                                         }
                                     } className='bg-red-500 text-white px-2 py-1 rounded-md'>Delete</button>
-                                    <button className='bg-blue-500 text-white px-2 py-1 rounded-md'>Edit</button>
+                                    <button onClick={() => {
+                                        console.log(row.id)
+                                        dispatch(setUpdateProductDialog(true))
+                                        dispatch(setCurrentProduct(row))
+                                    }}
+                                        className='bg-blue-500 text-white px-2 py-1 rounded-md'>Edit</button>
+
                                 </div>
 
                             </TableCell>
-
+                            <UpdateProducts />
                         </TableRow>
+
                     ))}
                 </TableBody>
             </Table>

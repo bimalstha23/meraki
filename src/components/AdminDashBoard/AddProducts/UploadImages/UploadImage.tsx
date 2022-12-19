@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 
 interface uploadImageType {
-    fileList:[],
-    setFileList: (fileList: any) => void
+    fileList: [],
+    setFileList: (fileList: any) => void,
+    Image?: any
 }
+  
 
-
-export const UploadImage = (props:uploadImageType) => {
+export const UploadImage = (props: uploadImageType) => {
     const [previewImages, SetPreviewImages] = useState<any>([]);
-    const {fileList, setFileList} = props;
+    const { fileList, setFileList } = props;
+    
     const imageDrop = (e: any) => {
         const newImage = e.target.files[0];
         const newImageList = [...fileList, newImage];
@@ -52,11 +54,18 @@ export const UploadImage = (props:uploadImageType) => {
             </div>
             <div className='flex flex-row gap-5 p-4'>
                 {previewImages.map((image: any, index: number) => (
-                    <div key={index} className='w-full h-40'>
-                        <img src={image} alt={image} className='w-full h-full object-cover' />
+                    <div key={index} className='grid grid-cols-2 gap-2'>
+                        <img src={image} alt={'product image'} className='w-full h-full object-cover' />
 
                     </div>
                 ))}
+
+                {
+                    props.Image && props.Image.map((image: any, index: number) => (
+                        <div key={index} className='grid grid-cols-2 gap-2'>
+                            <img src={image} alt={'product Image'} className='w-full h-full object-cover' />
+                        </div>
+                    ))}
             </div>
         </div>
     )
