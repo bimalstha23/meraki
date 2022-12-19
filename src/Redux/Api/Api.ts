@@ -104,6 +104,15 @@ export const Api: any = createApi({
             }),
             invalidatesTags: ['address']
         }),
+        updateAddress: builder.mutation({
+            query: (data) => ({
+                url: `address/${data.id}`,
+                method: 'PUT',
+                body: data
+            }),
+            invalidatesTags: ['address']
+        }),
+
     })
 })
 
@@ -123,5 +132,5 @@ export const {
     useGetAddressQuery,
     useAddAddressMutation,
     useDeleteAddressMutation,
-
+    useUpdateAddressMutation
 } = Api;

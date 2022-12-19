@@ -5,15 +5,15 @@ import { buyerDb } from '../../config/firebase';
 
 export const getUserDetails = createAsyncThunk(
     'user/getUserDetails',
-    async (uid:any) => {
-            const userRef = doc(buyerDb, "users", uid);
-            const docSnap = await getDoc(userRef);
-            if (docSnap.exists()) {
-                return docSnap.data()
-            }
-            else {
-                return null
-            }
+    async (uid: any) => {
+        const userRef = doc(buyerDb, "users", uid);
+        const docSnap = await getDoc(userRef);
+        if (docSnap.exists()) {
+            return docSnap.data()
+        }
+        else {
+            return null
+        }
     }
 )
 
@@ -62,8 +62,9 @@ export const modals = createSlice({
     initialState: {
         loginDialog: false,
         RegisterDialog: false,
-        cartDialog:false,
-        addressDialog:false,
+        cartDialog: false,
+        addressDialog: false,
+        updateAddressDialog: false,
     },
     reducers: {
         setLoginDialog: (state, action) => {
@@ -72,12 +73,16 @@ export const modals = createSlice({
         setRegisterDialog: (state, action) => {
             state.RegisterDialog = action.payload;
         },
-        setCartDialog:(state,action)=>{
+        setCartDialog: (state, action) => {
             state.cartDialog = action.payload;
         },
-        setAddressDialog:(state,action)=>{
+        setAddressDialog: (state, action) => {
             state.addressDialog = action.payload;
+        },
+        setUpdateAddressDialog: (state, action) => {
+            state.updateAddressDialog = action.payload;
         }
+
     },
 
 })
@@ -87,6 +92,6 @@ export const modals = createSlice({
 
 
 
-export const { setUserLoginDetails ,   } = user.actions;
+export const { setUserLoginDetails, } = user.actions;
 export const { setCurrentProduct } = product.actions;
-export const { setLoginDialog, setRegisterDialog,setCartDialog,setAddressDialog } = modals.actions;
+export const { setLoginDialog, setRegisterDialog, setCartDialog, setAddressDialog, setUpdateAddressDialog } = modals.actions;

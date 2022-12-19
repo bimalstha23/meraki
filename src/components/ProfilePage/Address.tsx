@@ -2,16 +2,18 @@ import React from 'react'
 import { useDeleteAddressMutation, useGetAddressQuery } from '../../Redux/Api/Api';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '../../Redux/Store';
-import { setAddressDialog } from '../../Redux/Reducer';
+import { setAddressDialog, setUpdateAddressDialog } from '../../Redux/Reducer';
 import AddAddress from './AddAddress';
 import { BiXCircle } from 'react-icons/bi';
 import { AiFillEdit } from 'react-icons/ai';
+import UpdateAddress from './UpdateAddress';
 
 export const Address = () => {
     const currentUser = useSelector((state: any) => state.user.currentUser)
     const { data, isLoading } = useGetAddressQuery(currentUser?.uid);
     const dispatch = useDispatch<AppDispatch>();
     const [deleteAddress] = useDeleteAddressMutation();
+
 
     if (isLoading) {
         return <h1>Loading...</h1>
@@ -31,9 +33,10 @@ export const Address = () => {
                         <h1 className='font-bold text-gray-600'>{item.name}</h1>
                         <div className='flex flex-row justify-center items-center'>
                             <button onClick={() => deleteAddress(item.id)}   ><BiXCircle size={20} /></button>
-                            <button onClick={() => deleteAddress(item.id)}   ><AiFillEdit size={20} /></button>
+                            <button onClick={() => dispatch(setUpdateAddressDialog(true))}   ><AiFillEdit size={20} /></button>
                         </div>
                     </div>
+                    <UpdateAddress address={item} />
                     <h1 className='text-sm text-gray-500'>{item.phone}</h1>
                     <h1 className='text-sm text-gray-500'>{item.state} , {item.city}, {item.address},  {item.landmark}</h1>
                 </div>)) : <h1>No Addresses available</h1>
