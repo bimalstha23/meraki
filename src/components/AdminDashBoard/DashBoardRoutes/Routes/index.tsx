@@ -8,8 +8,8 @@ import { AddProducts } from '../../AddProducts/AddProducts'
 import { Settings } from '../../Settings/Settings'
 import { Main } from '../../Main/Main'
 import ManageProducts from '../../ManageProducts/ManageProducts'
-export const DashboardRoutes = () => {
 
+export const DashboardRoutes = () => {
   return (
     <div>
       <Routes>

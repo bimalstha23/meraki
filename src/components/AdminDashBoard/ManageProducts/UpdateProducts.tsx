@@ -80,143 +80,138 @@ export const UpdateProducts = () => {
                 tags: values.productTags.split(" "),
                 id,
                 Image: [...productImage, ...Image]
-        }
+            }
             console.log(payload);
-        updateProduct(payload).then(() => {
-            setLoading(false);
-            setOpen(true);
-        }).catch((err: any) => {
-            console.log(err);
-            setLoading(false);
-        }
-        )
-
-
-
-    },
+            updateProduct(payload).then(() => {
+                setLoading(false);
+                setOpen(true);
+            }).catch((err: any) => {
+                console.log(err);
+                setLoading(false);
+            }
+            )
+        },
     })
 
-const uploadImages = async (fileList: any[]) => {
-    const imageurls = [] as any;
-    for (const file of fileList) {
-        const storageRef = ref(sellerStorage, `Products/Images${file.name}`);
-        await uploadBytesResumable(storageRef, file);
-        const imgurl = await getDownloadURL(storageRef);
-        imageurls.push(imgurl);
+    const uploadImages = async (fileList: any[]) => {
+        const imageurls = [] as any;
+        for (const file of fileList) {
+            const storageRef = ref(sellerStorage, `Products/Images${file.name}`);
+            await uploadBytesResumable(storageRef, file);
+            const imgurl = await getDownloadURL(storageRef);
+            imageurls.push(imgurl);
+        }
+        return imageurls;
     }
-    return imageurls;
-}
 
+    return (
+        <Dialog open={updateProductDialog} onClose={handleClose}
+            fullScreen
+            TransitionComponent={Transition}
+        >
+            <AppBar sx={{ position: 'relative' }}>
+                <Toolbar>
+                    <IconButton
+                        edge="start"
+                        color="inherit"
+                        onClick={handleClose}
+                        aria-label="close"
+                    >
+                        <IoMdCloseCircleOutline />
+                    </IconButton>
+                    <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
+                        Update Product
+                    </Typography>
+                    <Button autoFocus color="inherit" onClick={handleClose}>
+                        save
+                    </Button>
+                </Toolbar>
+            </AppBar>
 
-return (
-    <Dialog open={updateProductDialog} onClose={handleClose}
-        fullScreen
-        TransitionComponent={Transition}
+            <div className='flex flex-row gap-10 p-10 w-full'>
 
-    >
-        <AppBar sx={{ position: 'relative' }}>
-            <Toolbar>
-                <IconButton
-                    edge="start"
-                    color="inherit"
-                    onClick={handleClose}
-                    aria-label="close"
+                <Backdrop
+                    sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                    open={loading}
                 >
-                    <IoMdCloseCircleOutline />
-                </IconButton>
-                <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                    Update Product
-                </Typography>
-                <Button autoFocus color="inherit" onClick={handleClose}>
-                    save
-                </Button>
-            </Toolbar>
-        </AppBar>
-
-        <div className='flex flex-row gap-10 p-10 w-full'>
-
-            <Backdrop
-                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                open={loading}
-            >
-                <CircularProgress color="inherit" />
-            </Backdrop>
+                    <CircularProgress color="inherit" />
+                </Backdrop>
 
 
-            {/* <SnackBar open={updateAddressDialog} setOpen={setOpen} messege={'Product added'} /> */}
-            <div className='flex flex-col w-full'>
-                <div className="md:col-span-1">
-                    <div className="px-4 sm:px-0">
-                        <h3 className="text-lg font-medium leading-6 text-gray-900">Add Product</h3>
-                        <p className="mt-1 text-sm text-gray-600">
-                            This information will be displayed publicly so be careful what you share.
-                        </p>
+                <SnackBar open={open} setOpen={setOpen} messege={'Product updated'} />
+                <div className='flex flex-col w-full'>
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="text-lg font-medium leading-6 text-gray-900">Add Product</h3>
+                            <p className="mt-1 text-sm text-gray-600">
+                                This information will be displayed publicly so be careful what you share.
+                            </p>
+                        </div>
                     </div>
+
+                    <form action="" onSubmit={(e) => {
+                        e.preventDefault()
+                        formik.handleSubmit()
+                    }}>
+                        <div className="shadow sm:overflow-hidden sm:rounded-md p-5">
+                            <div className='flex flex-row justify-center items-center  mt-5'>
+                                <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                    Product Name
+                                    <input onChange={formik.handleChange} value={formik.values.productName} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productName' name='productName' type="text" placeholder='Mobile Phone' />
+                                    {formik.errors.productName && formik.touched.productName ? <span className='text-xs text-red-500'>{formik.errors.productName}</span> : null}
+                                </label>
+                            </div>
+
+
+                            <div className='flex flex-row justify-center items-center  mt-5'>
+                                <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                    Product Price (Rs)
+                                    <input onChange={formik.handleChange} value={formik.values.productPrice} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productPrice' name='productPrice' type="number" placeholder='30000' />
+                                    {formik.errors.productPrice && formik.touched.productPrice ? <span className='text-xs text-red-500'>{formik.errors.productPrice}</span> : null}
+
+                                </label>
+                            </div>
+
+                            <div className='flex flex-row justify-center items-center  mt-5'>
+                                <label htmlFor="category" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                    Product Category:
+                                    <br />
+                                    <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
+                                        <option value=''>Select Category</option>
+                                        {data?.map((item: any) => {
+                                            return <option>{item.name}</option>
+                                        })}
+                                    </select>
+                                    {formik.errors.productCategory && formik.touched.productCategory ? <span className='text-xs text-red-500'>{formik.errors.productCategory}</span> : null}
+
+                                </label>
+                            </div>
+
+                            <div className='flex flex-row justify-center items-center  mt-5'>
+                                <label htmlFor="producttags" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                    Product tags (give space after one tag)
+                                    <input onChange={formik.handleChange} value={formik.values.productTags} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productTags' name='productTags' type="string" placeholder='tags' />
+                                    {formik.errors.productTags && formik.touched.productTags ? <span className='text-xs text-red-500'>{formik.errors.productTags}</span> : null}
+                                </label>
+
+                            </div>
+
+                            <div className='flex flex-row justify-center items-center  mt-5'>
+                                <label htmlFor="productDescription" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                    Product Description
+                                    <textarea onChange={formik.handleChange} value={formik.values.productDescription} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productDescription' name='productDescription' placeholder='Best mobile Phone on the town ' />
+
+                                    {formik.errors.productDescription && formik.touched.productDescription ? <span className='text-xs text-red-500'>{formik.errors.productDescription}</span> : null}
+                                </label>
+                            </div>
+                            <button type='submit' className='mt-3 bg-gradient-to-tr from-[#FDC1A2] to-[#FFEFE8] w-32 py-2 rounded-lg'>submit</button>
+                        </div>
+                    </form>
                 </div>
-
-                <form action="" onSubmit={(e) => {
-                    e.preventDefault()
-                    formik.handleSubmit()
-                }}>
-                    <div className="shadow sm:overflow-hidden sm:rounded-md p-5">
-                        <div className='flex flex-row justify-center items-center  mt-5'>
-                            <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                Product Name
-                                <input onChange={formik.handleChange} value={formik.values.productName} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productName' name='productName' type="text" placeholder='Mobile Phone' />
-                                {formik.errors.productName && formik.touched.productName ? <span className='text-xs text-red-500'>{formik.errors.productName}</span> : null}
-                            </label>
-                        </div>
-
-
-                        <div className='flex flex-row justify-center items-center  mt-5'>
-                            <label htmlFor="search" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                Product Price (Rs)
-                                <input onChange={formik.handleChange} value={formik.values.productPrice} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productPrice' name='productPrice' type="number" placeholder='30000' />
-                                {formik.errors.productPrice && formik.touched.productPrice ? <span className='text-xs text-red-500'>{formik.errors.productPrice}</span> : null}
-
-                            </label>
-                        </div>
-
-                        <div className='flex flex-row justify-center items-center  mt-5'>
-                            <label htmlFor="category" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                Product Category:
-                                <br />
-                                <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
-                                    <option value=''>Select Category</option>
-                                    {data?.map((item: any) => {
-                                        return <option>{item.name}</option>
-                                    })}
-                                </select>
-                                {formik.errors.productCategory && formik.touched.productCategory ? <span className='text-xs text-red-500'>{formik.errors.productCategory}</span> : null}
-
-                            </label>
-                        </div>
-
-                        <div className='flex flex-row justify-center items-center  mt-5'>
-                            <label htmlFor="producttags" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                Product tags (give space after one tag)
-                                <input onChange={formik.handleChange} value={formik.values.productTags} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productTags' name='productTags' type="string" placeholder='tags' />
-                                {formik.errors.productTags && formik.touched.productTags ? <span className='text-xs text-red-500'>{formik.errors.productTags}</span> : null}
-                            </label>
-
-                        </div>
-
-                        <div className='flex flex-row justify-center items-center  mt-5'>
-                            <label htmlFor="productDescription" className=' block bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                Product Description
-                                <textarea onChange={formik.handleChange} value={formik.values.productDescription} className='rounded bg-white w-full border p-1 border-gray-300   focus:outline-none' id='productDescription' name='productDescription' placeholder='Best mobile Phone on the town ' />
-
-                                {formik.errors.productDescription && formik.touched.productDescription ? <span className='text-xs text-red-500'>{formik.errors.productDescription}</span> : null}
-                            </label>
-                        </div>
-                        <button type='submit' className='mt-3 bg-gradient-to-tr from-[#FDC1A2] to-[#FFEFE8] w-32 py-2 rounded-lg'>submit</button>
-                    </div>
-                </form>
+                <div className='w-full'>
+                    <UploadImage Image={currentProduct.Image} fileList={fileList} setFileList={setFileList} />
+                </div>
             </div>
-            <div className='w-full'>
-                <UploadImage Image={currentProduct.Image} fileList={fileList} setFileList={setFileList} />
-            </div>
-        </div>
-    </Dialog >
-)
+        </Dialog >
+    )
 }

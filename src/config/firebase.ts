@@ -10,31 +10,31 @@ import { getStorage } from 'firebase/storage';
 
 //config for buyer account
 const BuyerConfig = {
-    apiKey: "AIzaSyDOBRB0ZIFjw8RoKpvyZOsUdHuk3f4TUMQ",
-    authDomain: "benext-18c39.firebaseapp.com",
+    apiKey:import.meta.env.VITE_BUYERAPIKEY,
+    authDomain: import.meta.env.VITE_BUYERAUTHDOMAIN,
 
-    projectId: "benext-18c39",
+    projectId: import.meta.env.VITE_BUYERPROJECTID,
 
-    storageBucket: "benext-18c39.appspot.com",
+    storageBucket: import.meta.env.VITE_BUYERSTORAGEBUCKET,
 
-    messagingSenderId: "853574768395",
+    messagingSenderId: import.meta.env.VITE_BUYERMESSAGINGSENDERID,
 
-    appId: "1:853574768395:web:8aae1f0a65b4aca7efb40e",
+    appId: import.meta.env.VITE_BUYERAPPID,
 
-    measurementId: "G-M9PFDNC36Q"
+    measurementId: import.meta.env.VITE_BUYERMEASUREMENTID
 
 };
 
 
 //configs for seller account
 const sellerConfig = {
-    apiKey: "AIzaSyCC11ljdAznHoO3737Vz58KAmcxQH2f_U0",
-    authDomain: "benext-selleracc.firebaseapp.com",
-    projectId: "benext-selleracc",
-    storageBucket: "benext-selleracc.appspot.com",
-    messagingSenderId: "50433114953",
-    appId: "1:50433114953:web:6777fd45575bca3a0f1098",
-    measurementId: "G-JTMV67JXZJ"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID,
+    measurementId: import.meta.env.VITE_MEASUREMENTID,
 }
 
 // Initialize Firebase

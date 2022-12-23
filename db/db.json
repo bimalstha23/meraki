@@ -75,75 +75,6 @@
   ],
   "Products": [
     {
-      "name": "Snake chain necklace choker 💚 ",
-      "price": 80000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Necklaces",
-      "tags": [
-        "Necklace",
-        "white"
-      ],
-      "id": 1,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319697454_211114241336088_5614761795693694810_n.jpg?alt=media&token=8586105c-b645-44d1-a961-0f2e53a2ef51",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319907914_640301407877304_2748274767004384747_n.jpg?alt=media&token=e774f4fc-b5d5-48e5-b1b1-f4f1a4da141b",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319939774_1861248334213991_1752967562174108008_n.jpg?alt=media&token=f3563e15-6473-4104-940a-5333cac09303",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320024948_1207202463212941_5968889734289802763_n.jpg?alt=media&token=527c9ce8-32af-4acd-ae0a-c691d063bb8a",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320241395_899997034694376_5952828850086108133_n.jpg?alt=media&token=0e13672d-97ca-45de-b4e3-cd04b8e2cd9f"
-      ]
-    },
-    {
-      "tags": [
-        "claw",
-        "clip",
-        "hair",
-        "white"
-      ],
-      "name": "Hair claw clip with cross and safety pin",
-      "price": 50000,
-      "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Hair Accessories",
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319342533_524362502762638_3873250713088204801_n.jpg?alt=media&token=810fa2a0-1112-486d-835d-d34d80eccb87",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319570137_865887911423751_1320837184223910938_n.jpg?alt=media&token=eba50ce7-2ec0-4896-bad1-40ed501e442d",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319558362_817389726007567_262352945944919046_n.jpg?alt=media&token=f2349f1b-04d3-4473-93e5-bb2162590566",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319476228_1193155237992310_3459234462246679738_n.jpg?alt=media&token=5d3b534c-f818-4b46-8db7-8ba492348aa6"
-      ],
-      "numReviews": 3,
-      "rating": 4,
-      "id": 2
-    },
-    {
-      "tags": [
-        "white"
-      ],
-      "name": "Vivienne westhood inspired earring ✨🪐",
-      "price": 40000,
-      "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
-      "Image": [
-        "        https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
-      ],
-      "numReviews": 0,
-      "rating": 0,
-      "id": 3
-    },
-    {
-      "tags": [
-        "silver"
-      ],
-      "name": "Rhinestone cross chain ",
-      "price": 35000,
-      "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Necklaces",
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
-      ],
-      "numReviews": 0,
-      "rating": 0,
-      "id": 4
-    },
-    {
       "tags": [
         "Heart",
         "earrings"
@@ -216,6 +147,23 @@
       "numReviews": 0,
       "rating": 0,
       "id": 9
+    },
+    {
+      "tags": [
+        "white"
+      ],
+      "name": "somthing ",
+      "price": 20000,
+      "Description": "somthing",
+      "Category": "Bangles",
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages287285477_451042797043506_7790607080860052884_n.jpg?alt=media&token=b7cbd566-881f-46b8-baac-ec2bc65a852f",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305405375_1246829906100158_7855221671709253963_n.jpg?alt=media&token=b454064a-e631-4029-9504-81d6a547570c",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305689941_1686795755035139_3680840060052104790_n.jpg?alt=media&token=2439b810-7cf2-4107-afff-5b5104d98237"
+      ],
+      "numReviews": 0,
+      "rating": 0,
+      "id": 10
     }
   ],
   "featuredProducts": [
@@ -327,53 +275,43 @@
   "cart": [
     {
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 1,
-      "qty": 2,
-      "name": "Snake chain necklace choker 💚 ",
-      "price": 80000,
-      "rating": 2,
-      "productId": 1,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319697454_211114241336088_5614761795693694810_n.jpg?alt=media&token=8586105c-b645-44d1-a961-0f2e53a2ef51",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319907914_640301407877304_2748274767004384747_n.jpg?alt=media&token=e774f4fc-b5d5-48e5-b1b1-f4f1a4da141b",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319939774_1861248334213991_1752967562174108008_n.jpg?alt=media&token=f3563e15-6473-4104-940a-5333cac09303",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320024948_1207202463212941_5968889734289802763_n.jpg?alt=media&token=527c9ce8-32af-4acd-ae0a-c691d063bb8a",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages320241395_899997034694376_5952828850086108133_n.jpg?alt=media&token=0e13672d-97ca-45de-b4e3-cd04b8e2cd9f"
-      ]
-    },
-    {
-      "name": "Nana osaki inspired armor knuckle ring",
-      "price": 40000,
-      "rating": 0,
-      "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318833846_1366927327386010_7664575995239641857_n.jpg?alt=media&token=468fa1c6-a98d-4789-9018-820a723a4775",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318881624_122373057354987_1573371467741936554_n.jpg?alt=media&token=5f600193-264e-4ef7-b608-4728a22c1054",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319075446_483742990533214_4146583210714806607_n.jpg?alt=media&token=94a062f9-f7e4-4990-a5fb-dbd75f059c5f",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319094026_875199823670745_5439090482969325739_n.jpg?alt=media&token=4772950e-1115-404d-880d-2736249710e0",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319107524_1264553547438830_4095000580373708979_n.jpg?alt=media&token=8b75dd6d-aa37-4d08-a1a8-81bed62afd48",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319324459_885093152849456_9143429566964591690_n.jpg?alt=media&token=355039a7-a86c-43df-a976-a9780426c029",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319533169_682991160071265_7837611117852500583_n.jpg?alt=media&token=e1b7fb7b-cd3f-49bf-bad1-9558acff65a9"
-      ],
-      "productId": 7,
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "qty": 1,
-      "id": 2
-    },
-    {
+      "id": 3,
+      "qty": 3,
       "name": "No piercing earcuff",
       "price": 150000,
       "rating": 0,
+      "productId": 9,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages287285477_451042797043506_7790607080860052884_n.jpg?alt=media&token=ccbdd3a5-3da5-4541-8151-e7787ca62296",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305405375_1246829906100158_7855221671709253963_n.jpg?alt=media&token=26db901d-1254-4167-bc2e-3798bd887eee",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305576094_799137507944954_1372704119178125194_n.jpg?alt=media&token=52699958-86ef-42f9-8358-63fece52acc3",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305689941_1686795755035139_3680840060052104790_n.jpg?alt=media&token=f6eed237-ba09-4ebc-96ba-cf0ea67051f8",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305585684_158138086823649_2181723153453342978_n.jpg?alt=media&token=56085451-7ac4-4af1-ac66-87459d39efc1"
+      ]
+    },
+    {
+      "name": "Vivienne westhood inspired earring ✨🪐",
+      "price": 40000,
+      "rating": 0,
+      "Image": [
+        "        https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
       ],
-      "productId": 9,
+      "productId": 3,
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "qty": 1,
-      "id": 3
+      "id": 4
+    },
+    {
+      "name": "Rhinestone cross chain ",
+      "price": 35000,
+      "rating": 0,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319074530_1197260097528143_7892315942694266429_n.jpg?alt=media&token=441e14ac-c3e3-4317-b97b-5a0c3bff5283"
+      ],
+      "productId": 4,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 5
     }
   ],
   "Address": [
