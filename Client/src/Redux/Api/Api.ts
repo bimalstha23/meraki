@@ -1,4 +1,4 @@
-import { UpdateProducts } from './../../components/AdminDashBoard/ManageProducts/UpdateProducts';
+import { getProducts } from './../Reducer/ProductsReducer';
 import {
     createApi,
     fetchBaseQuery
@@ -9,11 +9,15 @@ import {
     product,
     // cart
 } from '../../types'
-export const Api: any = createApi({
+export const Api = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
     tagTypes: ['cart', 'product', 'address'],
     endpoints: (builder) => ({
+        getProducts:builder.query({
+            query:(filter)=>`products?_page=${filter.page}&_limit=2`
+        }),
+
         getCategories: builder.query<category[], void>({
             query: () => `categories`,
         }),
@@ -127,6 +131,7 @@ export const Api: any = createApi({
 
 
 export const {
+    useGetProductsQuery,
     useGetCategoriesQuery,
     useGetFeaturedProductsQuery,
     useGetSingleProductQuery,

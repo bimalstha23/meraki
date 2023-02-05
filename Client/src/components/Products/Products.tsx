@@ -2,13 +2,12 @@
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { GiCrossMark } from 'react-icons/gi'
-import { FiPlus } from 'react-icons/fi';
 import { useSelector, useDispatch } from 'react-redux'
 import { IoMdFunnel } from 'react-icons/io';
 import { AiFillStar, } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
-import { useGetCategoriesQuery } from '../../Redux/Api/Api';
+import { useGetCategoriesQuery, useGetProductsQuery } from '../../Redux/Api/Api';
 import { filterProductsbyCategory, filterProductsbyRating, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
@@ -22,8 +21,12 @@ function classNames(...classes: any) {
 }
 
 export const Products = () => {
-
-
+  const filterData = {
+    page:3,order:'asc'
+  }
+  
+  const {data} = useGetProductsQuery(filterData);
+  console.log('pagination',data);
   const dispatch = useDispatch<AppDispatch>()
   const sortOptions = [
     { name: 'Best Rating', onclick: () => { dispatch(sortProductsbyrating()) }, current: false },
@@ -35,21 +38,22 @@ export const Products = () => {
     dispatch(filterProductsbyCategory(name));
   }
 
+  const [filterState, setFilterState] = useState({
+
+  })
+
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [filterState]);
 
   const filterPrice = useSelector((state: any) => state.products.price);
 
 
   const handleFilterbyRating = (rating: any) => {
-    console.log(rating);
     dispatch(filterProductsbyRating(rating));
   }
 
   const { filteredProducts } = useSelector((state: any) => state.products)
-  const minPrice = Math.min(...filteredProducts.map((product: any) => product.price));
-  const maxPrice = Math.max(...filteredProducts.map((product: any) => product.price));
 
   const { data: Categories } = useGetCategoriesQuery();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
@@ -104,7 +108,7 @@ export const Products = () => {
                   <div className="mt-4 border-t border-gray-200">
                     <h3 className="sr-only">Categories</h3>
                     <ul role="list" className="px-2 py-3 font-medium text-gray-900">
-                      {Categories?.map((category:any) => (
+                      {Categories?.map((category: any) => (
                         <li key={category.name}>
                           <button onClick={(e) => handleFilter(category.name)} className="block px-2 py-3">
                             {category.name}
@@ -193,7 +197,7 @@ export const Products = () => {
               <div className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-                  {Categories?.map((category:any) => (
+                  {Categories?.map((category: any) => (
                     <li key={category.name}>
                       <button onClick={(e) => handleFilter(category.name)}>{category.name}</button>
                     </li>
@@ -204,41 +208,41 @@ export const Products = () => {
                     Ratings
                   </h3>
                   <div className='flex flex-col'>
-                        <button onClick={(e) => handleFilterbyRating(5)} className='flex flex-row'>
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                        </button>
-                        <button onClick={(e) => handleFilterbyRating(4)} className='flex flex-row'>
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                        </button>  
-                          <button onClick={(e) => handleFilterbyRating(3)} className='flex flex-row'>
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                        </button>
-                        <button onClick={(e) => handleFilterbyRating(2)} className='flex flex-row'>
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                        </button>
-                        <button onClick={(e) => handleFilterbyRating(1)} className='flex flex-row'>
-                              <AiFillStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                              <AiOutlineStar className='h-5 w-5 text-yellow-400' />
-                        </button>
+                    <button onClick={(e) => handleFilterbyRating(5)} className='flex flex-row'>
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                    </button>
+                    <button onClick={(e) => handleFilterbyRating(4)} className='flex flex-row'>
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                    </button>
+                    <button onClick={(e) => handleFilterbyRating(3)} className='flex flex-row'>
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                    </button>
+                    <button onClick={(e) => handleFilterbyRating(2)} className='flex flex-row'>
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                    </button>
+                    <button onClick={(e) => handleFilterbyRating(1)} className='flex flex-row'>
+                      <AiFillStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                      <AiOutlineStar className='h-5 w-5 text-yellow-400' />
+                    </button>
 
 
                   </div>

@@ -1,3 +1,4 @@
+import { RootState } from './../Store/index';
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -14,8 +15,8 @@ export const getProducts = createAsyncThunk(
 )
 
 interface ProductsState {
-    products: [] | any ;
-status: string;
+    products: [] | any;
+    status: string;
     filteredProducts: [] | any;
 }
 const initialState: ProductsState = {
@@ -36,7 +37,6 @@ export const getProductSlice = createSlice({
         },
 
 
-        //filter products by rating
 
 
         filterProductsbyRating: (state, action) => {
@@ -88,3 +88,11 @@ export const {
     filterProductsbyCategory,
     filterProductsbyRating,
 } = getProductSlice.actions;
+
+export const getProductStatus = (state:RootState,filter:any)=>{
+    state.products.status;
+}
+
+export const getProductsData = (state:RootState,filter:any)=>{
+    state.products.products;
+}
