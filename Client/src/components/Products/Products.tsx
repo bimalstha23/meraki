@@ -8,7 +8,6 @@ import { AiFillStar, } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery, useGetProductsQuery } from '../../Redux/Api/Api';
-import { filterProductsbyCategory, filterProductsbyRating, getProducts, sortProductsbyPriceAsc, sortProductsbyPriceDesc, sortProductsbyrating } from '../../Redux/Reducer/ProductsReducer';
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { AiOutlineStar } from 'react-icons/ai'
@@ -24,42 +23,48 @@ function classNames(...classes: any) {
 export const Products = () => {
 
   const [searchparam, setSearchParam] = useSearchParams();
-  const searchQuery = searchparam.get('search_param');
-  console.log(searchQuery);
 
 
-  const [filterState, setFilterState] = useState({
+  
+  const [filterState, setFilterState] = useState<object>({
     page: 1,
-    order: 'asc',
-    searchQuery: searchQuery,
+    searchQuery:'',
+    category:'',
+    sortby:'',
+    sortOrder: 'asc',
+
   })
 
+  useEffect(()=>{
+    setFilterState({...filterState, searchQuery:searchparam.get('search_param')||''});
+  },[searchparam])
+   
   const { data } = useGetProductsQuery(filterState);
-  console.log('pagination', data);
   const dispatch = useDispatch<AppDispatch>()
   const sortOptions = [
-    { name: 'Best Rating', onclick: () => { dispatch(sortProductsbyrating()) }, current: false },
-    { name: 'Price: Low to High', onclick: () => { dispatch(sortProductsbyPriceAsc()) }, current: false },
-    { name: 'Price: High to Low', onclick: () => { dispatch(sortProductsbyPriceDesc()) }, current: false },
+    { name: 'Best Rating', onclick: () => { setFilterState({...filterState,sortby:"rating",sortOrder:"asc"})} , current:false,},
+    { name: 'Price: Low to High', onclick: () => { setFilterState({...filterState,sortby:"price",sortOrder:"asc"}) }, current:false,},
+    { name: 'Price: High to Low', onclick: () => { setFilterState({...filterState,sortby:"price",sortOrder:"desc"})}, current:false,}
   ]
 
   const handleFilter = (name: string) => {
-    dispatch(filterProductsbyCategory(name));
+    // dispatch(filterProductsbyCategory(name));
+    setFilterState({...filterState,category:name})
   }
 
+  // console.log(filterState);
 
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [filterState]);
 
-  const filterPrice = useSelector((state: any) => state.products.price);
+  // useEffect(() => {
+  //   dispatch(getProducts());
+  // }, [filterState]);
+
 
 
   const handleFilterbyRating = (rating: any) => {
-    dispatch(filterProductsbyRating(rating));
+      alert('need to be update');
   }
 
-  const { filteredProducts } = useSelector((state: any) => state.products)
 
   const { data: Categories } = useGetCategoriesQuery();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
@@ -259,8 +264,8 @@ export const Products = () => {
               <div className="lg:col-span-3">
 
                 <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-                  {filteredProducts &&
-                    (filteredProducts.map((product: any, key: number) => (
+                  {data &&
+                    (data.map((product: any, key: number) => (
                       <ProductCard product={product} key={key} />
                     )))
                   }

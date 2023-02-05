@@ -272,7 +272,21 @@
     }
   ],
   "users": [],
-  "cart": [],
+  "cart": [
+    {
+      "name": "Liquid asymmetrical butterfly wings earring",
+      "price": 70000,
+      "rating": 0,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304940501_176561168273216_4249918669126144881_n.jpg?alt=media&token=25dcb17b-c0f0-47ed-9d00-0854e317cb00",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304996390_609298614025070_1748768992826377034_n.jpg?alt=media&token=9ef47427-9009-48b2-abaa-ac4b2c143c5e"
+      ],
+      "productId": 6,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 1
+    }
+  ],
   "Address": [
     {
       "name": "Bimal Shrestha",

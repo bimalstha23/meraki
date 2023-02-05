@@ -62,7 +62,7 @@ export const NavBar = () => {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-10 flex  justify-center items-baseline space-x-4">
-                                            {navigation.map((item, key) => (
+                                            {navigation.map((item, key:number) => (
                                                 <Link
                                                     to={item.link}
                                                     key={key}
@@ -191,10 +191,10 @@ export const NavBar = () => {
 
                         <Disclosure.Panel className="md:hidden">
                             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                                {navigation.map((item) => (
+                                {navigation.map((item , key) => (
                                     <Link to={item.link}>
                                         <Disclosure.Button
-                                            key={item.name}
+                                            key={key}
                                             as="a"
                                             className={classNames(
                                                 item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -224,9 +224,9 @@ export const NavBar = () => {
                                     </button>
                                 </div>
                                 <div className="mt-3 space-y-1 px-2">
-                                    {userNavigation.map((item) => (
+                                    {userNavigation.map((item , key:number) => (
                                         <Disclosure.Button
-                                            key={item.name}
+                                            key={key}
                                             as="a"
                                             onClick={item.onClick}
                                             className="block w-full rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"

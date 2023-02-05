@@ -1,4 +1,3 @@
-import { getProductSlice } from './../Reducer/ProductsReducer';
 import { modals, user } from './../Reducer';
 import { configureStore } from "@reduxjs/toolkit";
 import { Api } from "../Api/Api";
@@ -9,7 +8,6 @@ export const store = configureStore({
         product: product.reducer,
         modals: modals.reducer,
         user: user.reducer,
-        products: getProductSlice.reducer
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
