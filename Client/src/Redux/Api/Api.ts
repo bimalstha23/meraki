@@ -15,7 +15,7 @@ export const Api = createApi({
     tagTypes: ['cart', 'product', 'address'],
     endpoints: (builder) => ({
         getProducts:builder.query({
-            query:(filter)=>`products?_page=${filter.page}&_limit=2`
+            query:(filter)=>`products?_page=${filter.page}&_limit=2&q=${filter.searchQuery}`
         }),
 
         getCategories: builder.query<category[], void>({
@@ -24,12 +24,10 @@ export const Api = createApi({
 
         getFeaturedProducts: builder.query<product[], void>({
             query: () => `featuredProducts`,
-
         }),
 
         getSingleProduct: builder.query({
             query: (id) => `products/${id}`,
-
         }),
 
         getCommentsOfProduct: builder.query<Comment[], string | number | undefined>({

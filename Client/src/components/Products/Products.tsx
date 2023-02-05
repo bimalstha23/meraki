@@ -12,6 +12,7 @@ import { filterProductsbyCategory, filterProductsbyRating, getProducts, sortProd
 import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { AiOutlineStar } from 'react-icons/ai'
+import { useSearchParams } from 'react-router-dom';
 
 
 
@@ -21,12 +22,20 @@ function classNames(...classes: any) {
 }
 
 export const Products = () => {
-  const filterData = {
-    page:3,order:'asc'
-  }
-  
-  const {data} = useGetProductsQuery(filterData);
-  console.log('pagination',data);
+
+  const [searchparam, setSearchParam] = useSearchParams();
+  const searchQuery = searchparam.get('search_param');
+  console.log(searchQuery);
+
+
+  const [filterState, setFilterState] = useState({
+    page: 1,
+    order: 'asc',
+    searchQuery: searchQuery,
+  })
+
+  const { data } = useGetProductsQuery(filterState);
+  console.log('pagination', data);
   const dispatch = useDispatch<AppDispatch>()
   const sortOptions = [
     { name: 'Best Rating', onclick: () => { dispatch(sortProductsbyrating()) }, current: false },
@@ -38,9 +47,6 @@ export const Products = () => {
     dispatch(filterProductsbyCategory(name));
   }
 
-  const [filterState, setFilterState] = useState({
-
-  })
 
   useEffect(() => {
     dispatch(getProducts());

@@ -1,5 +1,5 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { AiFillBell, AiFillCloseCircle } from 'react-icons/ai'
 import { FaBars } from 'react-icons/fa'
 import meraki from '../../assets/meraki.svg'
@@ -10,8 +10,8 @@ import { signOut } from 'firebase/auth'
 import { buyerAuth } from '../../config/firebase'
 import { Cart } from '../CartComponent/Cart'
 import { RiShoppingCart2Fill } from 'react-icons/ri'
-import { Link, Navigate } from 'react-router-dom'
-import {  BiSearchAlt } from 'react-icons/bi'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { BiSearchAlt } from 'react-icons/bi'
 
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
@@ -20,20 +20,25 @@ function classNames(...classes: any) {
 export const NavBar = () => {
     const dispatch = useDispatch();
     const currentUser = useSelector((state: any) => state.user.currentUser);
+    const [searchparam, setSearchParam] = useState('')
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        navigate(`/products?search_param=${searchparam}`);
+    }
+
     const navigation = [
         { name: 'Home', link: '/', current: true },
-        { name: 'Products', link: '/products',  current: false },
-
-
+        { name: 'Products', link: '/products', current: false },
     ]
     const userNavigation = [
 
-        { name: 'Your Profile', onclick: () => {}, Link:'/profile'},
-        { name: 'Settings', onclick: () => { },Link:'' },
+        { name: 'Your Profile', onclick: () => { }, Link: '/profile' },
+        { name: 'Settings', onclick: () => { }, Link: '' },
         {
             name: 'Sign out', onClick: () => {
-               
-            },Link:''
+
+            }, Link: ''
         },
     ]
 
@@ -57,7 +62,7 @@ export const NavBar = () => {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-10 flex  justify-center items-baseline space-x-4">
-                                            {navigation.map((item , key) => (
+                                            {navigation.map((item, key) => (
                                                 <Link
                                                     to={item.link}
                                                     key={key}
@@ -73,11 +78,14 @@ export const NavBar = () => {
                                                 </Link>
                                             ))}
                                             <div className='flex flex-row justify-center items-center w-full'>
-                                                <form action="">
-                                                <label htmlFor="search" className='relative block text-gray-400 bg-white rounded-xl w-full focus-within:text-gray-700'>
-                                                    <button type='submit'> <BiSearchAlt size={20} className="pointer-events-none left-1 absolute top-1/2  transform -translate-y-1/2 " /></button>
-                                                    <input className='rounded-xl bg-white w-full px-6 py-1 focus:outline-none' id='search' name='search' type="text" placeholder='Search Shop' />
-                                                </label>
+                                                <form action="" onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    handleSearch()
+                                                }}>
+                                                    <label htmlFor="search" className='relative block text-gray-400 bg-white rounded-xl w-full focus-within:text-gray-700'>
+                                                        <button type='submit'> <BiSearchAlt size={20} className="pointer-events-none left-1 absolute top-1/2  transform -translate-y-1/2 " /></button>
+                                                        <input onChange={(e) => setSearchParam(e.target.value)} value={searchparam} className='rounded-xl bg-white w-full px-6 py-1 focus:outline-none' id='search' name='search' type="text" placeholder='Search Shop' />
+                                                    </label>
                                                 </form>
                                             </div>
                                         </div>
@@ -134,29 +142,29 @@ export const NavBar = () => {
 
                                                             <Menu.Item>
                                                                 <Link to={'/profile'}
-                                                                className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                    className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
                                                                 >
                                                                     {/* <Link to='/profile'> */}
-                                                                        Profile
+                                                                    Profile
                                                                     {/* </Link> */}
                                                                 </Link>
                                                             </Menu.Item>
                                                             <Menu.Item>
                                                                 <Link to={'/profile/settings'}
-                                                                className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                    className='block px-4 py-2 text-sm text-gray-700 w-full hover:bg-gray-100'
                                                                 >
-                                                                        Settings
+                                                                    Settings
                                                                 </Link>
                                                             </Menu.Item>
                                                             <Menu.Item>
                                                                 <button
-                                                                onClick={() => {
-                                                                    dispatch(setUserLoginDetails(null));
-                                                                    signOut(buyerAuth);
-                                                                }}
-                                                                className='block px-4 py-2 text-start text-sm text-gray-700 w-full hover:bg-gray-100'
+                                                                    onClick={() => {
+                                                                        dispatch(setUserLoginDetails(null));
+                                                                        signOut(buyerAuth);
+                                                                    }}
+                                                                    className='block px-4 py-2 text-start text-sm text-gray-700 w-full hover:bg-gray-100'
                                                                 >
-                                                                        SignOut
+                                                                    SignOut
                                                                 </button>
                                                             </Menu.Item>
                                                         </Menu.Items>
