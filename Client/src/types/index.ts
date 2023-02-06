@@ -2,17 +2,14 @@ export  interface product {
     id: string | number,
     name: string,
     price: number,
-    actualPrice:string,
+    actualPrice?:string,
     description: string,
-    category: {
-        name:string,
-        id:string | number
-    }
-    Image:any,
+    category: string,
+    Image:string[],
     rating: number,
-    numReviews: number,
+    numReviews?: number,
     countInStock?: number,
-    tags:[],
+    tags:string[],
 }
 
 export  interface category {
@@ -31,15 +28,12 @@ export  interface Comment{
     createdAt: string,
 }
 
-// export  interface cart {
-//     id: string | number,
-//     productId: string | number,
-//     name: string,
-//     image: string,
-//     price: number,
-//     qty: number,
-//     uid: string | number,
-// }
 
-
+export interface filter{
+    page:number,
+    searchQuery:string,
+    category:string,
+    sortby:string,
+    sortOrder: string,
+}
 

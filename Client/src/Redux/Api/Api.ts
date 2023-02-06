@@ -6,6 +6,7 @@ import {
     category,
     Comment,
     product,
+    filter
     // cart
 } from '../../types'
 export const Api = createApi({
@@ -13,12 +14,12 @@ export const Api = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
     tagTypes: ['cart', 'product', 'address'],
     endpoints: (builder) => ({
-        getProducts:builder.query({
-            query:(filter)=> {
-                if(filter.category){
-                    return `products?_page=${filter.page}&_limit=5&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`
-                }else 
-                    return `products?_page=${filter.page}&_limit=5&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`
+        getProducts: builder.query<product[], filter>({
+            query: (filter) => {
+                if (filter.category) {
+                    return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`
+                } else
+                    return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`
             }
         }),
 

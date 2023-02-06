@@ -80,7 +80,7 @@ export const SingleProductPage = () => {
                             <h1 className='text-sm'>Add To Cart</h1>
                             <MdAddShoppingCart size={20}/>
                             </button>
-                            <h1 className='text-lg font-normal '> <span className='font-bold'>Category:</span>  {data?.category?.name}</h1>
+                            <h1 className='text-lg font-normal '> <span className='font-bold'>Category:</span>  {data?.Category}</h1>
                             <div className='flex flex-row gap-3 items-center'>
                                 <h1 className='text-lg font-bold'>Tags: </h1>
                                 <div className='flex flex-row gap-2'>

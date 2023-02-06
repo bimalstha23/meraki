@@ -1,18 +1,15 @@
-
 import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { GiCrossMark } from 'react-icons/gi'
-import { useSelector, useDispatch } from 'react-redux'
 import { IoMdFunnel } from 'react-icons/io';
 import { AiFillStar, } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery, useGetProductsQuery } from '../../Redux/Api/Api';
-import { AppDispatch } from '../../Redux/Store';
 import { ProductCard } from '../ProductCard/ProductCard';
-import { AiOutlineStar } from 'react-icons/ai'
 import { useSearchParams } from 'react-router-dom';
-
+import { filter } from '../../types';
+import { GrNext, GrPrevious } from 'react-icons/gr'
 
 
 
@@ -25,53 +22,49 @@ export const Products = () => {
   const [searchparam, setSearchParam] = useSearchParams();
 
 
-  
-  const [filterState, setFilterState] = useState<object>({
-    page: 1,
-    searchQuery:'',
-    category:'',
-    sortby:'',
-    sortOrder: 'asc',
 
+  const [filterState, setFilterState] = useState<filter>({
+    page: 1,
+    searchQuery: '',
+    category: '',
+    sortby: '',
+    sortOrder: 'asc',
   })
 
-  useEffect(()=>{
-    setFilterState({...filterState, searchQuery:searchparam.get('search_param')||''});
-  },[searchparam])
-   
+
+  useEffect(() => {
+    setFilterState({
+      ...filterState, searchQuery: searchparam.get('search_param') || '',
+      category: searchparam.get('category') || ''
+    }
+    );
+  }, [searchparam])
+
   const { data } = useGetProductsQuery(filterState);
-  const dispatch = useDispatch<AppDispatch>()
   const sortOptions = [
-    { name: 'Best Rating', onclick: () => { setFilterState({...filterState,sortby:"rating",sortOrder:"asc"})} , current:false,},
-    { name: 'Price: Low to High', onclick: () => { setFilterState({...filterState,sortby:"price",sortOrder:"asc"}) }, current:false,},
-    { name: 'Price: High to Low', onclick: () => { setFilterState({...filterState,sortby:"price",sortOrder:"desc"})}, current:false,}
+    { name: 'Best Rating', onclick: () => { setFilterState({ ...filterState, sortby: "rating", sortOrder: "asc" }) }, current: false, },
+    { name: 'Price: Low to High', onclick: () => { setFilterState({ ...filterState, sortby: "price", sortOrder: "asc" }) }, current: false, },
+    { name: 'Price: High to Low', onclick: () => { setFilterState({ ...filterState, sortby: "price", sortOrder: "desc" }) }, current: false, }
   ]
 
   const handleFilter = (name: string) => {
-    // dispatch(filterProductsbyCategory(name));
-    setFilterState({...filterState,category:name})
-  }
-
-  // console.log(filterState);
-
-
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [filterState]);
-
-
-
-  const handleFilterbyRating = (rating: any) => {
-      alert('need to be update');
+    // setFilterState({ ...filterState, category: name })
+    setSearchParam({ category: name, search_params: filterState.searchQuery })
   }
 
 
   const { data: Categories } = useGetCategoriesQuery();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
-  const [price, setPrice] = useState<any>();
 
-  const handlePriceRange = (event: any, newValue: any) => {
-    setPrice(newValue);
+  const handlePrev = () => {
+    if (filterState.page > 0) {
+      setFilterState({ ...filterState, page: filterState.page - 1 })
+    }
+  }
+  const handleNext = () => {
+    if (filterState.page > 0) {
+      setFilterState({ ...filterState, page: filterState.page + 1 })
+    }
   }
 
   return (
@@ -218,7 +211,7 @@ export const Products = () => {
                   <h3 className='-my-3 flow-root pb-6 text-sm font-medium text-gray-900'>
                     Ratings
                   </h3>
-                  <div className='flex flex-col'>
+                  {/* <div className='flex flex-col'>
                     <button onClick={(e) => handleFilterbyRating(5)} className='flex flex-row'>
                       <AiFillStar className='h-5 w-5 text-yellow-400' />
                       <AiFillStar className='h-5 w-5 text-yellow-400' />
@@ -256,7 +249,7 @@ export const Products = () => {
                     </button>
 
 
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -271,8 +264,24 @@ export const Products = () => {
                   }
 
                 </div>
+
               </div>
             </div>
+
+            {data && (
+              <div className='flex flex-row justify-center mt-9'>
+                {filterState.page >= 2 ? (
+                  <button onClick={() => handlePrev()}>
+                    <GrPrevious size={20} />
+                  </button>
+                ) : null
+                }
+                <h1>{filterState.page}</h1>
+                <button onClick={() => handleNext()}>
+                  <GrNext size={20} />
+                </button>
+              </div>
+            )}
           </section>
         </main>
       </div>

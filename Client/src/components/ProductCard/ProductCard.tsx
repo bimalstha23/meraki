@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import productimg from '../../assets/productimg.png'
 import { MdAddShoppingCart } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
