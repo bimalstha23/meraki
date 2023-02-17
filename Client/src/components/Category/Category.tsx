@@ -1,14 +1,21 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Mousewheel, Pagination, Scrollbar } from 'swiper';
+import { useQuery } from '@tanstack/react-query'
 import "swiper/css";
-import "swiper/css/pagination";
-
-
 import { useGetCategoriesQuery } from '../../Redux/Api/Api'
+import "swiper/css/pagination";
 import { CategoryCard } from './CategoryCard'
+import { fetchCategories } from '../API/fetchCategory';
 export const Category = () => {
-    const { data, error, isLoading } = useGetCategoriesQuery();
+    // const { data, error, isLoading } = useGetCategoriesQuery();
+
+    const { data, isLoading } = useQuery({
+        queryFn: fetchCategories,
+        queryKey: ['categories']
+    })
+
+
     return (
         <div className='flex flex-col px-28 mt-10'>
             <div className='flex flex-col  justify-center items-center'>
@@ -22,10 +29,10 @@ export const Category = () => {
                     spaceBetween={30}
                     pagination={true}
                     mousewheel={true}
-                    modules={[Pagination,Mousewheel]}
+                    modules={[Pagination, Mousewheel]}
                     className="mySwiper h-72"
                 >
-                    {isLoading ? <h1>loading</h1> : data?.map((category: any) => (
+                    {isLoading ? <h1>loading</h1> : data?.data?.map((category: any) => (
                         <SwiperSlide key={category.id}>
                             <CategoryCard category={category} />
                         </SwiperSlide>

@@ -13,6 +13,7 @@ export const Api = createApi({
     reducerPath: 'Api',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000/' }),
     tagTypes: ['cart', 'product', 'address'],
+    
     endpoints: (builder) => ({
         getProducts: builder.query<product[], filter>({
             query: (filter) => {
