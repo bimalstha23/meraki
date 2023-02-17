@@ -54,7 +54,7 @@ export const Login = () => {
         Dispatch(setLoginDialog(false))
     }
     return (
-        <Dialog open={loginDialog} onClose={handleClose}
+        <Dialog data-testid='loginDialog' open={loginDialog} onClose={handleClose}
 
         >
             <div className='p-4'>

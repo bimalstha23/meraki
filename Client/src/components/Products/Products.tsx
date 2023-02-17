@@ -2,7 +2,6 @@ import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { GiCrossMark } from 'react-icons/gi'
 import { IoMdFunnel } from 'react-icons/io';
-import { AiFillStar, } from 'react-icons/ai';
 import { BiChevronDown } from 'react-icons/bi';
 import { BsGridFill } from 'react-icons/bs';
 import { useGetCategoriesQuery, useGetProductsQuery } from '../../Redux/Api/Api';
