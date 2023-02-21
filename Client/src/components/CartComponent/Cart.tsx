@@ -5,11 +5,22 @@ import { convertCurrency } from '../../helper/helper'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCartDialog } from '../../Redux/Reducer'
 import { useDeleteCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
+import { useQuery } from '@tanstack/react-query'
+import { fetchCartItems } from '../API/CartApi'
+import { current } from '@reduxjs/toolkit'
 
 export const Cart = () => {
   const cartDialog = useSelector((state: any) => state.modals.cartDialog)
   const currentUser = useSelector((state: any) => state.user.currentUser)
   const { data, isLoading, error } = useGetCartItemsQuery(currentUser?.uid)
+  // console.log(currentUser?.uid)
+
+
+  // const { data } = useQuery({
+  //   queryFn: fetchCartItems(currentUser?.uid),
+  //   queryKey: ['cart', currentUser?.uid],
+  //   enabled: true
+  // })
 
   const dispatch = useDispatch()
   const handleClose = () => {
@@ -29,7 +40,7 @@ export const Cart = () => {
       rating: product.rating,
       productId: product.productId,
       uid: product.uid,
-        Image: product.Image
+      Image: product.Image
 
     }
     await updateCart(newcart)
@@ -51,7 +62,6 @@ export const Cart = () => {
         uid: product.uid,
         Image: product.Image
       }
-      console.log(newcart);
       await updateCart(newcart)
     }
 
@@ -63,7 +73,7 @@ export const Cart = () => {
 
   const totalPrice = data?.reduce((acc: any, item: any) => acc + item.price * item.qty, 0)
 
-  
+
 
   return (
     <Transition.Root show={cartDialog} as={Fragment}>
@@ -114,13 +124,13 @@ export const Cart = () => {
 
                           <ul role="list" className="-my-6 divide-y divide-gray-200">
 
-                            {data && 
+                            {data &&
                               data?.map((product: any) => (
                                 <li key={product?.id} className="flex py-6">
                                   <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                                     <img
                                       alt={product?.name}
-                                      src={ product?.Image ? product?.Image[0] : 'https://via.placeholder.com/150' }
+                                      src={product?.Image ? product?.Image[0] : 'https://via.placeholder.com/150'}
                                       className="h-full w-full object-cover object-center"
                                     />
                                   </div>

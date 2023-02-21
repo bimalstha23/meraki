@@ -22,10 +22,10 @@ export const NavBar = () => {
     const dispatch = useDispatch<AppDispatch>();
     const currentUser = useSelector((state: any) => state.user.currentUser);
     const [searchparam, setSearchParam] = useState('')
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleSearch = () => {
-        // navigate(`/products?search_param=${searchparam}`);
+        navigate(`/products?search_param=${searchparam}`);
     }
 
     const navigation = [
