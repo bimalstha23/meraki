@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "json-server --watch ./db/db.json --routes ./db/routes.json"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
