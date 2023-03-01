@@ -34,7 +34,7 @@ export default function UpdateAddress(props: Props) {
         address: Yup.string().required('Required'),
         landmark: Yup.string().required('Required'),
     })
-
+    
     const formik = useFormik({
         initialValues: {
             name: name,
