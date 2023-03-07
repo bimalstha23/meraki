@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { useGetCategoriesQuery, useGetProductsQuery } from '../../../Redux/Api/Api'
+import { filter } from '../../../types'
 
 export const Main = () => {
     const { data } = useGetCategoriesQuery()
-    const [filterState, setFilterState] = useState<object>({
+    const [filterState, setFilterState] = useState<filter>({
         page: 1,
-        searchQuery:'',
-        category:'',
-        sortby:'',
+        searchQuery: '',
+        category: '',
+        sortby: '',
         sortOrder: 'asc',
-    
-      })
-    const { data:products } = useGetProductsQuery(filterState);
+    })
 
+    const { data: products } = useGetProductsQuery(filterState);
 
     return (
         <div className='flex flex-row flex-wrap  gap-12 w-full px-11 mt-12'>
