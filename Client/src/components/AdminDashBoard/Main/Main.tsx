@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { useGetCategoriesQuery, useGetProductsQuery } from '../../../Redux/Api/Api'
+import { filter } from '../../../types'
 
 export const Main = () => {
     const { data } = useGetCategoriesQuery()
-    const [filterState, setFilterState] = useState<object>({
+    const [filterState, setFilterState] = useState<filter>({
         page: 1,
         searchQuery:'',
         category:'',

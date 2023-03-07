@@ -379,6 +379,19 @@
     }
   ],
   "users": [],
-  "cart": [],
+  "cart": [
+    {
+      "name": "Kawai heart earring ✨",
+      "price": 450000,
+      "rating": 0,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
+      ],
+      "productId": 4,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 1
+    }
+  ],
   "Address": []
 }

@@ -1,6 +1,6 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import React, { Fragment, useState } from 'react'
-import { AiFillBell, AiFillCloseCircle } from 'react-icons/ai'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import { FaBars } from 'react-icons/fa'
 import meraki from '../../assets/meraki.svg'
 import { Login } from '../Auth/login'
@@ -10,21 +10,22 @@ import { signOut } from 'firebase/auth'
 import { buyerAuth } from '../../config/firebase'
 import { Cart } from '../CartComponent/Cart'
 import { RiShoppingCart2Fill } from 'react-icons/ri'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BiSearchAlt } from 'react-icons/bi'
+import { AppDispatch } from '../../Redux/Store'
 
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ');
 };
 
 export const NavBar = () => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
     const currentUser = useSelector((state: any) => state.user.currentUser);
     const [searchparam, setSearchParam] = useState('')
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleSearch = () => {
-        navigate(`/products?search_param=${searchparam}`);
+        // navigate(`/products?search_param=${searchparam}`);
     }
 
     const navigation = [
@@ -32,14 +33,9 @@ export const NavBar = () => {
         { name: 'Products', link: '/products', current: false },
     ]
     const userNavigation = [
-
         { name: 'Your Profile', onclick: () => { }, Link: '/profile' },
         { name: 'Settings', onclick: () => { }, Link: '' },
-        {
-            name: 'Sign out', onClick: () => {
-
-            }, Link: ''
-        },
+        { name: 'Sign out', onClick: () => { }, Link: '' },
     ]
 
 
@@ -62,7 +58,7 @@ export const NavBar = () => {
                                     </div>
                                     <div className="hidden md:block">
                                         <div className="ml-10 flex  justify-center items-baseline space-x-4">
-                                            {navigation.map((item, key:number) => (
+                                            {navigation.map((item, key: number) => (
                                                 <Link
                                                     to={item.link}
                                                     key={key}
@@ -170,7 +166,7 @@ export const NavBar = () => {
                                                         </Menu.Items>
                                                     </Transition>
                                                 </Menu>
-                                            ) : <button onClick={() => {
+                                            ) : <button data-testid='loginbtntest' onClick={() => {
                                                 dispatch(setLoginDialog(true));
                                             }}>Login</button>}
                                     </div>
@@ -191,7 +187,7 @@ export const NavBar = () => {
 
                         <Disclosure.Panel className="md:hidden">
                             <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                                {navigation.map((item , key) => (
+                                {navigation.map((item, key) => (
                                     <Link to={item.link}>
                                         <Disclosure.Button
                                             key={key}
@@ -224,7 +220,7 @@ export const NavBar = () => {
                                     </button>
                                 </div>
                                 <div className="mt-3 space-y-1 px-2">
-                                    {userNavigation.map((item , key:number) => (
+                                    {userNavigation.map((item, key: number) => (
                                         <Disclosure.Button
                                             key={key}
                                             as="a"
