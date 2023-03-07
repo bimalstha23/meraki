@@ -18,7 +18,7 @@ export const Main = () => {
         <div className='flex flex-row flex-wrap  gap-12 w-full px-11 mt-12'>
             <div className=' w-1/5 h-32 flex flex-col justify-center p-4 rounded-3xl box shadow-2xl '>
                 <h1 className='text-md font-bold'>Categories</h1>
-                <div className='flex flex-row gap-3  items-baseline'>
+                <div className='flex flex-row gap-3 ` items-baseline'>
                     <h1 className=' text-5xl'>{data?.length} </h1>
                     <p>Currently</p>
                 </div>
