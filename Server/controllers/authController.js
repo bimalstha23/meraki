@@ -1,5 +1,5 @@
+import { comparePassword, hashPassword } from "../helpers/authhelper.js";
 import userModel from "../models/userModel.js";
-import { comparePassword, hashPassword } from "./../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
@@ -60,6 +60,7 @@ export const registerController = async (req, res) => {
 export const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log(email, password)
         //validation
         if (!email || !password) {
             return res.status(404).send({
