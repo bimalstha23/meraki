@@ -50,16 +50,17 @@ export const AddProducts = () => {
         const imageurls = await uploadImages(fileList);
         axios({
           method: 'post',
-          url: 'http://localhost:3000/products/',
+          url: 'http://localhost:3000/api/v1/product/create-product',
           data: {
             tags: values.productTags.split(" "),
-            name: values.productName,
+          name: values.productName,
             price: values.productPrice * 100,
-            Description: values.productDescription,
-            Category: values.productCategory,
+            description: values.productDescription,
+            category: values.productCategory,
             Image: imageurls,
             numReviews: 0,
             rating: 0,
+            quantity: 100
           }
         }).then((res) => {
           setLoading(false);
@@ -85,7 +86,7 @@ export const AddProducts = () => {
     return imageurls;
   }
 
-
+  console.log(data)
 
   return (
     <div className='flex flex-row gap-10 p-10 w-full'>
@@ -139,9 +140,11 @@ export const AddProducts = () => {
                 <br />
                 <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
                   <option value=''>Select Category</option>
-                  {data?.map((item: any) => {
-                    return <option>{item.name}</option>
-                  })}
+                  {data?.category &&
+                    data?.category?.map((item: any) => {
+                      return <option>{item.name}</option>
+                    })
+                  }
                 </select>
                 {formik.errors.productCategory && formik.touched.productCategory ? <span className='text-xs text-red-500'>{formik.errors.productCategory}</span> : null}
 

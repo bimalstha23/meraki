@@ -32,7 +32,7 @@ export const UpdateProducts = () => {
     const dispatch = useDispatch();
     const updateProductDialog = useSelector((state: any) => state.modals.updateProductDialog)
     const currentProduct = useSelector((state: any) => state.product.currentProduct)
-    const { name, price, Description, Category, tags, Image: productImage, id } = currentProduct;
+    const { name, price, description, category, tags, Image: productImage, _id } = currentProduct;
 
     const [updateProduct] = useUpdateProductsMutation();
     const handleClose = () => {
@@ -59,8 +59,8 @@ export const UpdateProducts = () => {
     const initalvalues: initialValues = {
         productName: name,
         productPrice: price,
-        productDescription: Description,
-        productCategory: Category,
+        productDescription: description,
+        productCategory: category,
         productTags: tagsArray
     }
 
@@ -75,11 +75,12 @@ export const UpdateProducts = () => {
             const payload = {
                 name: values.productName,
                 price: values.productPrice,
-                Description: values.productDescription,
-                Category: values.productCategory,
+                description: values.productDescription,
+                category: values.productCategory,
                 tags: values.productTags.split(" "),
-                id,
-                Image: [...productImage, ...Image]
+                _id,
+                Image: [...productImage, ...Image],
+                quantity: 100
             }
             console.log(payload);
             updateProduct(payload).then(() => {
@@ -178,7 +179,7 @@ export const UpdateProducts = () => {
                                     <br />
                                     <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
                                         <option value=''>Select Category</option>
-                                        {data?.map((item: any) => {
+                                        {data?.category?.map((item: any) => {
                                             return <option>{item.name}</option>
                                         })}
                                     </select>

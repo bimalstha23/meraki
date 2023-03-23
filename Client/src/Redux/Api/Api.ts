@@ -12,12 +12,12 @@ export const Api = createApi({
   tagTypes: ["cart", "product", "address"],
 
   endpoints: (builder) => ({
-    getProducts: builder.query<product[], filter>({
+    getProducts: builder.query<any, filter>({
       query: (filter) => {
         if (filter.category) {
-          return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+          return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
         } else
-          return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+          return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
       },
     }),
 
@@ -31,16 +31,16 @@ export const Api = createApi({
       },
     }),
 
-    getCategories: builder.query<category[], void>({
-      query: () => `categories`,
+    getCategories: builder.query<any, void>({
+      query: () => `category/get-category`,
     }),
 
     getFeaturedProducts: builder.query<product[], void>({
-      query: () => `featuredProducts`,
+      query: () => `product/get-product/`,
     }),
 
     getSingleProduct: builder.query({
-      query: (id) => `products/${id}`,
+      query: (id) => `product/get-product/${id}`,
     }),
 
     getCommentsOfProduct: builder.query<Comment[], string | number | undefined>(
@@ -71,6 +71,7 @@ export const Api = createApi({
       }),
       invalidatesTags: ["cart"],
     }),
+
     deleteCart: builder.mutation({
       query: ({ uid, id }) => ({
         url: `user/${uid}/cart/${id}`,
@@ -81,20 +82,22 @@ export const Api = createApi({
 
     deleteProduct: builder.mutation({
       query: (id) => ({
-        url: `products/${id}`,
+        url: `product/delete-product/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["product"],
     }),
 
-    getAllProducts: builder.query<product[], void>({
-      query: () => `products`,
+    getAllProducts: builder.query<any, void>({
+      query: () => `product/get-product`,
       providesTags: ["product"],
     }),
+
     getAddress: builder.query({
       query: (uid) => `user/${uid}/address/`,
       providesTags: ["address"],
     }),
+
     addAddress: builder.mutation({
       query: (data) => ({
         url: `address`,
@@ -103,6 +106,7 @@ export const Api = createApi({
       }),
       invalidatesTags: ["address"],
     }),
+
     deleteAddress: builder.mutation({
       query: (id) => ({
         url: `address/${id}`,
@@ -110,6 +114,7 @@ export const Api = createApi({
       }),
       invalidatesTags: ["address"],
     }),
+
     updateAddress: builder.mutation({
       query: (data) => ({
         url: `address/${data.id}`,
@@ -118,9 +123,10 @@ export const Api = createApi({
       }),
       invalidatesTags: ["address"],
     }),
+
     UpdateProducts: builder.mutation({
       query: (data) => ({
-        url: `products/${data.id}`,
+        url: `product/update-product/${data._id}`,
         method: "PUT",
         body: data,
       }),

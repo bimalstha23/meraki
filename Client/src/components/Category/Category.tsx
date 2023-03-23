@@ -27,7 +27,7 @@ export const Category = () => {
                     modules={[Pagination, Mousewheel]}
                     className="mySwiper h-72"
                 >
-                    {isLoading ? <h1>loading</h1> : data?.map((category: any) => (
+                    {isLoading ? <h1>loading</h1> : data?.category?.map((category: any) => (
                         <SwiperSlide key={category.id}>
                             <CategoryCard category={category} />
                         </SwiperSlide>

@@ -9,7 +9,7 @@ export const HomePage = () => {
         {/* <NavBar/> */}
         <HeroSection/>
         <Category/>
-        <FeaturedProducts/>
+        {/* <FeaturedProducts/> */}
     </div>
   )
 }

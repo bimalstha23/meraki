@@ -17,6 +17,7 @@ export default function ManageProducts() {
     const { data } = useGetAllProductsQuery();
     const [deleteProduct] = useDeleteProductMutation();
     const dispatch = useDispatch();
+    console.log(data?.products)
 
     return (
         <TableContainer
@@ -39,7 +40,7 @@ export default function ManageProducts() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data?.map((row: any) => (
+                    {data?.products?.map((row: any) => (
                         <TableRow
                             key={row.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -48,24 +49,23 @@ export default function ManageProducts() {
                                 {row.name}
                             </TableCell>
                             <TableCell align="right">{row.price / 100}</TableCell>
-                            <TableCell align="right">{row.Category}</TableCell>
+                            <TableCell align="right">{row.category}</TableCell>
                             <TableCell align="right">{row.rating}</TableCell>
-                            <TableCell align="right">{row.Description}</TableCell>
+                            <TableCell align="right">{row.description}</TableCell>
                             <TableCell align="right">{row.numReviews}</TableCell>
                             <TableCell align="right" >
                                 <div className='flex flex-row'>
                                     <button onClick={
                                         () => {
-                                            deleteProduct(row.id)
+                                            deleteProduct(row._id)
                                         }
                                     } className='bg-red-500 text-white px-2 py-1 rounded-md'>Delete</button>
                                     <button onClick={() => {
-                                        console.log(row.id)
+                                        console.log(row.slug)
                                         dispatch(setUpdateProductDialog(true))
                                         dispatch(setCurrentProduct(row))
                                     }}
                                         className='bg-blue-500 text-white px-2 py-1 rounded-md'>Edit</button>
-
                                 </div>
 
                             </TableCell>
