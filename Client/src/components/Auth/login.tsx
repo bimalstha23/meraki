@@ -15,26 +15,42 @@ import { useAddUserMutation } from '../../Redux/Api/Api'
 export const Login = () => {
     // const { DialogOpen, setDialogOpen, setRegisterDialogOpen } = props;
     const [addUser] = useAddUserMutation();
-    const loginDialog = useSelector((state:any)=>state.modals.loginDialog)
-    const RegisterDialog  = useSelector((state:any)=>state.modals.RegisterDialog)
+    const loginDialog = useSelector((state: any) => state.modals.loginDialog)
+    const RegisterDialog = useSelector((state: any) => state.modals.RegisterDialog)
     const Dispatch = useDispatch();
-    const addUserhandler =async (user:any) => {
-        await addUser(user);
+
+    const addUserhandler = async (user: any) => {
+        const data = await addUser(user);
+        console.log(data, 'mongoRes')
     }
+
     const signInwithGoogle = async () => {
         const provider = new GoogleAuthProvider();
         await signInWithPopup(buyerAuth, provider).then((res) => {
             const { user } = res;
             Dispatch(setUserLoginDetails(user));
-            addUserhandler(user);
+            const data = {
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                role: 0
+            }
+            addUserhandler(data);
             const userRef = doc(buyerDb, "users", user.uid);
             setDoc(userRef, {
                 email: user.email,
                 displayName: user.displayName,
                 photoURL: user.photoURL,
                 uid: user.uid,
+                role: 0
             })
+
+
             Dispatch(setLoginDialog(false))
+
+
+
         });
     }
 
@@ -43,11 +59,13 @@ export const Login = () => {
             email: '',
             password: '',
         },
-        onSubmit: (values: {
-            email: String,
-            password: String
-        }) => {
-            console.log('submited', values);
+        onSubmit: async (values: any) => {
+            // const data: any = await loginUser(values)
+            console.log(values)
+            // if (data.data.token) {
+            //     localStorage.setItem('key', data.data.token)
+            //     Dispatch(setLoginDialog(false))
+            // }
         }
     })
     const handleClose = () => {
@@ -55,7 +73,6 @@ export const Login = () => {
     }
     return (
         <Dialog data-testid='loginDialog' open={loginDialog} onClose={handleClose}
-
         >
             <div className='p-4'>
                 <form action="" onSubmit={

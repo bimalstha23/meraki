@@ -8,12 +8,7 @@ import "swiper/css/pagination";
 import { CategoryCard } from './CategoryCard'
 import { fetchCategories } from '../API/fetchCategory';
 export const Category = () => {
-    // const { data, error, isLoading } = useGetCategoriesQuery();
-
-    const { data, isLoading } = useQuery({
-        queryFn: fetchCategories,
-        queryKey: ['categories']
-    })
+    const { data, error, isLoading } = useGetCategoriesQuery();
 
 
     return (
@@ -32,7 +27,7 @@ export const Category = () => {
                     modules={[Pagination, Mousewheel]}
                     className="mySwiper h-72"
                 >
-                    {isLoading ? <h1>loading</h1> : data?.data?.map((category: any) => (
+                    {isLoading ? <h1>loading</h1> : data?.map((category: any) => (
                         <SwiperSlide key={category.id}>
                             <CategoryCard category={category} />
                         </SwiperSlide>

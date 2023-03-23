@@ -396,6 +396,19 @@
   "users": [],
   "cart": [
     {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 1,
+      "qty": 5,
+      "name": "testesting update ",
+      "price": 60000,
+      "productId": 14,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages76.png?alt=media&token=a61ea0d3-1242-4692-915f-10ffe41fcbac",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesimages.jpg?alt=media&token=f2b93995-6881-4f65-8a27-bb9468daf11d",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesistockphoto-637696304-612x612.jpg?alt=media&token=2cb0550f-9b8e-4492-b4bc-fa19cccc15ce"
+      ]
+    },
+    {
       "name": "Kawai heart earring ✨",
       "price": 450000,
       "rating": 0,
@@ -405,16 +418,12 @@
       "productId": 4,
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "qty": 1,
-      "id": 1
+      "id": 2
     },
     {
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 2,
-      "qty": 6,
       "name": "Nana osaki inspired armor knuckle ring",
       "price": 40000,
       "rating": 0,
-      "productId": 7,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318833846_1366927327386010_7664575995239641857_n.jpg?alt=media&token=468fa1c6-a98d-4789-9018-820a723a4775",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318881624_122373057354987_1573371467741936554_n.jpg?alt=media&token=5f600193-264e-4ef7-b608-4728a22c1054",
@@ -423,20 +432,24 @@
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319107524_1264553547438830_4095000580373708979_n.jpg?alt=media&token=8b75dd6d-aa37-4d08-a1a8-81bed62afd48",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319324459_885093152849456_9143429566964591690_n.jpg?alt=media&token=355039a7-a86c-43df-a976-a9780426c029",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages319533169_682991160071265_7837611117852500583_n.jpg?alt=media&token=e1b7fb7b-cd3f-49bf-bad1-9558acff65a9"
-      ]
+      ],
+      "productId": 7,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 3
     },
     {
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 3,
-      "qty": 4,
-      "name": "testesting update ",
-      "price": 60000,
-      "productId": 14,
+      "name": "Liquid asymmetrical butterfly wings earring",
+      "price": 70000,
+      "rating": 0,
       "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages76.png?alt=media&token=a61ea0d3-1242-4692-915f-10ffe41fcbac",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesimages.jpg?alt=media&token=f2b93995-6881-4f65-8a27-bb9468daf11d",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesistockphoto-637696304-612x612.jpg?alt=media&token=2cb0550f-9b8e-4492-b4bc-fa19cccc15ce"
-      ]
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304940501_176561168273216_4249918669126144881_n.jpg?alt=media&token=25dcb17b-c0f0-47ed-9d00-0854e317cb00",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304996390_609298614025070_1748768992826377034_n.jpg?alt=media&token=9ef47427-9009-48b2-abaa-ac4b2c143c5e"
+      ],
+      "productId": 6,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 4
     }
   ],
   "Address": [
