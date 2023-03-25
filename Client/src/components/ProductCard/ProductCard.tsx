@@ -7,20 +7,19 @@ import { SnackBar } from '../SnackBar/SnackBar'
 import { product } from '../../types'
 import { setCartDialog, setLoginDialog } from '../../Redux/Reducer'
 import { convertCurrency } from '../../helper/helper'
+
 type Productcardtype = {
     product: any,
     key: number
 }
 
-
 export const ProductCard = (props: Productcardtype) => {
     const { product } = props;
     const currentUser = useSelector((state: any) => state.user.currentUser)
     const uid = currentUser?.uid;
-    const dispatch = useDispatch();
     const [addCart] = useAddCartMutation();
+    const dispatch = useDispatch();
     const [open, setOpen] = useState(false);
-
     const { data } = useGetCartItemsQuery(currentUser?.uid)
     const { name, price, rating, id, Image, slug } = product;
 
@@ -38,8 +37,11 @@ export const ProductCard = (props: Productcardtype) => {
         } else {
             dispatch(setLoginDialog(true))
         }
+
     }
+
     const Images = product?.Image[0];
+
     return (
         <>
             <SnackBar open={open} setOpen={setOpen} messege={'The Product Has been successfully added to cart'} />

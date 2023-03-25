@@ -8,16 +8,20 @@ import {
 } from "../../types";
 export const Api = createApi({
   reducerPath: "Api",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api/v1/" }),
-  tagTypes: ["cart", "product", "address"],
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/api/v1/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3000/" }),
+  tagTypes: ["cart", "product", "address", "order"],
 
   endpoints: (builder) => ({
     getProducts: builder.query<any, filter>({
       query: (filter) => {
         if (filter.category) {
-          return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+          // return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&Category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+          return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&category=${filter.category}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
         } else
-          return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+          return `products?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
+
+        // return `product/get-product?_page=${filter.page}&_limit=9&q=${filter.searchQuery}&_sort=${filter.sortby}&_order=${filter.sortOrder}`;
       },
     }),
 
@@ -32,7 +36,8 @@ export const Api = createApi({
     }),
 
     getCategories: builder.query<any, void>({
-      query: () => `category/get-category`,
+      // query: () => `category/get-category`,
+      query: () => `categories`,
     }),
 
     getFeaturedProducts: builder.query<product[], void>({
@@ -40,7 +45,8 @@ export const Api = createApi({
     }),
 
     getSingleProduct: builder.query({
-      query: (id) => `product/get-product/${id}`,
+      // query: (id) => `product/get-product/${id}`,
+      query: (id) => `/Products/${id}`,
     }),
 
     getCommentsOfProduct: builder.query<Comment[], string | number | undefined>(
@@ -89,7 +95,9 @@ export const Api = createApi({
     }),
 
     getAllProducts: builder.query<any, void>({
-      query: () => `product/get-product`,
+      // query: () => `product/get-product`,
+      query: () => `Products`,
+
       providesTags: ["product"],
     }),
 
@@ -105,6 +113,29 @@ export const Api = createApi({
         body: data,
       }),
       invalidatesTags: ["address"],
+    }),
+
+    addorder: builder.mutation({
+      query: (data) => ({
+        url: `orders`,
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["order"],
+    }),
+
+    getOrders: builder.query<any, void>({
+      query: () => `orders`,
+      providesTags: ["order"],
+    }),
+
+    updateorder: builder.mutation({
+      query: ({ uid, id, ...data }) => ({
+        url: `orders/${id}`,
+        method: "PUT",
+        body: { uid, id, ...data },
+      }),
+      invalidatesTags: ["cart"],
     }),
 
     deleteAddress: builder.mutation({
@@ -126,7 +157,8 @@ export const Api = createApi({
 
     UpdateProducts: builder.mutation({
       query: (data) => ({
-        url: `product/update-product/${data._id}`,
+        // url: `product/update-product/${data._id}`,
+        url: `products/${data.id}`,
         method: "PUT",
         body: data,
       }),
@@ -153,4 +185,7 @@ export const {
   useDeleteAddressMutation,
   useUpdateAddressMutation,
   useUpdateProductsMutation,
+  useAddorderMutation,
+  useGetOrdersQuery,
+  useUpdateorderMutation,
 } = Api;

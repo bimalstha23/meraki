@@ -1,4 +1,5 @@
 import { comparePassword, hashPassword } from "../helpers/authhelper.js";
+import fuserModel from "../models/fusermodel.js";
 import userModel from "../models/userModel.js";
 import JWT from "jsonwebtoken";
 
@@ -59,6 +60,75 @@ export const registerController = async (req, res) => {
         });
     }
 };
+
+export const addUserController = async (req, res) => {
+    try {
+        const { uid, displayName, email, photoURL, role } = req.body
+        //validations
+        if (!uid) {
+            return res.send({ error: "Uid is Required" });
+        }
+        const user = await fuserModel.findOne({ email });
+        //exisiting user
+        if (user) {
+            return res.status(200).send({
+                success: false,
+                message: "Already Register please login",
+            });
+        }
+        //register user
+        //save
+        const newUser = await new fuserModel({
+            uid,
+            displayName,
+            email,
+            photoURL,
+            role
+        }).save();
+
+        res.status(201).send({
+            success: true,
+            message: "User Register Successfully",
+            newUser,
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: "Errro in Registeration",
+            error,
+        });
+    }
+
+}
+
+export const getUser = async (req, res) => {
+    try {
+        const uid = req.query.uid
+        console.log(uid)
+        const user = await fuserModel.findOne({ uid });
+        if (user) {
+            res.status(200).send({
+                success: true,
+                message: "User Found",
+                user
+            })
+        }
+        else {
+            res.status(200).send({
+                success: false,
+                message: "User Not Found",
+            })
+        }
+    } catch {
+        res.status(500).send({
+            success: false,
+            message: "Error in getting user",
+        })
+    }
+}
+
 
 //POST LOGIN
 export const loginController = async (req, res) => {

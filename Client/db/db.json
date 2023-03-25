@@ -3,92 +3,91 @@
     {
       "id": 1,
       "name": "Bracelets",
-      "Description": "Bracelets",
+      "description": "Bracelets",
       "Image": "typicode"
     },
     {
       "id": 2,
       "name": "Necklaces",
-      "Description": "Necklaces",
+      "description": "Necklaces",
       "Image": "typicode"
     },
     {
       "id": 3,
       "name": "Rings",
-      "Description": "Rings",
+      "description": "Rings",
       "Image": "typicode"
     },
     {
       "id": 4,
       "name": "Earrings",
-      "Description": "Earrings",
+      "description": "Earrings",
       "Image": "typicode"
     },
     {
       "id": 5,
       "name": "Pendants",
-      "Description": "Pendants",
+      "description": "Pendants",
       "Image": "typicode"
     },
     {
       "id": 6,
       "name": "Bangles",
-      "Description": "Bangles",
+      "description": "Bangles",
       "Image": "typicode"
     },
     {
       "id": 7,
       "name": "Brooches",
-      "Description": "Brooches",
+      "description": "Brooches",
       "Image": "typicode"
     },
     {
       "id": 8,
       "name": "Cufflinks",
-      "Description": "Cufflinks",
+      "description": "Cufflinks",
       "Image": "typicode"
     },
     {
       "id": 9,
       "name": "Hair Accessories",
-      "Description": "Hair Accessories",
+      "description": "Hair Accessories",
       "Image": "typicode"
     },
     {
       "id": 10,
       "name": "Keyrings",
-      "Description": "Keyrings",
+      "description": "Keyrings",
       "Image": "typicode"
     },
     {
       "id": 11,
       "name": "Watches",
-      "Description": "Watches",
+      "description": "Watches",
       "Image": "typicode"
     },
     {
       "id": 12,
       "name": "Other",
-      "Description": "Other",
+      "description": "Other",
       "Image": "typicode"
     }
   ],
   "Products": [
     {
+      "name": "Kawai heart earring1 ✨",
+      "price": 450000,
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "tags": [
         "Heart",
         "earrings"
       ],
-      "name": "Kawai heart earring ✨",
-      "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "id": 4,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
-      "numReviews": 0,
-      "rating": 0,
-      "id": 4
+      "quantity": 100
     },
     {
       "tags": [
@@ -97,8 +96,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -113,8 +112,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -129,8 +128,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -145,8 +144,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -161,8 +160,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -177,8 +176,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -193,8 +192,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -209,8 +208,8 @@
       ],
       "name": "Kawai heart earring ✨",
       "price": 450000,
-      "Description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Earrings",
+      "description": "lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
@@ -224,8 +223,8 @@
       ],
       "name": "Liquid asymmetrical butterfly wings earring",
       "price": 70000,
-      "Description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-      "Category": "Hair Accessories",
+      "description": "orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+      "category": "Hair Accessories",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304940501_176561168273216_4249918669126144881_n.jpg?alt=media&token=25dcb17b-c0f0-47ed-9d00-0854e317cb00",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304996390_609298614025070_1748768992826377034_n.jpg?alt=media&token=9ef47427-9009-48b2-abaa-ac4b2c143c5e"
@@ -242,8 +241,8 @@
       ],
       "name": "Nana osaki inspired armor knuckle ring",
       "price": 40000,
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Congue eu consequat ac felis donec et odio. Tempus egestas sed sed risus pretium quam vulputate dignissim. Pellentesque elit ullamcorper dignissim cras tincidunt. Dictum at tempor commodo ullamcorper a lacus. Tellus in hac habitasse platea. Magna fringilla urna porttitor rhoncus dolor purus non. Et tortor at risus viverra adipiscing at in tellus integer. Pretium fusce id velit ut. Venenatis urna cursus eget nunc scelerisque. Sagittis orci a scelerisque purus semper eget. Quisque egestas diam in arcu cursus euismod quis viverra nibh. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.",
-      "Category": "Rings",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Congue eu consequat ac felis donec et odio. Tempus egestas sed sed risus pretium quam vulputate dignissim. Pellentesque elit ullamcorper dignissim cras tincidunt. Dictum at tempor commodo ullamcorper a lacus. Tellus in hac habitasse platea. Magna fringilla urna porttitor rhoncus dolor purus non. Et tortor at risus viverra adipiscing at in tellus integer. Pretium fusce id velit ut. Venenatis urna cursus eget nunc scelerisque. Sagittis orci a scelerisque purus semper eget. Quisque egestas diam in arcu cursus euismod quis viverra nibh. Suspendisse faucibus interdum posuere lorem ipsum dolor sit.",
+      "category": "Rings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318833846_1366927327386010_7664575995239641857_n.jpg?alt=media&token=468fa1c6-a98d-4789-9018-820a723a4775",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318881624_122373057354987_1573371467741936554_n.jpg?alt=media&token=5f600193-264e-4ef7-b608-4728a22c1054",
@@ -263,8 +262,8 @@
       ],
       "name": "No piercing earcuff",
       "price": 150000,
-      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst quisque sagittis purus sit amet volutpat. Viverra ipsum nunc aliquet bibendum enim. Purus semper eget duis at. Condimentum mattis pellentesque id nibh. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Pellentesque habitant morbi tristique senectus et netus. Nibh sit amet commodo nulla facilisi. Iaculis urna id volutpat lacus laoreet non. Nunc id cursus metus aliquam eleifend mi in. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Nulla facilisi morbi tempus iaculis. Viverra maecenas accumsan lacus vel facilisis. Cursus vitae congue mauris rhoncus aenean vel.",
-      "Category": "Earrings",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst quisque sagittis purus sit amet volutpat. Viverra ipsum nunc aliquet bibendum enim. Purus semper eget duis at. Condimentum mattis pellentesque id nibh. Nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Pellentesque habitant morbi tristique senectus et netus. Nibh sit amet commodo nulla facilisi. Iaculis urna id volutpat lacus laoreet non. Nunc id cursus metus aliquam eleifend mi in. Pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id. Facilisis mauris sit amet massa vitae tortor condimentum lacinia quis. Nulla facilisi morbi tempus iaculis. Viverra maecenas accumsan lacus vel facilisis. Cursus vitae congue mauris rhoncus aenean vel.",
+      "category": "Earrings",
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages287285477_451042797043506_7790607080860052884_n.jpg?alt=media&token=ccbdd3a5-3da5-4541-8151-e7787ca62296",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305405375_1246829906100158_7855221671709253963_n.jpg?alt=media&token=26db901d-1254-4167-bc2e-3798bd887eee",
@@ -277,27 +276,26 @@
       "id": 9
     },
     {
+      "name": "ear cliff",
+      "price": 20000,
+      "description": "somthing",
+      "category": "Bangles",
       "tags": [
         "white"
       ],
-      "name": "somthing ",
-      "price": 20000,
-      "Description": "somthing",
-      "Category": "Bangles",
+      "id": 10,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages287285477_451042797043506_7790607080860052884_n.jpg?alt=media&token=b7cbd566-881f-46b8-baac-ec2bc65a852f",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305405375_1246829906100158_7855221671709253963_n.jpg?alt=media&token=b454064a-e631-4029-9504-81d6a547570c",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages305689941_1686795755035139_3680840060052104790_n.jpg?alt=media&token=2439b810-7cf2-4107-afff-5b5104d98237"
       ],
-      "numReviews": 0,
-      "rating": 0,
-      "id": 10
+      "quantity": 100
     },
     {
       "name": "testesting update ",
       "price": 60000,
-      "Description": "best kuhdoigasv",
-      "Category": "Brooches",
+      "description": "best kuhdoigasv",
+      "category": "Brooches",
       "tags": [
         "brooches"
       ],
@@ -313,7 +311,7 @@
     {
       "id": 1,
       "name": "Black orb wings necklace ",
-      "Description": "Black orb wings necklace ",
+      "description": "Black orb wings necklace ",
       "Image": "typicode",
       "price": 10,
       "rating": 3,
@@ -326,7 +324,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
+      "category": {
         "id": 2,
         "name": "Necklaces"
       }
@@ -334,7 +332,7 @@
     {
       "id": 2,
       "name": "hell o world ",
-      "Description": "Black orb wings necklace ",
+      "description": "Black orb wings necklace ",
       "Image": "typicode",
       "price": 10000,
       "rating": 3,
@@ -347,7 +345,7 @@
         "Orb",
         "Necklace"
       ],
-      "Category": {
+      "category": {
         "id": 2,
         "name": "Necklaces"
       }
@@ -355,13 +353,13 @@
     {
       "id": 3,
       "name": "wings hairclip ",
-      "Description": "Black orb wings necklace ",
+      "description": "Black orb wings necklace ",
       "Image": "typicode",
       "price": 2400000,
       "rating": 3,
       "numReviews": 22,
       "actualPrice": 15,
-      "Category": {
+      "category": {
         "id": 2,
         "name": "Necklaces"
       },
@@ -396,29 +394,62 @@
   "users": [],
   "cart": [
     {
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 1,
-      "qty": 5,
       "name": "testesting update ",
       "price": 60000,
-      "productId": 14,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages76.png?alt=media&token=a61ea0d3-1242-4692-915f-10ffe41fcbac",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesimages.jpg?alt=media&token=f2b93995-6881-4f65-8a27-bb9468daf11d",
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesistockphoto-637696304-612x612.jpg?alt=media&token=2cb0550f-9b8e-4492-b4bc-fa19cccc15ce"
-      ]
-    },
+      ],
+      "productId": 14,
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "qty": 1,
+      "id": 2
+    }
+  ],
+  "orders": [
     {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 1,
       "name": "Kawai heart earring ✨",
       "price": 450000,
       "rating": 0,
       "Image": [
         "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
       ],
-      "productId": 4,
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "productId": 3,
       "qty": 1,
-      "id": 2
+      "status": "pending",
+      "dname": "BIMAL SHRESTHA"
+    },
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 3,
+      "name": "testesting update ",
+      "price": 60000,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages76.png?alt=media&token=a61ea0d3-1242-4692-915f-10ffe41fcbac",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesimages.jpg?alt=media&token=f2b93995-6881-4f65-8a27-bb9468daf11d",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesistockphoto-637696304-612x612.jpg?alt=media&token=2cb0550f-9b8e-4492-b4bc-fa19cccc15ce"
+      ],
+      "productId": 14,
+      "qty": 1,
+      "status": "delivered",
+      "dname": "BIMAL SHRESTHA"
+    },
+    {
+      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
+      "id": 2,
+      "name": "Kawai heart earring ✨",
+      "price": 450000,
+      "rating": 0,
+      "Image": [
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages318780182_628916102361959_9186867669171261048_n.jpg?alt=media&token=67a4fd2a-b3e0-4fd4-8b1f-fb3fc4094b62"
+      ],
+      "productId": 2,
+      "qty": 1,
+      "status": "cancelled",
+      "dname": "BIMAL SHRESTHA"
     },
     {
       "name": "Nana osaki inspired armor knuckle ring",
@@ -436,32 +467,24 @@
       "productId": 7,
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "qty": 1,
-      "id": 3
+      "id": 4,
+      "status": "comfirming",
+      "dname": "BIMAL SHRESTHA"
     },
     {
-      "name": "Liquid asymmetrical butterfly wings earring",
-      "price": 70000,
-      "rating": 0,
+      "name": "testesting update ",
+      "price": 60000,
       "Image": [
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304940501_176561168273216_4249918669126144881_n.jpg?alt=media&token=25dcb17b-c0f0-47ed-9d00-0854e317cb00",
-        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages304996390_609298614025070_1748768992826377034_n.jpg?alt=media&token=9ef47427-9009-48b2-abaa-ac4b2c143c5e"
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImages76.png?alt=media&token=a61ea0d3-1242-4692-915f-10ffe41fcbac",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesimages.jpg?alt=media&token=f2b93995-6881-4f65-8a27-bb9468daf11d",
+        "https://firebasestorage.googleapis.com/v0/b/benext-selleracc.appspot.com/o/Products%2FImagesistockphoto-637696304-612x612.jpg?alt=media&token=2cb0550f-9b8e-4492-b4bc-fa19cccc15ce"
       ],
-      "productId": 6,
+      "productId": 14,
       "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
       "qty": 1,
-      "id": 4
-    }
-  ],
-  "Address": [
-    {
-      "name": "Bimal",
-      "phone": 9840000245,
-      "state": "bagmati",
-      "city": "Pulchwok",
-      "address": "lalitpur, patan",
-      "landmark": "near pimbahal pokhari",
-      "uid": "k7DuGpLNXGeF9oTdtRhqOq1UEFD3",
-      "id": 1
+      "id": 5,
+      "status": "comfirming",
+      "dname": "BIMAL SHRESTHA"
     }
   ]
 }

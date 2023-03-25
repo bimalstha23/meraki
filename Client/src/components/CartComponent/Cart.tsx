@@ -4,17 +4,49 @@ import { GiCrossMark } from 'react-icons/gi'
 import { convertCurrency } from '../../helper/helper'
 import { useSelector, useDispatch } from 'react-redux'
 import { setCartDialog } from '../../Redux/Reducer'
-import { useDeleteCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
-import { useQuery } from '@tanstack/react-query'
-import { fetchCartItems } from '../API/CartApi'
-import { current } from '@reduxjs/toolkit'
+import { useAddorderMutation, useDeleteCartMutation, useGetCartItemsQuery, useUpdateCartMutation } from '../../Redux/Api/Api'
+import KhaltiCheckout from "khalti-checkout-web";
 
 export const Cart = () => {
   const cartDialog = useSelector((state: any) => state.modals.cartDialog)
   const currentUser = useSelector((state: any) => state.user.currentUser)
   const { data, isLoading, error } = useGetCartItemsQuery(currentUser?.uid)
+  const [addorder] = useAddorderMutation()
   // console.log(currentUser?.uid)
 
+  let config = {
+    publicKey: "live_public_key_546eb6da05544d7d88961db04fdb9721",
+    productIdentity: "1234567890",
+    productName: "Demo",
+    productUrl: "http://localhost:3000/",
+    eventHandler: {
+      onSuccess(payload: any) {
+        // hit merchant api for initiating verfication
+        console.log(payload, "khalti");
+      },
+      // onError handler is optional
+      onError(error: any) {
+        // handle errors
+        console.log(error, "khalti error");
+      },
+    },
+    // one can set the order of payment options and also the payment options based on the order and items in the array
+    paymentPreference: [
+      "KHALTI",
+      "MOBILE_BANKING",
+      // "EBANKING",
+      // "CONNECT_IPS",
+      // "SCT",
+    ],
+  };
+
+  const checkoutHandler = (price: number) => {
+    let checkout = new KhaltiCheckout(config);
+    checkout.show({ amount: price });
+    data?.map(async (items: any) => {
+      await addorder({ ...items, id: null, status: "comfirming", uid: currentUser.uid, dname: currentUser.displayName })
+    })
+  }
 
   // const { data } = useQuery({
   //   queryFn: fetchCartItems(currentUser?.uid),
@@ -64,7 +96,6 @@ export const Cart = () => {
       }
       await updateCart(newcart)
     }
-
   }
 
   const deleteCartHandler = async (id: any) => {
@@ -72,8 +103,6 @@ export const Cart = () => {
   }
 
   const totalPrice = data?.reduce((acc: any, item: any) => acc + item.price * item.qty, 0)
-
-
 
   return (
     <Transition.Root show={cartDialog} as={Fragment}>
@@ -193,7 +222,7 @@ export const Cart = () => {
                       <div className="mt-6">
                         <button
                           type="button"
-                          onClick={() => { }}
+                          onClick={() => { checkoutHandler(totalPrice) }}
                           className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-[#FFBA98] to-[#FCCAB1] transition-allpx-6 py-3 text-base font-medium text-[#121212] shadow-sm "
                         >
                           Checkout

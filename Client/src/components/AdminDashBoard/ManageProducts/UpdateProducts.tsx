@@ -32,7 +32,9 @@ export const UpdateProducts = () => {
     const dispatch = useDispatch();
     const updateProductDialog = useSelector((state: any) => state.modals.updateProductDialog)
     const currentProduct = useSelector((state: any) => state.product.currentProduct)
-    const { name, price, description, category, tags, Image: productImage, _id } = currentProduct;
+    // const { name, price, description, category, tags, Image: productImage, _id } = currentProduct;
+    const { name, price, description, category, tags, Image: productImage, id } = currentProduct;
+    console.log(id)
 
     const [updateProduct] = useUpdateProductsMutation();
     const handleClose = () => {
@@ -78,11 +80,11 @@ export const UpdateProducts = () => {
                 description: values.productDescription,
                 category: values.productCategory,
                 tags: values.productTags.split(" "),
-                _id,
+                // _id,
+                id,
                 Image: [...productImage, ...Image],
                 quantity: 100
             }
-            console.log(payload);
             updateProduct(payload).then(() => {
                 setLoading(false);
                 setOpen(true);

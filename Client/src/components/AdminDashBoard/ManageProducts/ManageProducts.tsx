@@ -11,13 +11,10 @@ import { useDispatch } from 'react-redux';
 import { setCurrentProduct, setUpdateAddressDialog, setUpdateProductDialog } from '../../../Redux/Reducer';
 
 
-
-
 export default function ManageProducts() {
     const { data } = useGetAllProductsQuery();
     const [deleteProduct] = useDeleteProductMutation();
     const dispatch = useDispatch();
-    console.log(data?.products)
 
     return (
         <TableContainer
@@ -40,7 +37,8 @@ export default function ManageProducts() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {data?.products?.map((row: any) => (
+                    {/* {data?.products?.map((row: any) => ( */}
+                    {data?.map((row: any) => (
                         <TableRow
                             key={row.id}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

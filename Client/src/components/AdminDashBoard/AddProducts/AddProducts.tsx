@@ -50,10 +50,11 @@ export const AddProducts = () => {
         const imageurls = await uploadImages(fileList);
         axios({
           method: 'post',
-          url: 'http://localhost:3000/api/v1/product/create-product',
+          // url: 'http://localhost:3000/api/v1/product/create-product',
+          url: 'http://localhost:3000/products',
           data: {
             tags: values.productTags.split(" "),
-          name: values.productName,
+            name: values.productName,
             price: values.productPrice * 100,
             description: values.productDescription,
             category: values.productCategory,
@@ -140,8 +141,10 @@ export const AddProducts = () => {
                 <br />
                 <select onChange={formik.handleChange} name={'productCategory'} value={formik.values.productCategory} className='block bg-white rounded-xl w-full focus-within:text-gray-700' >
                   <option value=''>Select Category</option>
-                  {data?.category &&
-                    data?.category?.map((item: any) => {
+                  {/* {data?.category && */}
+                  {data &&
+                    // data?.category?.map((item: any) => {
+                    data?.map((item: any) => {
                       return <option>{item.name}</option>
                     })
                   }
